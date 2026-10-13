@@ -1,0 +1,616 @@
+{
+  "sources": [
+    {
+      "id": "user-writing-2026",
+      "title": "2026雅思纸笔大作文真题汇总(1).pdf",
+      "url": "/api/sources/user-writing-2026/file",
+      "type": "user-upload",
+      "accessedAt": "2026-10-13",
+      "note": "用户提供资料，题目转录，非官方核验。原PDF标题为2026年1–8月汇总，共49页、24个日期题目；保留原题措辞，不导入题解、范文或词汇。"
+    }
+  ],
+  "topics": [
+    {
+      "id": "pdf-w2-topic-media",
+      "scope": "writing-task2",
+      "titleZh": "媒体与广告",
+      "titleEn": "Media and advertising",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "media",
+        "advertising",
+        "news"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-heritage",
+      "scope": "writing-task2",
+      "titleZh": "历史、文化与文化遗产",
+      "titleEn": "History, culture and heritage",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "history",
+        "culture",
+        "heritage"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-education",
+      "scope": "writing-task2",
+      "titleZh": "教育与能力",
+      "titleEn": "Education and skills",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "education",
+        "learning",
+        "skills"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-crime",
+      "scope": "writing-task2",
+      "titleZh": "犯罪与家庭教育",
+      "titleEn": "Crime and parenting",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "crime",
+        "parenting",
+        "youth"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-transport",
+      "scope": "writing-task2",
+      "titleZh": "交通与道路安全",
+      "titleEn": "Transport and road safety",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "transport",
+        "road-safety",
+        "public-transport"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-migration",
+      "scope": "writing-task2",
+      "titleZh": "城乡流动与城市生活",
+      "titleEn": "Migration and urban life",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "migration",
+        "cities",
+        "rural-areas"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-business",
+      "scope": "writing-task2",
+      "titleZh": "国际商务与科技",
+      "titleEn": "International business and technology",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "business",
+        "technology",
+        "transport"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-wellbeing",
+      "scope": "writing-task2",
+      "titleZh": "社会生活与心理健康",
+      "titleEn": "Social life and well-being",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "society",
+        "stress",
+        "well-being"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-environment",
+      "scope": "writing-task2",
+      "titleZh": "经济发展与环境",
+      "titleEn": "Economic development and the environment",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "economy",
+        "environment",
+        "government"
+      ]
+    },
+    {
+      "id": "pdf-w2-topic-work",
+      "scope": "writing-task2",
+      "titleZh": "工作与生活",
+      "titleEn": "Work and life",
+      "description": "来自用户2026年1–8月纸笔大作文汇总；按具体题意归类，原资料标签保留在题目来源说明中。",
+      "tags": [
+        "work",
+        "motivation",
+        "work-life-balance"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "pdf-w2-2026-01-10",
+      "topicId": "pdf-w2-topic-media",
+      "scope": "writing-task2",
+      "titleZh": "广告影响力下降",
+      "promptEn": "Research indicates that nowadays some consumers are much less influenced by advertising than in the past. What do you think are the reasons? Do you think it is a positive or negative development?",
+      "promptZh": "研究表明，如今一些消费者受广告的影响比过去小得多。你认为原因是什么？你认为这是一种积极还是消极的发展？",
+      "tags": [
+        "media",
+        "advertising",
+        "consumer-behaviour"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "two-part",
+      "reportedAt": "2026-01-10",
+      "basis": "原PDF第2页，1月10日场题；原资料分类：媒体类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 2
+    },
+    {
+      "id": "pdf-w2-2026-01-24",
+      "topicId": "pdf-w2-topic-heritage",
+      "scope": "writing-task2",
+      "titleZh": "新建筑是否应采用传统风格",
+      "promptEn": "Governments should protect culture. Therefore, some people believe that new buildings should be built in traditional styles. To what extent do you agree or disagree?",
+      "promptZh": "政府应该保护文化。因此，有些人认为新建筑应该采用传统风格建造。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "culture",
+        "heritage",
+        "architecture",
+        "government"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-01-24",
+      "basis": "原PDF第4页，1月24日场题；原资料分类：城市规划类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 4
+    },
+    {
+      "id": "pdf-w2-2026-01-31",
+      "topicId": "pdf-w2-topic-education",
+      "scope": "writing-task2",
+      "titleZh": "溺爱孩子的当前与成年后影响",
+      "promptEn": "Some parents give their children everything that their children ask for or allow them to do whatever they want to do. Is this good for children? What could be consequences for these children when they grow up?",
+      "promptZh": "有些父母会给孩子他们所要求的一切，或者允许孩子做任何他们想做的事。这对孩子有好处吗？这些孩子长大后可能会面临什么后果？",
+      "tags": [
+        "education",
+        "parenting",
+        "children",
+        "development"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "two-part",
+      "reportedAt": "2026-01-31",
+      "basis": "原PDF第6页，1月31日场题；原资料分类：教育类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 6
+    },
+    {
+      "id": "pdf-w2-2026-02-07",
+      "topicId": "pdf-w2-topic-transport",
+      "scope": "writing-task2",
+      "titleZh": "全天候免费公共交通能否最好地解决拥堵",
+      "promptEn": "The best way for the government to solve the problem of traffic congestion is to provide free public transport 24 hours a day, 7 days a week. To what extent do you agree or disagree?",
+      "promptZh": "政府解决交通拥堵问题的最佳方法，是每天24小时、每周7天提供免费公共交通。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "transport",
+        "traffic",
+        "public-transport",
+        "government"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-02-07",
+      "basis": "原PDF第8页，2月7日场题；原资料分类：交通类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 8
+    },
+    {
+      "id": "pdf-w2-2026-02-28",
+      "topicId": "pdf-w2-topic-transport",
+      "scope": "writing-task2",
+      "titleZh": "违反交通法规的原因与最佳解决办法",
+      "promptEn": "In all countries, there are driving laws to ensure road safety. However, some people still break these laws, such as by using mobile phones while driving or by speeding. What are the reasons for this? What could be the best solution to this problem?",
+      "promptZh": "所有国家都有保障道路安全的驾驶法规。然而，有些人仍然违反这些法规，例如开车时使用手机或超速。造成这种情况的原因是什么？解决这一问题的最佳办法可能是什么？",
+      "tags": [
+        "transport",
+        "road-safety",
+        "driving",
+        "law"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "causes-solutions",
+      "reportedAt": "2026-02-28",
+      "basis": "原PDF第10页，2月28日场题；原资料分类：交通类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 10
+    },
+    {
+      "id": "pdf-w2-2026-03-07",
+      "topicId": "pdf-w2-topic-crime",
+      "scope": "writing-task2",
+      "titleZh": "教授父母育儿技能能否最好地减少青年犯罪",
+      "promptEn": "Some people think that the best way to reduce the crimes by young people is to educate their parents with parental skills. To what extent do you agree or disagree?",
+      "promptZh": "有些人认为，减少年轻人犯罪的最佳办法是教育他们的父母，使其掌握育儿技能。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "crime",
+        "parenting",
+        "youth",
+        "education"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-03-07",
+      "basis": "原PDF第12页，3月7日场题；原资料分类：犯罪类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 12
+    },
+    {
+      "id": "pdf-w2-2026-03-14",
+      "topicId": "pdf-w2-topic-education",
+      "scope": "writing-task2",
+      "titleZh": "上大学与直接就业",
+      "promptEn": "Some young people decide to go to college or university. Others, however, chose to go straight to work as they think it is important to satisfy the needs of the society and country. Discuss both views and write your opinion.",
+      "promptZh": "有些年轻人决定上学院或大学。然而，另一些人选择直接工作，因为他们认为满足社会和国家的需求很重要。讨论这两种观点，并写出你的看法。",
+      "tags": [
+        "education",
+        "university",
+        "employment",
+        "society"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "discussion",
+      "reportedAt": "2026-03-14",
+      "basis": "原PDF第14页，3月14日场题；原资料分类：教育类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 14
+    },
+    {
+      "id": "pdf-w2-2026-03-21",
+      "topicId": "pdf-w2-topic-heritage",
+      "scope": "writing-task2",
+      "titleZh": "历史遗址应关闭还是向公众开放",
+      "promptEn": "Some people say that historical sites should be completely closed while others say that historical sites should be open for the public to visit. Discuss both views and give your own opinion.",
+      "promptZh": "有些人说历史遗址应该完全关闭，而另一些人说历史遗址应该向公众开放参观。讨论这两种观点，并给出你自己的看法。",
+      "tags": [
+        "history",
+        "heritage",
+        "tourism",
+        "public-access"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "discussion",
+      "reportedAt": "2026-03-21",
+      "basis": "原PDF第16页，3月21日场题；原资料分类：文旅类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 16
+    },
+    {
+      "id": "pdf-w2-2026-03-28",
+      "topicId": "pdf-w2-topic-migration",
+      "scope": "writing-task2",
+      "titleZh": "农村青年迁往城市的原因与利弊权衡",
+      "promptEn": "Young people are leaving their homes in rural areas to study or work in the cities. What are the reasons? Do the advantages of this development outweigh its disadvantages?",
+      "promptZh": "年轻人正离开农村地区的家，到城市学习或工作。原因是什么？这一发展的好处是否大于坏处？",
+      "tags": [
+        "migration",
+        "rural-areas",
+        "cities",
+        "education",
+        "employment"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "two-part",
+      "reportedAt": "2026-03-28",
+      "basis": "原PDF第18页，3月28日场题；原资料分类：社会类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 18
+    },
+    {
+      "id": "pdf-w2-2026-04-11",
+      "topicId": "pdf-w2-topic-heritage",
+      "scope": "writing-task2",
+      "titleZh": "研究过去是否浪费时间与金钱",
+      "promptEn": "Some people think that researching the past is a waste of time and money. We should instead focus on the issues of today's world. To what extent do you agree or disagree?",
+      "promptZh": "有些人认为，研究过去是浪费时间和金钱。我们应该转而关注当今世界的问题。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "history",
+        "research",
+        "society",
+        "priorities"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-04-11",
+      "basis": "原PDF第20页，4月11日场题；原资料分类：社会类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 20
+    },
+    {
+      "id": "pdf-w2-2026-04-18",
+      "topicId": "pdf-w2-topic-media",
+      "scope": "writing-task2",
+      "titleZh": "阅读与收看新闻是否浪费时间",
+      "promptEn": "Some people think the news has no connection to people's lives, so then it is a waste of time to read the news in the newspaper and watch television news programs. To what extent do you agree or disagree?",
+      "promptZh": "有些人认为，新闻与人们的生活没有联系，因此阅读报纸中的新闻和收看电视新闻节目是浪费时间。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "media",
+        "news",
+        "television",
+        "society"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-04-18",
+      "basis": "原PDF第22页，4月18日场题；原资料分类：媒体类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 22
+    },
+    {
+      "id": "pdf-w2-2026-04-25",
+      "topicId": "pdf-w2-topic-transport",
+      "scope": "writing-task2",
+      "titleZh": "是否应因污染与燃料消耗限制航空旅行",
+      "promptEn": "Some people believe that air travel should be restricted because it causes serious pollution and uses up the world's fuel resources. To what extent do you agree or disagree?",
+      "promptZh": "有些人认为，航空旅行应该受到限制，因为它造成严重污染，并消耗世界的燃料资源。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "transport",
+        "aviation",
+        "pollution",
+        "resources"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-04-25",
+      "basis": "原PDF第24页，4月25日场题；原资料分类：交通类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 24
+    },
+    {
+      "id": "pdf-w2-2026-05-16",
+      "topicId": "pdf-w2-topic-education",
+      "scope": "writing-task2",
+      "titleZh": "成人扫盲是否应优先于青少年教育",
+      "promptEn": "Education of young people is highly prioritized in many countries. However, educating adults who cannot write or read is even more important and governments should spend more money on this. To what extent do you agree or disagree?",
+      "promptZh": "在许多国家，青少年的教育受到高度重视。然而，对不会读写的成年人进行教育更为重要，政府应该在这方面投入更多资金。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "education",
+        "adult-education",
+        "literacy",
+        "government"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-05-16",
+      "basis": "原PDF第26页，5月16日场题；原资料分类：教育类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 26
+    },
+    {
+      "id": "pdf-w2-2026-05-23",
+      "topicId": "pdf-w2-topic-business",
+      "scope": "writing-task2",
+      "titleZh": "国际商务更需要交通还是科技",
+      "promptEn": "Some people believe that cheap and fast transportation is required for successful international business, while others believe that good technology is more important. Discuss both views and give your own opinion.",
+      "promptZh": "有些人认为，成功开展国际商务需要廉价而快捷的运输；另一些人认为，良好的技术更为重要。讨论这两种观点，并给出你自己的看法。",
+      "tags": [
+        "business",
+        "technology",
+        "transport",
+        "international-trade"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "discussion",
+      "reportedAt": "2026-05-23",
+      "basis": "原PDF第28页，5月23日场题；原资料分类：科技类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 28
+    },
+    {
+      "id": "pdf-w2-2026-06-06",
+      "topicId": "pdf-w2-topic-transport",
+      "scope": "writing-task2",
+      "titleZh": "驾车使用手机禁令被违反的原因与对策",
+      "promptEn": "Many countries have laws banning phone use while driving, yet many drivers still use their phones while driving, even though it is against the law. Why is that? How can this problem be solved?",
+      "promptZh": "许多国家制定了禁止驾车时使用手机的法律，但许多司机仍然在开车时使用手机，尽管这是违法的。为什么会这样？如何解决这一问题？",
+      "tags": [
+        "transport",
+        "road-safety",
+        "mobile-phones",
+        "law"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "causes-solutions",
+      "reportedAt": "2026-06-06",
+      "basis": "原PDF第30页，6月6日场题；原资料分类：国际类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 30
+    },
+    {
+      "id": "pdf-w2-2026-06-27",
+      "topicId": "pdf-w2-topic-heritage",
+      "scope": "writing-task2",
+      "titleZh": "古代文化研究与现代教育的相关性",
+      "promptEn": "The study of ancient culture is not a relevant subject in modern education. To what extent do you agree or disagree?",
+      "promptZh": "古代文化研究不是一门与现代教育相关的学科。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "culture",
+        "history",
+        "education",
+        "curriculum"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-06-27",
+      "basis": "原PDF第32页，6月27日场题；原资料分类：教育类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 32
+    },
+    {
+      "id": "pdf-w2-2026-07-11",
+      "topicId": "pdf-w2-topic-education",
+      "scope": "writing-task2",
+      "titleZh": "英语成为主要教学语言的利弊判断",
+      "promptEn": "English is now widely used as the main language of education, especially in the education systems of some non-English speaking countries. Do you think it is a positive or negative development?",
+      "promptZh": "如今，英语被广泛用作教育的主要语言，尤其是在一些非英语国家的教育体系中。你认为这是一种积极还是消极的发展？",
+      "tags": [
+        "education",
+        "english",
+        "language",
+        "teaching"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "opinion",
+      "reportedAt": "2026-07-11",
+      "basis": "原PDF第34页，7月11日场题；原资料分类：教育类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 34
+    },
+    {
+      "id": "pdf-w2-2026-07-18",
+      "topicId": "pdf-w2-topic-wellbeing",
+      "scope": "writing-task2",
+      "titleZh": "日常活动引起压力的原因与解决办法",
+      "promptEn": "Everyday activities cause stress for many people in the modern world. Why is this the case? What can be done to solve this problem?",
+      "promptZh": "在现代世界，日常活动让许多人感到压力。为什么会这样？可以采取什么措施解决这一问题？",
+      "tags": [
+        "society",
+        "stress",
+        "well-being",
+        "daily-life"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "causes-solutions",
+      "reportedAt": "2026-07-18",
+      "basis": "原PDF第36页，7月18日场题；原资料分类：社会类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 36
+    },
+    {
+      "id": "pdf-w2-2026-07-25",
+      "topicId": "pdf-w2-topic-media",
+      "scope": "writing-task2",
+      "titleZh": "独自观看电影与电视节目的原因和评价",
+      "promptEn": "People these days prefer to watch films and TV programmes alone rather than with other people. Why is that? Do you think it is a positive or negative development?",
+      "promptZh": "如今，人们更喜欢独自观看电影和电视节目，而不是和其他人一起观看。为什么会这样？你认为这是一种积极还是消极的发展？",
+      "tags": [
+        "media",
+        "films",
+        "television",
+        "social-life"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "two-part",
+      "reportedAt": "2026-07-25",
+      "basis": "原PDF第38页，7月25日场题；原资料分类：文化类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 38
+    },
+    {
+      "id": "pdf-w2-2026-08-01",
+      "topicId": "pdf-w2-topic-education",
+      "scope": "writing-task2",
+      "titleZh": "数学能力与沟通能力的重要性",
+      "promptEn": "Mathematical skills are more important in real life than communication skills. To what extent do you agree or disagree?",
+      "promptZh": "在现实生活中，数学能力比沟通能力更重要。你在多大程度上同意或不同意这一观点？",
+      "tags": [
+        "education",
+        "mathematics",
+        "communication",
+        "skills"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-08-01",
+      "basis": "原PDF第40页，8月1日场题；原资料分类：社会类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 40
+    },
+    {
+      "id": "pdf-w2-2026-08-08",
+      "topicId": "pdf-w2-topic-environment",
+      "scope": "writing-task2",
+      "titleZh": "经济发展与自然环境保护的政府优先级",
+      "promptEn": "Some people think that governments should focus on developing the economy. Others believe that protecting the natural environment is more important. Discuss both views and give your own opinion.",
+      "promptZh": "有些人认为，政府应该着重发展经济。另一些人认为，保护自然环境更为重要。讨论这两种观点，并给出你自己的看法。",
+      "tags": [
+        "economy",
+        "environment",
+        "government",
+        "development"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "discussion",
+      "reportedAt": "2026-08-08",
+      "basis": "原PDF第42页，8月8日场题；原资料分类：社会类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 42
+    },
+    {
+      "id": "pdf-w2-2026-08-15",
+      "topicId": "pdf-w2-topic-work",
+      "scope": "writing-task2",
+      "titleZh": "金钱是否是最重要的工作激励因素",
+      "promptEn": "Many factors motivate people in the workplace. Some people think money is the most important. Do you agree or disagree?",
+      "promptZh": "许多因素会激励人们在工作中的表现。有些人认为，金钱是最重要的因素。你同意还是不同意这一观点？",
+      "tags": [
+        "work",
+        "motivation",
+        "money",
+        "employment"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-08-15",
+      "basis": "原PDF第44页，8月15日场题；原资料分类：工作类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 44
+    },
+    {
+      "id": "pdf-w2-2026-08-22",
+      "topicId": "pdf-w2-topic-wellbeing",
+      "scope": "writing-task2",
+      "titleZh": "在家时间减少的原因及个人与社会影响",
+      "promptEn": "Nowadays, many people spend less and less time at home. What are the reasons for it? What are the effects of this trend on individuals and society?",
+      "promptZh": "如今，许多人在家待的时间越来越少。原因是什么？这一趋势对个人和社会有什么影响？",
+      "tags": [
+        "society",
+        "family",
+        "home",
+        "well-being"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "two-part",
+      "reportedAt": "2026-08-22",
+      "basis": "原PDF第46页，8月22日场题；原资料分类：社会类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 46
+    },
+    {
+      "id": "pdf-w2-2026-08-29",
+      "topicId": "pdf-w2-topic-work",
+      "scope": "writing-task2",
+      "titleZh": "难以实现工作与生活平衡的原因与对策",
+      "promptEn": "Many people aim to achieve a balance between work and other parts of lives, but few people achieve it. What are the causes of the problems? How to overcome it?",
+      "promptZh": "许多人希望在工作和生活的其他方面之间取得平衡，但很少有人能做到。造成这些问题的原因是什么？如何克服这一问题？",
+      "tags": [
+        "work",
+        "work-life-balance",
+        "stress",
+        "solutions"
+      ],
+      "sourceId": "user-writing-2026",
+      "sourceType": "reported",
+      "taskType": "causes-solutions",
+      "reportedAt": "2026-08-29",
+      "basis": "原PDF第48页，8月29日场题；原资料分类：工作类。日期年份依据第1页汇总标题2026年1–8月，未独立官方核验。",
+      "sourcePage": 48
+    }
+  ]
+}

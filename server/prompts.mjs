@@ -185,7 +185,7 @@ export function buildPrompt({ question, draftZh = '', selectedMaterials = [], ca
     })),
     candidates: isTask1 ? [] : candidates
       .filter((candidate) => candidate && candidate.scope === scope && candidate.id !== question.id)
-      .map(questionData),
+      .map(candidate => ({ id: candidate.id, part: candidate.part, promptEn: candidate.promptEn, ...(candidate.cuePoints?.length ? { cuePoints: candidate.cuePoints } : {}) })),
   };
   const binding = JSON.stringify({ requestId, questionId: question.id, scope });
   const failedResult = {

@@ -1,15 +1,18 @@
 import { createServer } from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
-import { resolve, extname, sep } from 'node:path';
+import { resolve, extname, sep, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { Store } from './store.mjs';
 import { AppError, assert, checkQuality, uid, now, parseResult, validateResult } from './domain.mjs';
 import { getProvider } from './providers.mjs';
 import { getReviewQueue, recordReview } from './reviews.mjs';
 import { createBatch, previewBatch, commitBatch, batchFile } from './batches.mjs';
+import { AIConfig } from './ai-config.mjs';
+import { IIIAPIProvider, generateJob, recoverProcessingJobs } from './iiiapi.mjs';
 
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.json':'application/json; charset=utf-8','.woff2':'font/woff2'};
-export function createApp(store,{staticDir=resolve('dist')}={}) {
+export function createApp(store,{staticDir=resolve('dist'),aiProvider=new IIIAPIProvider({config:new AIConfig({file:resolve(dirname(store.file),'api-secrets.json')})})}={}) {
+  recoverProcessingJobs(store);
   const reply=(res,status,data,headers={})=> {res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff',...headers});res.end(JSON.stringify(data));};
   return async (req,res)=> {
     try {
@@ -39,6 +42,15 @@ export function createApp(store,{staticDir=resolve('dist')}={}) {
       };
       let data;
       if(req.method==='GET' && parts[1]==='health') data={ok:true,version:'0.1.0',localOnly:true};
+      else if(req.method==='GET' && parts[1]==='ai' && parts[2]==='config') data=aiProvider.config.public(store.settings().provider);
+      else if(req.method==='PATCH' && parts[1]==='ai' && parts[2]==='config') {
+        const input=await body();assert(input.provider===undefined || ['web-bridge','iiiapi'].includes(input.provider),'未知 AI 处理方式。');
+        aiProvider.config.update(input);
+        if(input.provider!==undefined) store.setSettings({provider:input.provider});
+        data=aiProvider.config.public(store.settings().provider);
+      }
+      else if(req.method==='GET' && parts[1]==='ai' && parts[2]==='models') data=await aiProvider.models();
+      else if(req.method==='POST' && parts[1]==='ai' && parts[2]==='test') {const models=await aiProvider.models();data={ok:true,model:models.selectedModel,message:`已获取 ${models.models.length} 个模型。本次仅查询列表，未发起内容生成。`};}
       else if(req.method==='GET' && parts[1]==='v1' && parts[2]==='manifest') data={schemaVersion:1,readOnly:true,deviceRole:'full-reader',scopes:['speaking','writing-task1','writing-task2'],endpoints:{snapshot:'/api/v1/snapshot',content:'/api/v1/content/{questionId}'},connectivity:'loopback-only',pairing:'reserved'};
       else if(req.method==='GET' && parts[1]==='v1' && parts[2]==='snapshot') data={schemaVersion:1,generatedAt:now(),state:store.state(),answerRevisions:store.all('revisions'),reviews:store.all('review_states'),reviewEvents:store.all('review_events'),batches:store.all('batch_jobs')};
       else if(req.method==='GET' && parts[1]==='v1' && parts[2]==='content' && parts[3]) {
@@ -57,6 +69,11 @@ export function createApp(store,{staticDir=resolve('dist')}={}) {
         const filename=encodeURIComponent(job.filename).replace(/'/g,'%27');
         res.writeHead(200,{'Content-Type':job.extension==='pdf' ? 'application/pdf' : job.extension==='docx' ? 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' : 'application/msword','Content-Disposition':`attachment; filename="yasy-${job.id}.${job.extension}"; filename*=UTF-8''${filename}`,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(file);return;
       }
+      else if(req.method==='GET' && parts[1]==='sources' && parts[3]==='file') {
+        const source=store.get('sources',parts[2]);assert(source && /^[A-Za-z0-9_-]+$/.test(source.id),'资料来源不存在。',404);
+        let file;try{file=await readFile(resolve(dirname(store.file),'source-pdfs',`${source.id}.pdf`));}catch{throw new AppError('当前 Mac 未保存此来源 PDF。题库和译文仍可正常查看。',404);}
+        const filename=encodeURIComponent(source.title).replace(/'/g,'%27');res.writeHead(200,{'Content-Type':'application/pdf','Content-Disposition':`attachment; filename="source.pdf"; filename*=UTF-8''${filename}`,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});res.end(file);return;
+      }
       else if(req.method==='GET' && parts[1]==='questions' && parts[3]==='recommendations') data=store.recommendations(parts[2]);
       else if(req.method==='PUT' && parts[1]==='drafts' && parts[2]) data=store.saveDraft(parts[2],await body());
       else if(req.method==='POST' && parts[1]==='quality') {const input=await body();data=checkQuality(store.question(input.questionId),input.textZh);}
@@ -71,6 +88,7 @@ export function createApp(store,{staticDir=resolve('dist')}={}) {
         const job={id,questionId:q.id,scope:q.scope,textZh:draft.textZh,materialIds:draft.materialIds,prompt,status:'pending',createdAt:now(),candidateIds:candidates.map(c=>c.id)};
         store.saveJob(job);data={job,prompt,quality};
       }
+      else if(req.method==='POST' && parts[1]==='jobs' && parts[3]==='generate') {assert(store.settings().provider==='iiiapi','请先切换到 iiiapi API 处理方式。',409);data=await generateJob(store,aiProvider,parts[2]);}
       else if(req.method==='POST' && parts[1]==='jobs' && parts[3]==='result') {
         const input=await body();
         const job=store.assertPendingJob(parts[2]);

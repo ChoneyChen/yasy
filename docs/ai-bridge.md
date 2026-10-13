@@ -1,20 +1,43 @@
-# Yasy AI 网页桥与 provider 接口
+# Yasy AI 处理、网页桥与结果合同
 
 用户希望“电脑接收中文后，自动通过浏览器使用定制提示词询问 ChatGPT”。Yasy 将业务流程和 AI 连接方式分离：题目、中文素材、质量反馈和结构化结果使用稳定合同；浏览器提交可以逐步自动化，不能让整个学习库依赖一次网页界面操作是否成功。
 
-## 当前落地方式
+## 已实现的两种处理方式
 
-首版 `web-bridge` 是可用的半自动桥：本地初检通过后生成专用提示词，用户复制并打开 [ChatGPT 网页](https://chatgpt.com/)，在自己已登录的浏览器中提交；生成完成后，将 JSON 复制回 Yasy 的导入框。Yasy 校验后自动保存答案、素材、语料和题目关联。系统不会宣称已自动读取网页回复，不收集浏览器 cookie、session token 或用户密码，也不需要 API key。
+| provider | 能力 | 用户需要做什么 |
+| --- | --- | --- |
+| iiiapi | 本地服务查询可用模型并调用对话生成，校验后自动入库 | 配置密钥、选择模型，中文初检通过后点击“一键 AI 整理” |
+| web-bridge | 本机生成同一套专用提示词，用户在 ChatGPT 网页处理后导入 JSON | 复制提示词、在自己登录的网页提交，再复制完整 JSON 回 Yasy |
 
-网页提示词是普通聊天输入中的格式要求，不能保证模型每次都返回有效 JSON；因此导入器必须处理格式错误、拒绝、不完整输出以及任务绑定错误。可以明确展示错误并让用户从网页复制完整 JSON 重试，不能自动“补齐”模型漏掉的用户事实。
+iiiapi 生产地址固定为 `https://api.iiiapi.com/v1`，已接入 `GET /models` 与 `POST /chat/completions`。2026-10-13 的真实连接返回 28 个模型，本次本机选用 `claude-sonnet-4-6`；模型数量和权限仍以账号实时列表为准。已在隔离环境完成真实生成、完整正式题库的同域候选推荐调用、JSON 解析与业务校验，没有把验证用答案写入正式学习库。[iiiapi 文档](https://iiiapi.com/docs)
 
-## 已查证的能力与未验证的边界
+网页桥不需要 API key；iiiapi 使用用户自己的服务密钥。批量 PDF / DOC / DOCX 提取仍走网页附原文件流程，现有 API 生成器只处理题目、中文素材和候选列表，不自动读取上传的文件正文。全自动操控 ChatGPT 消费者网页没有实现。
 
-官方 OpenAI documentation 提供 API 的结构化输出能力，可将 JSON Schema 作为 Responses API 的 `text.format`；模型拒绝或输出截断仍须单独处理。其 strict 模式要求声明的字段均为必填、对象不允许额外属性，并只支持 JSON Schema 的子集。[Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
+## 配置与密钥边界
 
-官方还说明了通过 API 让模型控制界面的 computer use 流程，由应用执行界面操作并返回截图等结果。该能力是通用界面控制，不足以证明 ChatGPT 消费者网页具有对 Yasy 开放、稳定且可无人值守调用的专用接口。[Computer use](https://developers.openai.com/api/docs/guides/tools-computer-use)
+在「偏好与数据」切换 provider、保存密钥、刷新模型列表并保存模型。客户端使用以下本机接口：
 
-因此本项目的判断是：有依据支持未来接正式 API；“全自动操作用户的 ChatGPT 网页并可靠收回答案”尚未在本项目的用户浏览器、登录状态和真实页面中验证。不能把后者包装成已实现功能，也不能将未公开网页接口或抓取登录凭证作为依赖。后续若验证浏览器自动化，应使用用户可见的操作、检查提交和回复状态、允许手动接管，并继续经过同一导入校验。以上依据在 2026-10-13 查阅。
+| 本机接口 | 行为 |
+| --- | --- |
+| GET /api/ai/config | 返回 provider、服务地址、hasKey、model 和 configured；不返回 apiKey |
+| PATCH /api/ai/config | 保存密钥或模型，或切换 provider；返回脱敏配置状态 |
+| GET /api/ai/models | 向当前固定 iiiapi 服务请求账号的模型列表，返回可选择的模型 ID |
+| POST /api/ai/test | 仅查询模型列表和连接状态，不生成答案 |
+| POST /api/jobs/{jobId}/generate | 对已创建的当前题任务执行 API 整理与校验入库 |
+
+密钥与模型配置在 `.local/api-secrets.json`，文件权限 600；写入临时文件后原子替换。浏览器保存后清空密钥输入，后续只显示“已配置”等状态。密钥不进入学习 state、任务提示词、手机快照、Git 或 JSON 学习备份；远端错误信息也会脱敏。换机恢复学习资料后，需要重新配置密钥与模型。
+
+使用 iiiapi 时，本地服务向该服务发送当前题目、真实中文草稿、已选素材及同区候选题；数据库和原始文件仍在本机。网页模式由用户提交提示词与附件。两种方式都使用本地结果校验，不能仅凭模型返回了 JSON 就认为它贴题或可信。
+
+## 任务状态、失败与过期保护
+
+任务保留输入快照和 requestId。正常 API 流程为 pending → processing → completed；连接、超时、截断或格式/业务校验失败会转为 failed。AI 判断素材不足则进入 needs-revision，用户先补充内容，再创建新任务。网页模式在 pending 任务中等待人工导入。
+
+API 默认生成超时为 180 秒，模型列表查询为 20 秒，计时覆盖正文读取。失败可以手动重试，当前没有自动换模型或无限重试；只有用户草稿与已选素材仍匹配任务快照时，才可重新处理。服务重启或恢复备份时，会将遗留 processing 任务标为 failed，提示上一次处理被中断并允许确认后重试。
+
+每次生成有独立 runId。远端返回后重新检查任务归属、最新草稿、素材选择与题目是否仍活动；新任务替代、草稿修改或题库归档后，旧结果不能落库。没有 await 间隙的最终归属检查和 SQLite 事务使同一生成不会重复导入；失败不会产生半份答案或部分素材。
+
+三套提示词在输入中附结果 JSON Schema，但 iiiapi 当前请求通过普通 Chat Completions 返回 JSON 文本，**没有宣称服务提供 strict Structured Outputs 保证**。本地还需解析、校验和处理拒绝、空正文或输出截断。OpenAI 的官方结构化输出文档可作为后续 provider 的参考，不能替代第三方服务的实际能力验证。[Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
 
 ## 三套提示词
 
@@ -26,7 +49,7 @@
 | writing-task1 | 图表/流程/地图信息二检；Academic 客观报告；含 overview；不创建素材、素材片段或推荐；只积累 Task 1 语料 |
 | writing-task2 | 题型、立场、所有问题覆盖和论据二检；正式论证作文；双语独立论证素材元及答案片段；Task 2 语料与同区推荐 |
 
-三套共享外层结果结构与安全绑定，不共享英语语域和成文方法。中文素材保留用户真实事实，候选题只是推荐目标；不允许模型通过候选题描述补造用户经历。目标分数只是练习难度参数，不是系统给予的考试分数。
+三套共享外层结果结构与安全绑定，不共享英语语域和成文方法。中文素材保留用户真实事实，候选题只是推荐目标，Part 2 候选保留完整 cuePoints 以匹配具体限制；不允许模型通过候选题描述补造用户经历。目标分数只是练习难度参数，不是系统给予的考试分数。
 
 ## 结果合同
 
@@ -59,7 +82,7 @@
 
 表达的 materialIndexes、推荐的 materialIndex 是本次结果数组的索引，而不是数据库 ID。导入器将有效索引映射到落库素材。这个设计使第一次处理从零创建素材时，也能建立稳定关系。
 
-`answer.materialSpans` 在模型输出中使用 `{quote,materialIndex}`，quote 是最终答案的精确连续原文。模型不负责数 UTF-16 字符；本地验证 quote 出现的位置并转换成 `{start,end,materialIndex}` 或映射后的素材 ID，start 从 0 开始、end 不包含。若 quote 重复出现，本地要处理每个实际出现位置并检查素材归属和冲突；提示词要求优先使用可唯一定位的完整句子。语料高光和素材颜色分别渲染，不向原始答案插入 HTML 或颜色标签。Task 1 与质量失败的 materialSpans 必须为空数组。
+`answer.materialSpans` 在模型输出中使用 `{quote,materialIndex}`，quote 是最终答案的精确连续原文。模型不负责数 UTF-16 字符；本地验证 quote 出现的位置并转换成 `{start,end,materialIndex}` 或映射后的素材 ID，start 从 0 开始、end 不包含。quote 必须在最终答案中唯一出现；重复短句会被拒绝，需改用能唯一定位的完整句子或更长片段。语料高光和素材颜色分别渲染，不向原始答案插入 HTML 或颜色标签。Task 1 与质量失败的 materialSpans 必须为空数组。
 
 summaryZh/summaryEn、detailZh/detailEn 的中英内容必须事实等值。素材 title 与素材/表达 tags 使用英语，不新增 titleZh；中文含义保留在双语素材中。categoryEn 与 usageNoteEn 直接服务于英语语料界面；中文分类、释义和说明只保留为 metadata，不在语料区混合显示。字段迁移不能通过直接复制中文到带 En 后缀的字段伪装为英语；旧数据缺少英语时应明确待补，或经过同区提示词重新补全。
 
@@ -67,12 +90,12 @@ summaryZh/summaryEn、detailZh/detailEn 的中英内容必须事实等值。素�
 
 JSON Schema 只验证形状；以下规则必须额外落实，不能依赖模型答应遵守：
 
-- requestId 必须属于本次 pending 任务；questionId 和 scope 必须与该任务逐字相同，未知或不匹配的结果不能落库。
-- quality.passed=false 时，answer 的 textEn/outlineZh 必须为空字符串、materialSpans 必须为空数组，其余三个数组必须为空，并保留具体补充建议。通过时英文答案必须非空。
+- requestId、questionId 和 scope 必须与任务快照逐字相同。网页导入检查 pending；API 先检查 processing 的 runId 归属，再交给同一正式导入器；未知或过期结果不能落库。
+- 提示词要求 quality.passed=false 时答案与积累为空；本地收到失败判定只保存质量反馈，不写答案、素材或语料。通过时英文答案必须非空。
 - existingMaterialId 必须来自本次任务选择的同区素材；复用内容必须与已有素材一致。未知、未选择、跨区或内容改变却复用旧 ID 的结果应拒绝。
 - 所有材料索引必须是合法非负整数，并在本次 materials 长度范围内。推荐题 ID 必须存在于本次同区候选集合；不可指向当前题或其他 scope。
 - 每个 materialSpans.quote 必须是最终英文答案实际出现的连续原文，不接受模型估算的位置；映射后的字符范围必须有效、不越界、不相互冲突，同一片段只有一个素材归属。
-- score 必须是 0—1 的有限数值。关系须去重；每次展示/链接只保留前 3 个真正相关的对象。
+- 推荐 score 必须是大于 0、且不超过 1 的有限数值。关系去重；每个素材元每次最多推荐 3 道题，并关联最相关的 3 条表达。API 会保留所有表达、仅截取前 3 条素材关系；网页导入的超量关系需修正后再导入。
 - expression.textEn 应与 answer.textEn 的连续原文一致，才能成为准确高光。表达保留本题 scope，禁止跨库写入。
 - writing-task1 的 materials、recommendations 与 answer.materialSpans 必须为空，每条 expression.materialIndexes 必须为空；Task 1/2 英文答案分别达到最低词数，未达要求时返回清晰错误供重试。
 - 一个任务成功导入不能再次重复落库。更新同题答案保持当前答案唯一性，并避免旧请求覆盖后来已经处理的新结果。
@@ -91,8 +114,10 @@ Task 1 的 visual 可为 null，表示原图缺失、不可读或结构不足以
 
 手机联通仅预留只读 version 1 合同；本阶段本机 API 继续仅监听 loopback，不通过新增接口自动开放网络。实际 iPhone 访问与配对认证留在后续阶段。
 
-## provider 扩展方向
+## provider 边界与未来扩展
 
-当前 provider 为 `web-bridge`，通过提示词生成和人工导入完成。未来 `openai-api` 或经过验证的 `browser-automation` 只负责传递输入与取得结果，随后仍走同一绑定、校验和落库流程。provider 应返回 pending、completed、needs-revision 或连接错误等明确状态，保留中文草稿并支持重试；切换 provider 不迁移或重建学习实体。
+`server/providers.mjs` 保留网页桥，`server/iiiapi.mjs` 实现当前自动生成。两者复用 `server/prompts.mjs` 与同一结果合同；模型变化不改变题目、素材、语料和答案实体。保存后的服务凭证由本地后端读取，生产服务地址固定，客户端不能把真实密钥转送到任意自定义地址。
 
-正式 API 接入可以使用现有 Schema 和 Responses structured outputs，另行验证所选模型的实际支持、处理拒绝/截断以及配置服务器端凭证。若所选模型不支持某个 Schema 约束，provider 可去掉该约束并在本地继续验证，不能因此放松业务规则。本阶段只有接口与结果合同预留，不配置凭证、不发送真实素材到 API，也不声称已实现该 provider。
+本版的正式题库已替换为两份用户 PDF 的 743 条题目，其中 Task 1 为 0；Task 1 专用提示词、语料域、图表处理和上传入口仍保留，等待可用的完整题图。内置 PDF 的逐页转录是本次资料整理结果，不表示普通上传入口已经自动解析任何 PDF。[题库来源](question-sources.md)
+
+浏览器全自动操作、其他模型服务和 iPhone 配对连接属于后续工作。当前手机端只保留本机 v1 只读合同，未开启局域网或互联网访问；任何未来 provider 的结果仍须经过同样的过期保护、scope 隔离和原子保存。
