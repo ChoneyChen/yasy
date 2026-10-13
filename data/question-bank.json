@@ -1,0 +1,4617 @@
+{
+  "sources": [
+    {
+      "id": "ielts-sp",
+      "title": "IELTS.org — Speaking Sample Tasks",
+      "url": "https://ielts.org/cdn/ielts-downloadable-assets/ielts-sample-tests/ielts-speaking-sample-tasks-2023.pdf",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "已读取官方PDF第3、5、6页；公开样题不等于当前考季真题。"
+    },
+    {
+      "id": "bc-lex",
+      "title": "British Council — Part 1 familiarisation and lexical resource",
+      "url": "https://takeielts.britishcouncil.org/sites/default/files/speaking_part_1_familiarisation_and_lexical_resource.pdf",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方教学练习，检索索引可核验Worksheet 3；部分旧PDF会重定向。"
+    },
+    {
+      "id": "bc-grammar",
+      "title": "British Council — Part 1 grammar and lexical resource",
+      "url": "https://takeielts.britishcouncil.org/sites/default/files/speaking_part_1_grammatical_range_and_accuracy_lexical_resource.pdf",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方教学练习，四个示例问句由索引核验，非当季题库。"
+    },
+    {
+      "id": "bc-health",
+      "title": "British Council — Say it better, Part 1",
+      "url": "https://takeielts.britishcouncil.org/sites/default/files/speaking_part_1_-_say_it_better.pdf",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方教学材料，健康问句由索引核验。"
+    },
+    {
+      "id": "idp-longturn",
+      "title": "IDP — Preparing for Speaking Part 2",
+      "url": "https://ielts.idp.com/thailand/prepare/article-ielts-speaking-test-long-turn-part-2/en-gb",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方备考文章（2021-06-07），含三张示例卡。"
+    },
+    {
+      "id": "idp-crowded",
+      "title": "IDP — Describe a crowded place",
+      "url": "https://ielts.idp.com/vietnam/about/news-and-articles/article-describe-a-crowded-place-you-went-to/en-gb",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方机构备考例题，非本库认证的考试真题。"
+    },
+    {
+      "id": "idp-holiday",
+      "title": "IDP — Talk about your last holiday",
+      "url": "https://ielts.idp.com/vietnam/about/news-and-articles/article-talk-about-your-last-holiday/en-gb",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方机构备考文章，假日主题练习。"
+    },
+    {
+      "id": "kw-may26",
+      "title": "IELTS-Blog — Kuwait Speaking, May 2026",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-speaking-test-in-kuwait-may-2026/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名考生D.T.的回忆，由原站检索索引核验；未经官方认证。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "ca-mar26",
+      "title": "IELTS-Blog — Canada Speaking, March 2026",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-speaking-test-in-canada-march-2026/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名考生L.S.；月份是报道月份，非精确考试日期。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "ca-feb26",
+      "title": "IELTS-Blog — Canada Speaking, February 2026",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-speaking-test-in-canada-february-2026/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名考生L.R.的回忆，由检索索引核验。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "uk-feb26",
+      "title": "IELTS-Blog — UK Speaking, February 2026",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-speaking-test-in-uk-february-2026/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名考生M.E.；本链接对应学习、键盘、电视主题。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "uk-dec25",
+      "title": "IELTS-Blog — UK Speaking, December 2025",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-speaking-test-in-uk-december-2025/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名考生T.N.；邻里、儿童游戏、争执主题。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "it-dec25",
+      "title": "IELTS-Blog — Italy Speaking, December 2025",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-speaking-test-in-italy-december-2025/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名考生T.Y.；太阳镜、教技能主题。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "ca-oct25",
+      "title": "IELTS-Blog — Canada Speaking, October 2025 (J.C.)",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-speaking-test-in-canada-october-2025-n3/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名考生J.C.；n3后缀区分同月其他报道。",
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "ca-jan26",
+      "title": "IELTS-Blog — January archive, Canada nature topics",
+      "url": "https://www.ielts-blog.com/2026/01/page/5/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "所读归档中署名考生T.P.；自然景点、环境讨论。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "au-jan26",
+      "title": "IELTS-Blog — January archive, Australia navigation topics",
+      "url": "https://www.ielts-blog.com/2026/01/page/2/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "所读归档中署名考生M.F.的口语回忆；另含Z.F.的英国写作回忆。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "uk-talent26",
+      "title": "IELTS-Blog — 2026 archive, UK talent topics",
+      "url": "https://www.ielts-blog.com/2026/page/14/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "英国回忆：家乡、鞋、个人才能；摘要未公开考生署名。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "it-mar26",
+      "title": "IELTS-Blog RSS — Italy Speaking, March 2026",
+      "url": "https://ielts142.rssing.com/chan-34911240/article2766.html",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "原作者Simone Braverman公开RSS转载，署名考生R.；原站本次429。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "tw-may26",
+      "title": "IELTS-Blog RSS — Taiwan Speaking, May 2026",
+      "url": "https://ielts142.rssing.com/chan-34911240/article2773.html",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "作者公开RSS转载，2026-05-12发布，署名L.H.；原站本次429。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "au-mar26",
+      "title": "Simone Braverman author blog — Australia Speaking, March 2026",
+      "url": "https://www.goodreads.com/author/show/2859678.Simone_Braverman/blog?page=2",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "作者本人公开同步文章，2026-03-03发布，署名R.R.；原站本次429。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "idp-w-types",
+      "title": "IDP — Types of essays in Writing Task 2",
+      "url": "https://ielts.idp.com/prepare/article-e-is-for-essays",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方文章（2021-08-25）；示例由索引核验，直接访问403。"
+    },
+    {
+      "id": "idp-w-topics",
+      "title": "IDP — Common topics for Writing Task 2",
+      "url": "https://ielts.idp.com/prepare/article-common-topics-for-ielts-writing-task-2",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方文章（2024-02-08）；教育、科技、健康、环境等练习示例，不是预测。"
+    },
+    {
+      "id": "idp-w-position",
+      "title": "IDP — Presenting your position in Writing Task 2",
+      "url": "https://ielts.idp.com/prepare/article-ielts-writing-task-2-how-to-present-your-position",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方文章（2025-06-19）；免费公交、居家办公、海外工作学习例题。"
+    },
+    {
+      "id": "idp-w-agree",
+      "title": "IDP — Agree or disagree essay",
+      "url": "https://ielts.idp.com/vietnam/prepare/article-agree-or-disagree-ielts-writing-task-2/en-gb",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方文章（2023-02-03）；烟草政策、科学研究管理示例。"
+    },
+    {
+      "id": "ielts-w-format",
+      "title": "IELTS.org — Academic Writing format",
+      "url": "https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-writing",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方题型说明；本源派生题均为自建练习，不是官方样题。"
+    },
+    {
+      "id": "idp-w-process",
+      "title": "IDP — Process chart Task 1 guide",
+      "url": "https://ielts.idp.com/nepal/about/news-and-articles/article-process-chart-task-1-guide",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方备考文章（2026-06-22）；蛙、冻干咖啡、制砖流程示例，不复制原图。"
+    },
+    {
+      "id": "idp-w-maps",
+      "title": "IDP — Task 1 map format",
+      "url": "https://ielts.idp.com/vietnam/about/news-and-articles/article-ielts-writing-task-1-maps/en-gb",
+      "type": "official",
+      "accessedAt": "2026-10-13",
+      "note": "官方备考文章；地图变迁和选址示例；本库布局为自建练习。"
+    },
+    {
+      "id": "w-ca-aug25",
+      "title": "IELTS-Blog — Canada Academic Writing, August 2025",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-test-in-canada-august-2025-academic-module/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名考生M；人口图、频繁换工作；原站图表明确为示意重绘。",
+      "reportedAt": "2025-08"
+    },
+    {
+      "id": "w-ca-may25",
+      "title": "IELTS-Blog — Canada Academic Writing, May 2025",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-test-in-canada-may-2025-academic-module/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名DM；办公楼改造、职业导向课程；图片为示意重绘。",
+      "reportedAt": "2025-05"
+    },
+    {
+      "id": "w-ca-may26",
+      "title": "IELTS-Blog — May archive, Canada Academic Writing",
+      "url": "https://www.ielts-blog.com/2026/05/page/2/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名S.T.；家庭用水、住房短缺；图表为作者重绘，非考试原图。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "w-uae-feb26",
+      "title": "IELTS-Blog — UAE Academic Writing, February 2026",
+      "url": "https://www.ielts-blog.com/recent-ielts-exams/ielts-test-in-uae-february-2026-academic-module/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名D.P.；婚姻离婚图、免费供水；页面模板误写Speaking和旧图片月份，信任较低。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "w-au-jan26",
+      "title": "IELTS-Blog — 2026 archive, Australia Academic Writing",
+      "url": "https://www.ielts-blog.com/2026/page/20/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名P.Y.；教师薪资、企业持有个人信息；本页另含V.D.的英国口语回忆。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "w-oman-feb26",
+      "title": "IELTS-Blog — 2026 archive, Oman Academic Writing",
+      "url": "https://www.ielts-blog.com/2026/page/8/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名A.R.；互联网用途、物种多样性；图明确为重绘。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "w-germany-nov25",
+      "title": "IELTS-Blog — Recent exams archive, Germany Academic Writing",
+      "url": "https://www.ielts-blog.com/category/recent-ielts-exams/page/29/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "德国考生（摘要未署名）；公园地图、出国读书；地图为重绘。",
+      "reportedAt": "2025-11"
+    },
+    {
+      "id": "w-uae-dec25",
+      "title": "IELTS-Blog — Recent exams archive, UAE Academic Writing",
+      "url": "https://www.ielts-blog.com/category/recent-ielts-exams/page/25/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名F.N.；游客交通、机器人发展。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "w-saudi-oct25",
+      "title": "IELTS-Blog — October archive, Saudi Arabia Academic Writing",
+      "url": "https://www.ielts-blog.com/2025/10/",
+      "type": "reported",
+      "accessedAt": "2026-10-13",
+      "note": "署名H.A.；老年就业、游客环保责任；图为示意重绘。",
+      "reportedAt": "2025-10"
+    }
+  ],
+  "topics": [
+    {
+      "id": "sp-hometown",
+      "scope": "speaking",
+      "titleZh": "家乡与城市",
+      "titleEn": "Hometown",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ]
+    },
+    {
+      "id": "sp-home",
+      "scope": "speaking",
+      "titleZh": "居住与邻里",
+      "titleEn": "Home and neighbourhood",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ]
+    },
+    {
+      "id": "sp-possessions",
+      "scope": "speaking",
+      "titleZh": "物品与珍惜",
+      "titleEn": "Possessions",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "物品",
+        "礼物",
+        "情感",
+        "消费"
+      ]
+    },
+    {
+      "id": "sp-advertising",
+      "scope": "speaking",
+      "titleZh": "广告与名人",
+      "titleEn": "Advertising and fame",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "媒体",
+        "人物",
+        "消费",
+        "影响"
+      ]
+    },
+    {
+      "id": "sp-animals",
+      "scope": "speaking",
+      "titleZh": "动物与自然体验",
+      "titleEn": "Animals",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "自然",
+        "动物",
+        "经历"
+      ]
+    },
+    {
+      "id": "sp-food",
+      "scope": "speaking",
+      "titleZh": "饮食与礼物",
+      "titleEn": "Food and gifts",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "饮食",
+        "礼物",
+        "情感",
+        "家庭"
+      ]
+    },
+    {
+      "id": "sp-films",
+      "scope": "speaking",
+      "titleZh": "电影",
+      "titleEn": "Films",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "经历",
+        "情感"
+      ]
+    },
+    {
+      "id": "sp-skills",
+      "scope": "speaking",
+      "titleZh": "维修与实用技能",
+      "titleEn": "Practical skills",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "技能",
+        "经历",
+        "教育",
+        "科技"
+      ]
+    },
+    {
+      "id": "sp-friendship",
+      "scope": "speaking",
+      "titleZh": "同学与朋友",
+      "titleEn": "Friends and classmates",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "人物",
+        "友谊",
+        "教育",
+        "工作"
+      ]
+    },
+    {
+      "id": "sp-work-study",
+      "scope": "speaking",
+      "titleZh": "工作与学习",
+      "titleEn": "Work and study",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "工作",
+        "教育",
+        "计划",
+        "挑战"
+      ]
+    },
+    {
+      "id": "sp-technology",
+      "scope": "speaking",
+      "titleZh": "科技与日常操作",
+      "titleEn": "Technology",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "科技",
+        "学习",
+        "工作",
+        "变化"
+      ]
+    },
+    {
+      "id": "sp-tv",
+      "scope": "speaking",
+      "titleZh": "电视与流媒体",
+      "titleEn": "TV and streaming",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "科技",
+        "影响"
+      ]
+    },
+    {
+      "id": "sp-childhood",
+      "scope": "speaking",
+      "titleZh": "童年与记忆",
+      "titleEn": "Childhood and memories",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "经历",
+        "童年",
+        "家庭",
+        "情感"
+      ]
+    },
+    {
+      "id": "sp-family",
+      "scope": "speaking",
+      "titleZh": "家人与沟通",
+      "titleEn": "Family and communication",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "人物",
+        "家庭",
+        "沟通",
+        "情感"
+      ]
+    },
+    {
+      "id": "sp-teaching",
+      "scope": "speaking",
+      "titleZh": "教别人技能",
+      "titleEn": "Teaching a skill",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "技能",
+        "教育",
+        "人物",
+        "经历"
+      ]
+    },
+    {
+      "id": "sp-fashion",
+      "scope": "speaking",
+      "titleZh": "服饰与配件",
+      "titleEn": "Fashion and accessories",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "物品",
+        "消费",
+        "日常",
+        "外观"
+      ]
+    },
+    {
+      "id": "sp-nature",
+      "scope": "speaking",
+      "titleZh": "自然景点与环保",
+      "titleEn": "Nature and environment",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "地点",
+        "自然",
+        "环境",
+        "经历"
+      ]
+    },
+    {
+      "id": "sp-navigation",
+      "scope": "speaking",
+      "titleZh": "迷路与导航",
+      "titleEn": "Getting lost",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "经历",
+        "地点",
+        "挑战",
+        "科技"
+      ]
+    },
+    {
+      "id": "sp-talent",
+      "scope": "speaking",
+      "titleZh": "个人才能与成长",
+      "titleEn": "Talent",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "技能",
+        "成长",
+        "人物",
+        "教育"
+      ]
+    },
+    {
+      "id": "sp-community",
+      "scope": "speaking",
+      "titleZh": "城市活动与乡村",
+      "titleEn": "Community and rural life",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "地点",
+        "活动",
+        "社区",
+        "变化"
+      ]
+    },
+    {
+      "id": "sp-mirrors",
+      "scope": "speaking",
+      "titleZh": "镜子与生活习惯",
+      "titleEn": "Mirrors",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "物品",
+        "日常",
+        "外观"
+      ]
+    },
+    {
+      "id": "sp-business",
+      "scope": "speaking",
+      "titleZh": "家庭企业与创业",
+      "titleEn": "Family business",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "人物",
+        "工作",
+        "企业",
+        "挑战"
+      ]
+    },
+    {
+      "id": "sp-borrowing",
+      "scope": "speaking",
+      "titleZh": "借用与分享",
+      "titleEn": "Borrowing and lending",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "物品",
+        "友谊",
+        "经历",
+        "金钱"
+      ]
+    },
+    {
+      "id": "sp-singing",
+      "scope": "speaking",
+      "titleZh": "唱歌与科技",
+      "titleEn": "Singing",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "音乐",
+        "技能",
+        "科技",
+        "日常"
+      ]
+    },
+    {
+      "id": "sp-holidays",
+      "scope": "speaking",
+      "titleZh": "旅行与假日",
+      "titleEn": "Holidays and travel",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "经历",
+        "地点",
+        "旅行",
+        "情感"
+      ]
+    },
+    {
+      "id": "sp-crowds",
+      "scope": "speaking",
+      "titleZh": "拥挤的地方",
+      "titleEn": "Crowded places",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "地点",
+        "经历",
+        "情感",
+        "城市"
+      ]
+    },
+    {
+      "id": "sp-health",
+      "scope": "speaking",
+      "titleZh": "健康与运动",
+      "titleEn": "Health",
+      "description": "主题下按 Part 1 基础问答、Part 2 长回答与 Part 3 讨论组织。",
+      "tags": [
+        "健康",
+        "运动",
+        "日常"
+      ]
+    },
+    {
+      "id": "w2-education",
+      "scope": "writing-task2",
+      "titleZh": "教育与课程",
+      "titleEn": "Education",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "教育",
+        "课程",
+        "公平",
+        "科技"
+      ]
+    },
+    {
+      "id": "w2-technology",
+      "scope": "writing-task2",
+      "titleZh": "科技与信息",
+      "titleEn": "Technology",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "科技",
+        "隐私",
+        "信息",
+        "影响"
+      ]
+    },
+    {
+      "id": "w2-health",
+      "scope": "writing-task2",
+      "titleZh": "健康与医疗",
+      "titleEn": "Health",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "健康",
+        "医疗",
+        "政府",
+        "公平"
+      ]
+    },
+    {
+      "id": "w2-environment",
+      "scope": "writing-task2",
+      "titleZh": "环境与资源",
+      "titleEn": "Environment",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "环境",
+        "资源",
+        "污染",
+        "责任"
+      ]
+    },
+    {
+      "id": "w2-government",
+      "scope": "writing-task2",
+      "titleZh": "政府与公共支出",
+      "titleEn": "Government spending",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "政府",
+        "资金",
+        "艺术",
+        "教育"
+      ]
+    },
+    {
+      "id": "w2-work",
+      "scope": "writing-task2",
+      "titleZh": "工作与职业",
+      "titleEn": "Work and careers",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "工作",
+        "职业",
+        "变化",
+        "企业"
+      ]
+    },
+    {
+      "id": "w2-transport",
+      "scope": "writing-task2",
+      "titleZh": "交通与城市",
+      "titleEn": "Transport and cities",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "交通",
+        "城市",
+        "环境",
+        "政府"
+      ]
+    },
+    {
+      "id": "w2-globalisation",
+      "scope": "writing-task2",
+      "titleZh": "全球流动",
+      "titleEn": "Globalisation",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "教育",
+        "工作",
+        "家庭",
+        "全球化"
+      ]
+    },
+    {
+      "id": "w2-housing",
+      "scope": "writing-task2",
+      "titleZh": "住房与城市发展",
+      "titleEn": "Housing",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "住房",
+        "城市",
+        "政府",
+        "公平"
+      ]
+    },
+    {
+      "id": "w2-society",
+      "scope": "writing-task2",
+      "titleZh": "社会规则",
+      "titleEn": "Society",
+      "description": "独立的大作文论证与案例积累。",
+      "tags": [
+        "社会",
+        "法律",
+        "自由",
+        "责任"
+      ]
+    },
+    {
+      "id": "w1-dynamic",
+      "scope": "writing-task1",
+      "titleZh": "趋势与时间变化",
+      "titleEn": "Dynamic charts",
+      "description": "仅根据给定图表描述；所有本地输入明确为自建练习。",
+      "tags": [
+        "趋势",
+        "比较",
+        "数据"
+      ]
+    },
+    {
+      "id": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "静态比较与占比",
+      "titleEn": "Static comparisons",
+      "description": "仅根据给定图表描述；所有本地输入明确为自建练习。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ]
+    },
+    {
+      "id": "w1-process",
+      "scope": "writing-task1",
+      "titleZh": "流程与生命周期",
+      "titleEn": "Processes",
+      "description": "仅根据给定图表描述；所有本地输入明确为自建练习。",
+      "tags": [
+        "流程",
+        "顺序",
+        "被动语态"
+      ]
+    },
+    {
+      "id": "w1-maps",
+      "scope": "writing-task1",
+      "titleZh": "地图与布局变化",
+      "titleEn": "Maps",
+      "description": "仅根据给定图表描述；所有本地输入明确为自建练习。",
+      "tags": [
+        "方位",
+        "变化",
+        "比较"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "sp-hometown-character",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "家乡的特点",
+      "promptEn": "How would you describe the place where you grew up?",
+      "promptZh": "你会如何介绍自己成长的地方？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-hometown-interest",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "家乡有趣的地方",
+      "promptEn": "Which part of your hometown would interest visitors most?",
+      "promptZh": "家乡哪个地方最值得游客看？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-hometown-jobs",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "家乡的工作",
+      "promptEn": "What do local people mainly do for work?",
+      "promptZh": "当地人主要从事什么工作？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-hometown-live",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "适合居住吗",
+      "promptEn": "Would you recommend your hometown as a place to live?",
+      "promptZh": "你会推荐别人到家乡生活吗？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-home-type",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "目前的住所",
+      "promptEn": "Describe the home you currently live in.",
+      "promptZh": "介绍你现在住的房子。",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-home-duration",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "居住多久",
+      "promptEn": "How long have you lived there?",
+      "promptZh": "你在那里住了多久？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-home-favourite",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "住处的优点",
+      "promptEn": "What makes living in your home enjoyable?",
+      "promptZh": "你喜欢住在那里的哪些方面？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-home-ideal",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "理想住所",
+      "promptEn": "What kind of home would you choose in the future?",
+      "promptZh": "将来你想住在怎样的住所？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-important-possession",
+      "topicId": "sp-possessions",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "对你重要的物品",
+      "promptEn": "Describe something you own which is very important to you.",
+      "promptZh": "描述一件对你非常重要的自有物品。",
+      "tags": [
+        "物品",
+        "礼物",
+        "情感",
+        "消费"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。",
+      "cuePoints": [
+        "物品从哪里来",
+        "拥有多久",
+        "平时用来做什么",
+        "为什么重要"
+      ]
+    },
+    {
+      "id": "sp-possession-replace",
+      "topicId": "sp-possessions",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "物品能否替代",
+      "promptEn": "Would it be easy to replace?",
+      "promptZh": "这件物品容易被替代吗？",
+      "tags": [
+        "物品",
+        "礼物",
+        "情感",
+        "消费",
+        "Part 2 收尾追问"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "official",
+      "basis": "官方 Part 2 收尾追问短摘录；应简短回答，非一至两分钟的主话题卡。完整上下文见来源。",
+      "taskType": "follow-up"
+    },
+    {
+      "id": "sp-status-possessions",
+      "topicId": "sp-possessions",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "物品与社会地位",
+      "promptEn": "Which possessions signal status in your society?",
+      "promptZh": "哪些物品被视为地位象征？",
+      "tags": [
+        "物品",
+        "礼物",
+        "情感",
+        "消费"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-advertising-purchases",
+      "topicId": "sp-advertising",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "广告和购买",
+      "promptEn": "How much do advertisements shape buying decisions?",
+      "promptZh": "广告在多大程度上影响购买决定？",
+      "tags": [
+        "媒体",
+        "人物",
+        "消费",
+        "影响"
+      ],
+      "sourceId": "ielts-sp",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-home-area",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "居住地环境",
+      "promptEn": "What is the area like where you live?",
+      "promptZh": "你住的地区环境怎么样？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "bc-lex",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-job-favourite",
+      "topicId": "sp-work-study",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "工作的喜欢之处",
+      "promptEn": "What do you like most about your job?",
+      "promptZh": "你最喜欢工作的哪一部分？",
+      "tags": [
+        "工作",
+        "教育",
+        "计划",
+        "挑战"
+      ],
+      "sourceId": "bc-lex",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-home-size",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "住所大小",
+      "promptEn": "Is your home spacious or fairly compact?",
+      "promptZh": "你的住所宽敞还是紧凑？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "bc-lex",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-online-shopping",
+      "topicId": "sp-possessions",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "网购习惯",
+      "promptEn": "Do you ever shop online?",
+      "promptZh": "你会网购吗？",
+      "tags": [
+        "物品",
+        "礼物",
+        "情感",
+        "消费"
+      ],
+      "sourceId": "bc-grammar",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-sport-favourite",
+      "topicId": "sp-health",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "喜欢的运动",
+      "promptEn": "What is your favourite sport?",
+      "promptZh": "你最喜欢什么运动？",
+      "tags": [
+        "健康",
+        "运动",
+        "日常"
+      ],
+      "sourceId": "bc-grammar",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-neighbours",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "对邻居的了解",
+      "promptEn": "How well do you know your neighbours?",
+      "promptZh": "你和邻居有多熟悉？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "bc-grammar",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-next-holiday",
+      "topicId": "sp-holidays",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "下次旅行计划",
+      "promptEn": "Where would you like to spend your next holiday?",
+      "promptZh": "下次假日你想去哪里？",
+      "tags": [
+        "经历",
+        "地点",
+        "旅行",
+        "情感"
+      ],
+      "sourceId": "bc-grammar",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-keep-healthy",
+      "topicId": "sp-health",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "如何保持健康",
+      "promptEn": "What do you do to keep healthy?",
+      "promptZh": "你做些什么保持健康？",
+      "tags": [
+        "健康",
+        "运动",
+        "日常"
+      ],
+      "sourceId": "bc-health",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-enjoyed-holiday",
+      "topicId": "sp-holidays",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "很喜欢的一次假日",
+      "promptEn": "Describe a holiday you had that you really enjoyed",
+      "promptZh": "描述一次你非常喜欢的假日。",
+      "tags": [
+        "经历",
+        "地点",
+        "旅行",
+        "情感"
+      ],
+      "sourceId": "idp-longturn",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。",
+      "cuePoints": [
+        "什么时候去",
+        "去了哪里",
+        "与谁同行",
+        "为什么享受这次假日"
+      ]
+    },
+    {
+      "id": "sp-wanted-item",
+      "topicId": "sp-possessions",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "想买的物品",
+      "promptEn": "Describe an item that you would really like to buy",
+      "promptZh": "描述一件你很想购买的物品。",
+      "tags": [
+        "物品",
+        "礼物",
+        "情感",
+        "消费"
+      ],
+      "sourceId": "idp-longturn",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。",
+      "cuePoints": [
+        "是什么",
+        "在哪里购买",
+        "用它做什么",
+        "为什么想要"
+      ]
+    },
+    {
+      "id": "sp-crowded-city",
+      "topicId": "sp-crowds",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "城市拥挤程度",
+      "promptEn": "Is the city where you live crowded?",
+      "promptZh": "你住的城市拥挤吗？",
+      "tags": [
+        "地点",
+        "经历",
+        "情感",
+        "城市"
+      ],
+      "sourceId": "idp-crowded",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-crowded-preference",
+      "topicId": "sp-crowds",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "对拥挤的态度",
+      "promptEn": "Do you like crowded places?",
+      "promptZh": "你喜欢拥挤的地方吗？",
+      "tags": [
+        "地点",
+        "经历",
+        "情感",
+        "城市"
+      ],
+      "sourceId": "idp-crowded",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。"
+    },
+    {
+      "id": "sp-crowded-visit",
+      "topicId": "sp-crowds",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "拥挤场所的经历",
+      "promptEn": "Describe an occasion when you visited a very busy place.",
+      "promptZh": "描述一次到人很多的地方的经历。",
+      "tags": [
+        "地点",
+        "经历",
+        "情感",
+        "城市"
+      ],
+      "sourceId": "idp-crowded",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。",
+      "cuePoints": [
+        "何时去了哪里",
+        "与谁同行",
+        "目的和做了什么",
+        "你的感受"
+      ]
+    },
+    {
+      "id": "sp-holiday-company",
+      "topicId": "sp-holidays",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "假日同行者",
+      "promptEn": "Who normally joins you during holidays?",
+      "promptZh": "假日通常与谁一起度过？",
+      "tags": [
+        "经历",
+        "地点",
+        "旅行",
+        "情感"
+      ],
+      "sourceId": "idp-holiday",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-holiday-pace",
+      "topicId": "sp-holidays",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "忙碌还是悠闲",
+      "promptEn": "Would you choose a relaxing holiday or an activity-packed one?",
+      "promptZh": "选悠闲假日还是很多活动的假日？",
+      "tags": [
+        "经历",
+        "地点",
+        "旅行",
+        "情感"
+      ],
+      "sourceId": "idp-holiday",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写；不是考试原文，完整示例见来源。"
+    },
+    {
+      "id": "sp-last-holiday",
+      "topicId": "sp-holidays",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "上一次假日",
+      "promptEn": "Talk about your last holiday.",
+      "promptZh": "谈谈最近的一次假日。",
+      "tags": [
+        "经历",
+        "地点",
+        "旅行",
+        "情感"
+      ],
+      "sourceId": "idp-holiday",
+      "sourceType": "official",
+      "basis": "官方公开样题或教学例题的题干短摘录；中文和要点为题意概括，完整原题见来源。",
+      "cuePoints": [
+        "去了哪里",
+        "持续多久",
+        "与谁同行",
+        "有趣的事情"
+      ]
+    },
+    {
+      "id": "sp-wild-animals",
+      "topicId": "sp-animals",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "喜欢野生动物吗",
+      "promptEn": "Do you like wild animals?",
+      "promptZh": "你喜欢野生动物吗？",
+      "tags": [
+        "自然",
+        "动物",
+        "经历"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-animal-experience",
+      "topicId": "sp-animals",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "亲眼见到动物",
+      "promptEn": "Have you seen wildlife outside a screen?",
+      "promptZh": "你有没有亲眼看见野生动物？",
+      "tags": [
+        "自然",
+        "动物",
+        "经历"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-zoo-wild",
+      "topicId": "sp-animals",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "动物园还是野外",
+      "promptEn": "Would you rather observe animals in a zoo or their habitat?",
+      "promptZh": "更愿意在动物园还是野外观察？",
+      "tags": [
+        "自然",
+        "动物",
+        "经历"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-icecream-flavour",
+      "topicId": "sp-food",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "冰淇淋口味",
+      "promptEn": "Which ice cream flavour do you enjoy most?",
+      "promptZh": "最喜欢哪种冰淇淋口味？",
+      "tags": [
+        "饮食",
+        "礼物",
+        "情感",
+        "家庭"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-icecream-frequency",
+      "topicId": "sp-food",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "吃冰淇淋的频率",
+      "promptEn": "How frequently do you have ice cream?",
+      "promptZh": "你多久吃一次冰淇淋？",
+      "tags": [
+        "饮食",
+        "礼物",
+        "情感",
+        "家庭"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-recent-movie",
+      "topicId": "sp-films",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "最近看的电影",
+      "promptEn": "Describe a movie you recently watched.",
+      "promptZh": "描述一部最近看过的电影。",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "经历",
+        "情感"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "是哪部电影",
+        "何时何地看的",
+        "大致讲什么",
+        "喜欢或不喜欢的原因"
+      ],
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-film-industry-change",
+      "topicId": "sp-films",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "电影行业变化",
+      "promptEn": "In what ways has film-making changed recently?",
+      "promptZh": "近年电影行业有什么变化？",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "经历",
+        "情感"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-actor-pay",
+      "topicId": "sp-films",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "演员的收入",
+      "promptEn": "Are very high salaries for actors justified?",
+      "promptZh": "演员的高薪合理吗？",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "经历",
+        "情感"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-film-success",
+      "topicId": "sp-films",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "好电影的关键",
+      "promptEn": "Does a large budget guarantee a successful film?",
+      "promptZh": "高预算保证电影成功吗？",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "经历",
+        "情感"
+      ],
+      "sourceId": "kw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-hometown-known",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "家乡出名的原因",
+      "promptEn": "What do outsiders know your hometown for?",
+      "promptZh": "外地人因为什么知道你的家乡？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "ca-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-hometown-history",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "家乡的历史",
+      "promptEn": "What have you learned about your hometown history?",
+      "promptZh": "你了解家乡哪些历史？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "ca-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-hometown-landmarks",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "历史地标",
+      "promptEn": "Are historic landmarks part of life in your hometown?",
+      "promptZh": "家乡有哪些历史地标？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "ca-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-fix-something",
+      "topicId": "sp-skills",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "修理东西的经历",
+      "promptEn": "Describe a time when you had to fix something.",
+      "promptZh": "描述一次必须修理东西的经历。",
+      "tags": [
+        "技能",
+        "经历",
+        "教育",
+        "科技"
+      ],
+      "sourceId": "ca-mar26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "修的是什么",
+        "为何损坏",
+        "怎样修好",
+        "完成后感受"
+      ],
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-skills-value",
+      "topicId": "sp-skills",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "实用技能的价值",
+      "promptEn": "Why do everyday practical skills matter?",
+      "promptZh": "日常实用技能为什么重要？",
+      "tags": [
+        "技能",
+        "经历",
+        "教育",
+        "科技"
+      ],
+      "sourceId": "ca-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-skills-digital",
+      "topicId": "sp-skills",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "动手与电脑技能",
+      "promptEn": "How do practical skills compare with digital skills in importance?",
+      "promptZh": "动手技能和电脑技能哪个更重要？",
+      "tags": [
+        "技能",
+        "经历",
+        "教育",
+        "科技"
+      ],
+      "sourceId": "ca-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-skills-school",
+      "topicId": "sp-skills",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "学校教动手技能",
+      "promptEn": "Should school lessons include more hands-on skills?",
+      "promptZh": "学校应该多教动手技能吗？",
+      "tags": [
+        "技能",
+        "经历",
+        "教育",
+        "科技"
+      ],
+      "sourceId": "ca-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-skills-robots",
+      "topicId": "sp-skills",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "机器人与动手任务",
+      "promptEn": "Which practical tasks can robots perform better than people?",
+      "promptZh": "机器人在哪些任务上可能优于人？",
+      "tags": [
+        "技能",
+        "经历",
+        "教育",
+        "科技"
+      ],
+      "sourceId": "ca-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-neighbourhood-ages",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "邻里年龄结构",
+      "promptEn": "What age groups live around you?",
+      "promptZh": "周围住着哪些年龄段的人？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "ca-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-mixed-ages",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "混合年龄社区",
+      "promptEn": "Do you enjoy a neighbourhood with different generations?",
+      "promptZh": "喜欢不同年龄的人共同生活的社区吗？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "ca-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-chocolate-gifts",
+      "topicId": "sp-food",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "送巧克力",
+      "promptEn": "Would you choose chocolate as a gift?",
+      "promptZh": "你会选巧克力做礼物吗？",
+      "tags": [
+        "饮食",
+        "礼物",
+        "情感",
+        "家庭"
+      ],
+      "sourceId": "ca-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-chocolate-received",
+      "topicId": "sp-food",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "收到过巧克力吗",
+      "promptEn": "Tell me about receiving chocolate as a present.",
+      "promptZh": "谈谈收到巧克力礼物的经历。",
+      "tags": [
+        "饮食",
+        "礼物",
+        "情感",
+        "家庭"
+      ],
+      "sourceId": "ca-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-classmate-friend",
+      "topicId": "sp-friendship",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "相处融洽的同学",
+      "promptEn": "Describe a person you studied with and got along well with.",
+      "promptZh": "描述与你一起学习并相处融洽的人。",
+      "tags": [
+        "人物",
+        "友谊",
+        "教育",
+        "工作"
+      ],
+      "sourceId": "ca-feb26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "是谁",
+        "在哪里学习什么",
+        "你们的关系",
+        "为什么合得来"
+      ],
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-child-social-skills",
+      "topicId": "sp-friendship",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "儿童社交能力",
+      "promptEn": "How can children practise getting along with others?",
+      "promptZh": "儿童如何练习与别人相处？",
+      "tags": [
+        "人物",
+        "友谊",
+        "教育",
+        "工作"
+      ],
+      "sourceId": "ca-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-workplace-relations",
+      "topicId": "sp-friendship",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "良好同事关系",
+      "promptEn": "What happens when colleagues cannot work well together?",
+      "promptZh": "同事关系不好会带来什么问题？",
+      "tags": [
+        "人物",
+        "友谊",
+        "教育",
+        "工作"
+      ],
+      "sourceId": "ca-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-boss-friend",
+      "topicId": "sp-friendship",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "老板能成为朋友吗",
+      "promptEn": "Can friendship between managers and employees work well?",
+      "promptZh": "管理者与员工做朋友可行吗？",
+      "tags": [
+        "人物",
+        "友谊",
+        "教育",
+        "工作"
+      ],
+      "sourceId": "ca-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-studies-enjoy",
+      "topicId": "sp-work-study",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "学习中喜欢的部分",
+      "promptEn": "Which part of your studies do you find most rewarding?",
+      "promptZh": "学习中哪部分最有收获？",
+      "tags": [
+        "工作",
+        "教育",
+        "计划",
+        "挑战"
+      ],
+      "sourceId": "uk-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-studies-dislike",
+      "topicId": "sp-work-study",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "学习中不喜欢的部分",
+      "promptEn": "Is there a part of studying you would prefer to change?",
+      "promptZh": "最想改变学习中的哪个方面？",
+      "tags": [
+        "工作",
+        "教育",
+        "计划",
+        "挑战"
+      ],
+      "sourceId": "uk-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-computer-study",
+      "topicId": "sp-technology",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "电脑的作用",
+      "promptEn": "How do computers support your work or studies?",
+      "promptZh": "电脑如何帮助工作或学习？",
+      "tags": [
+        "科技",
+        "学习",
+        "工作",
+        "变化"
+      ],
+      "sourceId": "uk-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-typing-touchscreen",
+      "topicId": "sp-technology",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "键盘还是触屏",
+      "promptEn": "Would you rather type on a keyboard or a touchscreen?",
+      "promptZh": "更喜欢键盘打字还是触屏输入？",
+      "tags": [
+        "科技",
+        "学习",
+        "工作",
+        "变化"
+      ],
+      "sourceId": "uk-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-tv-show",
+      "topicId": "sp-tv",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "喜欢的电视节目",
+      "promptEn": "Describe a TV program or show that you enjoy watching.",
+      "promptZh": "描述喜欢看的电视节目。",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "科技",
+        "影响"
+      ],
+      "sourceId": "uk-feb26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "名称或类型",
+        "多久看一次",
+        "主要内容",
+        "为什么喜欢"
+      ],
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-tv-popularity",
+      "topicId": "sp-tv",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "电视节目吸引力",
+      "promptEn": "What attracts people to television programmes?",
+      "promptZh": "什么吸引人们观看电视节目？",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "科技",
+        "影响"
+      ],
+      "sourceId": "uk-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-streaming-change",
+      "topicId": "sp-tv",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "流媒体的变化",
+      "promptEn": "How have streaming services changed viewing habits?",
+      "promptZh": "流媒体如何改变观看习惯？",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "科技",
+        "影响"
+      ],
+      "sourceId": "uk-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-tv-influence",
+      "topicId": "sp-tv",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "节目影响观点",
+      "promptEn": "Can television programmes change public opinions?",
+      "promptZh": "节目会改变公众观点吗？",
+      "tags": [
+        "媒体",
+        "娱乐",
+        "科技",
+        "影响"
+      ],
+      "sourceId": "uk-feb26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "sp-child-games",
+      "topicId": "sp-childhood",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "儿时的游戏",
+      "promptEn": "Which games did you play when you were young?",
+      "promptZh": "小时候你玩哪些游戏？",
+      "tags": [
+        "经历",
+        "童年",
+        "家庭",
+        "情感"
+      ],
+      "sourceId": "uk-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-playgrounds",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "附近的游乐空间",
+      "promptEn": "Does your area provide enough spaces for children to play?",
+      "promptZh": "附近有足够的儿童游玩空间吗？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "uk-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-family-neighbourhood",
+      "topicId": "sp-home",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "适合家庭的社区",
+      "promptEn": "What makes a neighbourhood suitable for families?",
+      "promptZh": "什么使社区适合家庭居住？",
+      "tags": [
+        "地点",
+        "居住",
+        "社区",
+        "家庭"
+      ],
+      "sourceId": "uk-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-close-people-argument",
+      "topicId": "sp-family",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "亲近的人发生争执",
+      "promptEn": "Describe an argument between two people who are close to you.",
+      "promptZh": "描述与你亲近的两个人之间的争执。",
+      "tags": [
+        "人物",
+        "家庭",
+        "沟通",
+        "情感"
+      ],
+      "sourceId": "uk-dec25",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "双方是谁",
+        "为什么争执",
+        "何时何地",
+        "你的感受"
+      ],
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-family-conflict",
+      "topicId": "sp-family",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "亲人为何冲突",
+      "promptEn": "Why do disagreements arise within families?",
+      "promptZh": "家人为什么会发生分歧？",
+      "tags": [
+        "人物",
+        "家庭",
+        "沟通",
+        "情感"
+      ],
+      "sourceId": "uk-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-family-communication",
+      "topicId": "sp-family",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "沟通的作用",
+      "promptEn": "How does communication affect relationships at home?",
+      "promptZh": "沟通如何影响家庭关系？",
+      "tags": [
+        "人物",
+        "家庭",
+        "沟通",
+        "情感"
+      ],
+      "sourceId": "uk-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-friendship-qualities",
+      "topicId": "sp-friendship",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "牢固友谊的品质",
+      "promptEn": "Which qualities help friendships last?",
+      "promptZh": "哪些品质有助于友谊长久？",
+      "tags": [
+        "人物",
+        "友谊",
+        "教育",
+        "工作"
+      ],
+      "sourceId": "uk-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-sunglasses-when",
+      "topicId": "sp-fashion",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "何时戴太阳镜",
+      "promptEn": "When do you choose to wear sunglasses?",
+      "promptZh": "一般什么时候戴太阳镜？",
+      "tags": [
+        "物品",
+        "消费",
+        "日常",
+        "外观"
+      ],
+      "sourceId": "it-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-sunglasses-fashion",
+      "topicId": "sp-fashion",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "时尚还是防护",
+      "promptEn": "Are sunglasses mainly fashion or practical protection?",
+      "promptZh": "太阳镜主要是时尚还是防护？",
+      "tags": [
+        "物品",
+        "消费",
+        "日常",
+        "外观"
+      ],
+      "sourceId": "it-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-teach-skill",
+      "topicId": "sp-teaching",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "教别人一项技能",
+      "promptEn": "Describe a time when you taught a friend or a family member how to do something.",
+      "promptZh": "描述教朋友或家人做事的经历。",
+      "tags": [
+        "技能",
+        "教育",
+        "人物",
+        "经历"
+      ],
+      "sourceId": "it-dec25",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "教了谁",
+        "教了什么",
+        "方法",
+        "事后感受"
+      ],
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-teaching-enjoyment",
+      "topicId": "sp-teaching",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "为什么喜欢教人",
+      "promptEn": "Why do people like passing skills on to others?",
+      "promptZh": "人们为什么喜欢教别人技能？",
+      "tags": [
+        "技能",
+        "教育",
+        "人物",
+        "经历"
+      ],
+      "sourceId": "it-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-good-teacher",
+      "topicId": "sp-teaching",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "好老师的品质",
+      "promptEn": "What makes someone effective at teaching?",
+      "promptZh": "什么使一个人擅长教学？",
+      "tags": [
+        "技能",
+        "教育",
+        "人物",
+        "经历"
+      ],
+      "sourceId": "it-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-teach-age",
+      "topicId": "sp-teaching",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "教儿童和成年人",
+      "promptEn": "How does teaching adults differ from teaching children?",
+      "promptZh": "教成年人和教儿童有何不同？",
+      "tags": [
+        "技能",
+        "教育",
+        "人物",
+        "经历"
+      ],
+      "sourceId": "it-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-teaching-tech",
+      "topicId": "sp-teaching",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "科技改变教学",
+      "promptEn": "How has technology altered teaching and learning?",
+      "promptZh": "科技如何改变教与学？",
+      "tags": [
+        "技能",
+        "教育",
+        "人物",
+        "经历"
+      ],
+      "sourceId": "it-dec25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "sp-work-student",
+      "topicId": "sp-work-study",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "工作还是学生",
+      "promptEn": "Do you work or are you a student?",
+      "promptZh": "你在工作还是读书？",
+      "tags": [
+        "工作",
+        "教育",
+        "计划",
+        "挑战"
+      ],
+      "sourceId": "ca-oct25",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "sp-after-studies",
+      "topicId": "sp-work-study",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "毕业后的打算",
+      "promptEn": "What would you like to do when your studies finish?",
+      "promptZh": "毕业后你想做什么？",
+      "tags": [
+        "工作",
+        "教育",
+        "计划",
+        "挑战"
+      ],
+      "sourceId": "ca-oct25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "sp-repair-replace",
+      "topicId": "sp-skills",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "维修还是换新",
+      "promptEn": "Would you normally repair a broken item or buy another one?",
+      "promptZh": "东西坏了你一般维修还是换新？",
+      "tags": [
+        "技能",
+        "经历",
+        "教育",
+        "科技"
+      ],
+      "sourceId": "ca-oct25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "sp-childhood-memory",
+      "topicId": "sp-childhood",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "难忘的童年经历",
+      "promptEn": "Describe a memorable experience from your childhood.",
+      "promptZh": "描述一个难忘的童年经历。",
+      "tags": [
+        "经历",
+        "童年",
+        "家庭",
+        "情感"
+      ],
+      "sourceId": "ca-oct25",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "发生什么",
+        "何时何地",
+        "与谁一起",
+        "为什么难忘"
+      ],
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "sp-memory-selective",
+      "topicId": "sp-childhood",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "哪些经历被记住",
+      "promptEn": "Why do some experiences stay in memory longer than others?",
+      "promptZh": "为什么有些经历更容易记住？",
+      "tags": [
+        "经历",
+        "童年",
+        "家庭",
+        "情感"
+      ],
+      "sourceId": "ca-oct25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "sp-memory-accuracy",
+      "topicId": "sp-childhood",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "童年记忆准确吗",
+      "promptEn": "How reliable are memories from early childhood?",
+      "promptZh": "童年早期的记忆有多可靠？",
+      "tags": [
+        "经历",
+        "童年",
+        "家庭",
+        "情感"
+      ],
+      "sourceId": "ca-oct25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "sp-memory-tech",
+      "topicId": "sp-childhood",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "科技与记录记忆",
+      "promptEn": "How do digital tools affect preserving memories?",
+      "promptZh": "数字工具如何影响保存记忆？",
+      "tags": [
+        "经历",
+        "童年",
+        "家庭",
+        "情感"
+      ],
+      "sourceId": "ca-oct25",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "sp-nature-visits",
+      "topicId": "sp-nature",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "亲近自然的频率",
+      "promptEn": "How often do you spend time in natural surroundings?",
+      "promptZh": "多久到自然环境中活动？",
+      "tags": [
+        "地点",
+        "自然",
+        "环境",
+        "经历"
+      ],
+      "sourceId": "ca-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-outdoor-relax",
+      "topicId": "sp-nature",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "户外放松",
+      "promptEn": "What do people near you do outdoors to unwind?",
+      "promptZh": "身边的人如何在户外放松？",
+      "tags": [
+        "地点",
+        "自然",
+        "环境",
+        "经历"
+      ],
+      "sourceId": "ca-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-city-green",
+      "topicId": "sp-nature",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "城市绿地",
+      "promptEn": "Why do you value green areas in a city?",
+      "promptZh": "你为什么重视城市绿地？",
+      "tags": [
+        "地点",
+        "自然",
+        "环境",
+        "经历"
+      ],
+      "sourceId": "ca-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-natural-place",
+      "topicId": "sp-nature",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "喜欢的自然景点",
+      "promptEn": "Describe a natural place that you like.",
+      "promptZh": "描述你喜欢的自然地点。",
+      "tags": [
+        "地点",
+        "自然",
+        "环境",
+        "经历"
+      ],
+      "sourceId": "ca-jan26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "在哪里",
+        "自然特点",
+        "多久去一次",
+        "喜欢的原因"
+      ],
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-plastic-recycling",
+      "topicId": "sp-nature",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "塑料回收的价值",
+      "promptEn": "How useful is recycling plastic bottles for protecting nature?",
+      "promptZh": "回收塑料瓶对保护自然有何作用？",
+      "tags": [
+        "地点",
+        "自然",
+        "环境",
+        "经历"
+      ],
+      "sourceId": "ca-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-fossil-alternatives",
+      "topicId": "sp-nature",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "化石能源的替代",
+      "promptEn": "Which alternatives to fossil fuels deserve more development?",
+      "promptZh": "哪些替代能源值得进一步发展？",
+      "tags": [
+        "地点",
+        "自然",
+        "环境",
+        "经历"
+      ],
+      "sourceId": "ca-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-individual-environment",
+      "topicId": "sp-nature",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "个人环保行为",
+      "promptEn": "How much difference can individuals make to the environment?",
+      "promptZh": "个人行为能多大程度改善环境？",
+      "tags": [
+        "地点",
+        "自然",
+        "环境",
+        "经历"
+      ],
+      "sourceId": "ca-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-daily-bag",
+      "topicId": "sp-fashion",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "日常使用的包",
+      "promptEn": "What kind of bag do you carry most days?",
+      "promptZh": "平时最常背哪种包？",
+      "tags": [
+        "物品",
+        "消费",
+        "日常",
+        "外观"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-bag-items",
+      "topicId": "sp-fashion",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "包里放什么",
+      "promptEn": "What do you normally keep in your bag?",
+      "promptZh": "通常在包里放什么？",
+      "tags": [
+        "物品",
+        "消费",
+        "日常",
+        "外观"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-lost-way",
+      "topicId": "sp-navigation",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "迷路的经历",
+      "promptEn": "Describe a time when you lost your way.",
+      "promptZh": "描述一次迷路经历。",
+      "tags": [
+        "经历",
+        "地点",
+        "挑战",
+        "科技"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "要去哪里",
+        "怎样迷路",
+        "如何找到方向",
+        "当时感受"
+      ],
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-why-lost",
+      "topicId": "sp-navigation",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "为什么容易迷路",
+      "promptEn": "What makes some people lose their way easily?",
+      "promptZh": "为什么有些人容易迷路？",
+      "tags": [
+        "经历",
+        "地点",
+        "挑战",
+        "科技"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-city-countryside-lost",
+      "topicId": "sp-navigation",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "城市与乡村迷路",
+      "promptEn": "Is navigating harder in urban or rural areas?",
+      "promptZh": "城市还是乡村更难辨别方向？",
+      "tags": [
+        "经历",
+        "地点",
+        "挑战",
+        "科技"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-navigation-tech",
+      "topicId": "sp-navigation",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "导航工具的变化",
+      "promptEn": "How have digital maps changed navigation?",
+      "promptZh": "数字地图如何改变找路？",
+      "tags": [
+        "经历",
+        "地点",
+        "挑战",
+        "科技"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-navigation-dependence",
+      "topicId": "sp-navigation",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "过度依赖导航",
+      "promptEn": "Do navigation apps weaken people's sense of direction?",
+      "promptZh": "导航应用会削弱方向感吗？",
+      "tags": [
+        "经历",
+        "地点",
+        "挑战",
+        "科技"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-hometown-changes",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "家乡的变化",
+      "promptEn": "How has your hometown changed while you lived there?",
+      "promptZh": "家乡在你生活期间有何变化？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "uk-talent26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-shoes-choice",
+      "topicId": "sp-fashion",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "鞋：舒适还是时尚",
+      "promptEn": "Do you prioritise comfort or appearance when choosing shoes?",
+      "promptZh": "买鞋更重视舒适还是外观？",
+      "tags": [
+        "物品",
+        "消费",
+        "日常",
+        "外观"
+      ],
+      "sourceId": "uk-talent26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-special-talent",
+      "topicId": "sp-talent",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "你的特别才能",
+      "promptEn": "Describe a special talent of yours.",
+      "promptZh": "描述你的一项特别才能。",
+      "tags": [
+        "技能",
+        "成长",
+        "人物",
+        "教育"
+      ],
+      "sourceId": "uk-talent26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "是什么",
+        "何时发现",
+        "怎样练习或使用",
+        "为什么特别"
+      ],
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-everyone-talent",
+      "topicId": "sp-talent",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "每个人都有才能吗",
+      "promptEn": "Can everyone discover a distinctive talent?",
+      "promptZh": "每个人都有独特才能吗？",
+      "tags": [
+        "技能",
+        "成长",
+        "人物",
+        "教育"
+      ],
+      "sourceId": "uk-talent26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-parents-talent",
+      "topicId": "sp-talent",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "父母如何支持才能",
+      "promptEn": "How can parents help children develop their abilities?",
+      "promptZh": "父母怎样帮助孩子发展能力？",
+      "tags": [
+        "技能",
+        "成长",
+        "人物",
+        "教育"
+      ],
+      "sourceId": "uk-talent26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-talent-effort",
+      "topicId": "sp-talent",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "天赋和努力",
+      "promptEn": "When does hard work matter more than natural ability?",
+      "promptZh": "什么时候努力比天赋重要？",
+      "tags": [
+        "技能",
+        "成长",
+        "人物",
+        "教育"
+      ],
+      "sourceId": "uk-talent26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "sp-singing-like",
+      "topicId": "sp-singing",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "喜欢唱歌吗",
+      "promptEn": "Do you enjoy singing?",
+      "promptZh": "你喜欢唱歌吗？",
+      "tags": [
+        "音乐",
+        "技能",
+        "科技",
+        "日常"
+      ],
+      "sourceId": "it-mar26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-singing-tech",
+      "topicId": "sp-singing",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "科技辅助唱歌",
+      "promptEn": "Can digital tools help improve your singing?",
+      "promptZh": "数字工具能帮助唱歌吗？",
+      "tags": [
+        "音乐",
+        "技能",
+        "科技",
+        "日常"
+      ],
+      "sourceId": "it-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-famous-person",
+      "topicId": "sp-advertising",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "你知道的一位名人",
+      "promptEn": "Describe a famous person you know about.",
+      "promptZh": "描述一位你知道的名人。",
+      "tags": [
+        "媒体",
+        "人物",
+        "消费",
+        "影响"
+      ],
+      "sourceId": "it-mar26",
+      "sourceType": "reported",
+      "basis": "考生回忆题干短摘录，未经官方验证；完整回忆见来源。",
+      "cuePoints": [
+        "是谁",
+        "怎样知道",
+        "为何出名",
+        "为什么有意思"
+      ],
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-celebrity-ads",
+      "topicId": "sp-advertising",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "为什么找名人代言",
+      "promptEn": "Why do businesses hire celebrities to promote products?",
+      "promptZh": "企业为什么请名人推广产品？",
+      "tags": [
+        "媒体",
+        "人物",
+        "消费",
+        "影响"
+      ],
+      "sourceId": "it-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-ads-young",
+      "topicId": "sp-advertising",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "广告对年轻人的影响",
+      "promptEn": "Are young people especially open to advertising influence?",
+      "promptZh": "年轻人更容易受到广告影响吗？",
+      "tags": [
+        "媒体",
+        "人物",
+        "消费",
+        "影响"
+      ],
+      "sourceId": "it-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-ads-limits",
+      "topicId": "sp-advertising",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "广告是否需要限制",
+      "promptEn": "Which advertisements should face restrictions?",
+      "promptZh": "哪些广告应受到限制？",
+      "tags": [
+        "媒体",
+        "人物",
+        "消费",
+        "影响"
+      ],
+      "sourceId": "it-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-hometown-young",
+      "topicId": "sp-hometown",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "家乡适合年轻人吗",
+      "promptEn": "What opportunities does your hometown offer young people?",
+      "promptZh": "家乡为年轻人提供哪些机会？",
+      "tags": [
+        "地点",
+        "家乡",
+        "历史",
+        "变化"
+      ],
+      "sourceId": "tw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-mirror-habit",
+      "topicId": "sp-mirrors",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "使用镜子的习惯",
+      "promptEn": "How does a mirror fit into your daily routine?",
+      "promptZh": "镜子在日常生活中有什么作用？",
+      "tags": [
+        "物品",
+        "日常",
+        "外观"
+      ],
+      "sourceId": "tw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-mirror-necessity",
+      "topicId": "sp-mirrors",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "镜子的必要性",
+      "promptEn": "Would daily life be different without mirrors?",
+      "promptZh": "没有镜子生活会有什么不同？",
+      "tags": [
+        "物品",
+        "日常",
+        "外观"
+      ],
+      "sourceId": "tw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-regular-city-activity",
+      "topicId": "sp-community",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "本地定期活动",
+      "promptEn": "Describe a recurring local activity you find interesting.",
+      "promptZh": "描述一个本地定期举办且有趣的活动。",
+      "tags": [
+        "地点",
+        "活动",
+        "社区",
+        "变化"
+      ],
+      "sourceId": "tw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "cuePoints": [
+        "是什么",
+        "何时何地举行",
+        "谁参与",
+        "为什么有趣"
+      ],
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-rural-urban",
+      "topicId": "sp-community",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "城乡生活差异",
+      "promptEn": "What separates life in a village from life in a city?",
+      "promptZh": "乡村与城市生活有何差异？",
+      "tags": [
+        "地点",
+        "活动",
+        "社区",
+        "变化"
+      ],
+      "sourceId": "tw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-rural-challenges",
+      "topicId": "sp-community",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "乡村生活的困难",
+      "promptEn": "What difficulties can village residents face?",
+      "promptZh": "乡村居民面临哪些困难？",
+      "tags": [
+        "地点",
+        "活动",
+        "社区",
+        "变化"
+      ],
+      "sourceId": "tw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-rural-youth",
+      "topicId": "sp-community",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "年轻人离开乡村",
+      "promptEn": "Why do young adults move away from villages?",
+      "promptZh": "年轻人为什么离开乡村？",
+      "tags": [
+        "地点",
+        "活动",
+        "社区",
+        "变化"
+      ],
+      "sourceId": "tw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-rural-government",
+      "topicId": "sp-community",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "改善乡村生活",
+      "promptEn": "How could governments improve rural living conditions?",
+      "promptZh": "政府怎样改善乡村生活？",
+      "tags": [
+        "地点",
+        "活动",
+        "社区",
+        "变化"
+      ],
+      "sourceId": "tw-may26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "sp-borrow-items",
+      "topicId": "sp-borrowing",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "经常借什么",
+      "promptEn": "What items do you tend to borrow from others?",
+      "promptZh": "常向别人借什么东西？",
+      "tags": [
+        "物品",
+        "友谊",
+        "经历",
+        "金钱"
+      ],
+      "sourceId": "au-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-lend-belongings",
+      "topicId": "sp-borrowing",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "愿意借给别人吗",
+      "promptEn": "How do you feel about lending your possessions?",
+      "promptZh": "把物品借给别人时有什么感受？",
+      "tags": [
+        "物品",
+        "友谊",
+        "经历",
+        "金钱"
+      ],
+      "sourceId": "au-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-borrow-money",
+      "topicId": "sp-borrowing",
+      "scope": "speaking",
+      "part": "Part 1",
+      "titleZh": "向朋友借钱",
+      "promptEn": "Could borrowing money put a friendship under pressure?",
+      "promptZh": "向朋友借钱会给友谊带来压力吗？",
+      "tags": [
+        "物品",
+        "友谊",
+        "经历",
+        "金钱"
+      ],
+      "sourceId": "au-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-family-business-person",
+      "topicId": "sp-business",
+      "scope": "speaking",
+      "part": "Part 2",
+      "titleZh": "在家庭企业工作的人",
+      "promptEn": "Describe someone you know who works in a family-run business.",
+      "promptZh": "描述认识的在家庭企业工作的人。",
+      "tags": [
+        "人物",
+        "工作",
+        "企业",
+        "挑战"
+      ],
+      "sourceId": "au-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "cuePoints": [
+        "是谁",
+        "企业经营什么",
+        "担任什么角色",
+        "你对此的看法"
+      ],
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-start-business",
+      "topicId": "sp-business",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "创业的困难",
+      "promptEn": "What obstacles do people meet when opening a business?",
+      "promptZh": "创业会遇到什么障碍？",
+      "tags": [
+        "人物",
+        "工作",
+        "企业",
+        "挑战"
+      ],
+      "sourceId": "au-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-business-partner",
+      "topicId": "sp-business",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "独自还是合伙创业",
+      "promptEn": "What trade-offs arise between founding alone and with partners?",
+      "promptZh": "独自创业与合伙各有何取舍？",
+      "tags": [
+        "人物",
+        "工作",
+        "企业",
+        "挑战"
+      ],
+      "sourceId": "au-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "sp-family-large-company",
+      "topicId": "sp-business",
+      "scope": "speaking",
+      "part": "Part 3",
+      "titleZh": "家庭企业与大公司",
+      "promptEn": "How does working in a family firm differ from a large company?",
+      "promptZh": "家庭企业与大公司的工作有何不同？",
+      "tags": [
+        "人物",
+        "工作",
+        "企业",
+        "挑战"
+      ],
+      "sourceId": "au-mar26",
+      "sourceType": "adapted",
+      "basis": "根据考生回忆主题练习性改写；不是官方题干，不保证当前考季出现。",
+      "reportedAt": "2026-03"
+    },
+    {
+      "id": "w2-free-education",
+      "topicId": "w2-education",
+      "scope": "writing-task2",
+      "titleZh": "教育是否由政府免费提供",
+      "promptEn": "Should governments fund education so everybody can study free of charge? Justify your position.",
+      "promptZh": "教育是否应由政府出资并免费向所有人开放？论证立场。",
+      "tags": [
+        "教育",
+        "课程",
+        "公平",
+        "科技"
+      ],
+      "sourceId": "idp-w-topics",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "agree-disagree"
+    },
+    {
+      "id": "w2-future-classroom",
+      "topicId": "w2-education",
+      "scope": "writing-task2",
+      "titleZh": "传统课堂会被取代吗",
+      "promptEn": "Will alternatives replace conventional classrooms by 2050? Explain your opinion.",
+      "promptZh": "到2050年传统课堂是否会被其他教学方式取代？说明观点。",
+      "tags": [
+        "教育",
+        "课程",
+        "公平",
+        "科技"
+      ],
+      "sourceId": "idp-w-topics",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "opinion"
+    },
+    {
+      "id": "w2-children-screens",
+      "topicId": "w2-technology",
+      "scope": "writing-task2",
+      "titleZh": "儿童屏幕活动与心理健康",
+      "promptEn": "Television and games can harm children's mental health. How far do you agree?",
+      "promptZh": "看电视和电子游戏会损害儿童心理健康。说明赞同程度。",
+      "tags": [
+        "科技",
+        "隐私",
+        "信息",
+        "影响"
+      ],
+      "sourceId": "idp-w-topics",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "agree-disagree"
+    },
+    {
+      "id": "w2-uncontrolled-information",
+      "topicId": "w2-technology",
+      "scope": "writing-task2",
+      "titleZh": "自由获取信息是否危险",
+      "promptEn": "Unrestricted digital information threatens society. Evaluate this claim and justify your view.",
+      "promptZh": "自由获取数字信息威胁社会。评价并说明立场。",
+      "tags": [
+        "科技",
+        "隐私",
+        "信息",
+        "影响"
+      ],
+      "sourceId": "idp-w-topics",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "agree-disagree"
+    },
+    {
+      "id": "w2-elderly-exercise",
+      "topicId": "w2-health",
+      "scope": "writing-task2",
+      "titleZh": "老年人缺乏运动",
+      "promptEn": "Why do older adults often exercise too little, and how could this change?",
+      "promptZh": "为什么不少老年人运动不足？如何改善？",
+      "tags": [
+        "健康",
+        "医疗",
+        "政府",
+        "公平"
+      ],
+      "sourceId": "idp-w-topics",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "causes-solutions"
+    },
+    {
+      "id": "w2-healthcare-funding",
+      "topicId": "w2-health",
+      "scope": "writing-task2",
+      "titleZh": "医疗费用谁承担",
+      "promptEn": "Compare government-funded healthcare with private insurance. Discuss both approaches and your opinion.",
+      "promptZh": "讨论政府提供医疗与个人购买保险两种方式并给出观点。",
+      "tags": [
+        "健康",
+        "医疗",
+        "政府",
+        "公平"
+      ],
+      "sourceId": "idp-w-topics",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "discussion"
+    },
+    {
+      "id": "w2-growth-environment",
+      "topicId": "w2-environment",
+      "scope": "writing-task2",
+      "titleZh": "经济增长与环境保护",
+      "promptEn": "Can economic growth coexist with environmental protection? Discuss competing views and your position.",
+      "promptZh": "经济增长与环保能否共存？讨论两种观点并给出立场。",
+      "tags": [
+        "环境",
+        "资源",
+        "污染",
+        "责任"
+      ],
+      "sourceId": "idp-w-topics",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "discussion"
+    },
+    {
+      "id": "w2-water-pollution",
+      "topicId": "w2-environment",
+      "scope": "writing-task2",
+      "titleZh": "水污染的原因与预防",
+      "promptEn": "What causes worsening water pollution, and how can it be prevented?",
+      "promptZh": "水污染加剧有哪些原因？如何预防？",
+      "tags": [
+        "环境",
+        "资源",
+        "污染",
+        "责任"
+      ],
+      "sourceId": "idp-w-topics",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "causes-solutions"
+    },
+    {
+      "id": "w2-remote-work",
+      "topicId": "w2-work",
+      "scope": "writing-task2",
+      "titleZh": "居家办公对企业的价值",
+      "promptEn": "Some consider remote working useful for businesses; others disagree. Discuss both perspectives and your view.",
+      "promptZh": "居家办公是否有利于企业？讨论双方并给出观点。",
+      "tags": [
+        "工作",
+        "职业",
+        "变化",
+        "企业"
+      ],
+      "sourceId": "idp-w-position",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "discussion"
+    },
+    {
+      "id": "w2-migration-families",
+      "topicId": "w2-globalisation",
+      "scope": "writing-task2",
+      "titleZh": "海外工作学习与家庭",
+      "promptEn": "Why are more people studying or working abroad, and how does this affect families?",
+      "promptZh": "为什么越来越多人到海外学习或工作？如何影响家庭？",
+      "tags": [
+        "教育",
+        "工作",
+        "家庭",
+        "全球化"
+      ],
+      "sourceId": "idp-w-position",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "two-part"
+    },
+    {
+      "id": "w2-early-language",
+      "topicId": "w2-education",
+      "scope": "writing-task2",
+      "titleZh": "何时开始学外语",
+      "promptEn": "Should foreign-language learning begin in kindergarten or adolescence? Discuss both positions and your preference.",
+      "promptZh": "外语应从幼儿园还是青少年时期开始学？讨论双方并给出观点。",
+      "tags": [
+        "教育",
+        "课程",
+        "公平",
+        "科技"
+      ],
+      "sourceId": "idp-w-types",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "discussion"
+    },
+    {
+      "id": "w2-rapid-city-growth",
+      "topicId": "w2-transport",
+      "scope": "writing-task2",
+      "titleZh": "快速城市扩张",
+      "promptEn": "Why does rapid urban expansion create traffic problems, and how does this affect commuters?",
+      "promptZh": "城市快速扩张为何带来交通问题？如何影响通勤者？",
+      "tags": [
+        "交通",
+        "城市",
+        "环境",
+        "政府"
+      ],
+      "sourceId": "idp-w-types",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "causes-effects"
+    },
+    {
+      "id": "w2-after-hours-messages",
+      "topicId": "w2-work",
+      "scope": "writing-task2",
+      "titleZh": "下班后的工作消息",
+      "promptEn": "What problems arise from answering work messages after hours, and what could reduce them?",
+      "promptZh": "下班后回复工作消息造成什么问题？如何减轻？",
+      "tags": [
+        "工作",
+        "职业",
+        "变化",
+        "企业"
+      ],
+      "sourceId": "idp-w-types",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "problems-solutions"
+    },
+    {
+      "id": "w2-online-courses",
+      "topicId": "w2-education",
+      "scope": "writing-task2",
+      "titleZh": "在线课程的兴起",
+      "promptEn": "Why are more learners choosing online courses? Is this change beneficial or harmful overall?",
+      "promptZh": "为何更多学生选线上课程？这一变化总体有利还是有弊？",
+      "tags": [
+        "教育",
+        "课程",
+        "公平",
+        "科技"
+      ],
+      "sourceId": "idp-w-types",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "two-part"
+    },
+    {
+      "id": "w2-tobacco-ban",
+      "topicId": "w2-health",
+      "scope": "writing-task2",
+      "titleZh": "政府是否禁售烟草",
+      "promptEn": "Should governments prohibit tobacco products for public health? Explain how far you agree.",
+      "promptZh": "为保护公共健康，政府应否禁售烟草？说明赞同程度。",
+      "tags": [
+        "健康",
+        "医疗",
+        "政府",
+        "公平"
+      ],
+      "sourceId": "idp-w-agree",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "agree-disagree"
+    },
+    {
+      "id": "w2-research-control",
+      "topicId": "w2-technology",
+      "scope": "writing-task2",
+      "titleZh": "科学研究由谁管理",
+      "promptEn": "Should governments control scientific research rather than private firms? Justify your position.",
+      "promptZh": "科学研究应否由政府而非私营企业管理？论证立场。",
+      "tags": [
+        "科技",
+        "隐私",
+        "信息",
+        "影响"
+      ],
+      "sourceId": "idp-w-agree",
+      "sourceType": "adapted",
+      "basis": "由官方备考示例练习性改写，不是考试原文；完整示例见来源。",
+      "taskType": "agree-disagree"
+    },
+    {
+      "id": "w2-frequent-job-change",
+      "topicId": "w2-work",
+      "scope": "writing-task2",
+      "titleZh": "年轻人频繁换工作",
+      "promptEn": "Why do young adults repeatedly change careers? Is this a positive or negative trend?",
+      "promptZh": "年轻人为什么频繁换工作或职业？是积极还是消极趋势？",
+      "tags": [
+        "工作",
+        "职业",
+        "变化",
+        "企业"
+      ],
+      "sourceId": "w-ca-aug25",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "two-part",
+      "reportedAt": "2025-08"
+    },
+    {
+      "id": "w2-career-curriculum",
+      "topicId": "w2-education",
+      "scope": "writing-task2",
+      "titleZh": "学校只教就业相关课程",
+      "promptEn": "Should schools prioritise career subjects and exclude music and sport? Explain how far you agree.",
+      "promptZh": "学校应否只教就业相关课程，舍弃音乐和体育？说明赞同程度。",
+      "tags": [
+        "教育",
+        "课程",
+        "公平",
+        "科技"
+      ],
+      "sourceId": "w-ca-may25",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "agree-disagree",
+      "reportedAt": "2025-05"
+    },
+    {
+      "id": "w2-housing-government",
+      "topicId": "w2-housing",
+      "scope": "writing-task2",
+      "titleZh": "政府能否独自解决住房问题",
+      "promptEn": "Can only governments solve housing shortages? Explain how far you agree.",
+      "promptZh": "是否只有政府能解决住房短缺？说明赞同程度。",
+      "tags": [
+        "住房",
+        "城市",
+        "政府",
+        "公平"
+      ],
+      "sourceId": "w-ca-may26",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-05"
+    },
+    {
+      "id": "w2-free-water",
+      "topicId": "w2-environment",
+      "scope": "writing-task2",
+      "titleZh": "生活用水是否免费",
+      "promptEn": "Clean water is essential, so households should receive it free. How far do you agree?",
+      "promptZh": "清洁水是必需品，因此家庭供水应免费。说明赞同程度。",
+      "tags": [
+        "环境",
+        "资源",
+        "污染",
+        "责任"
+      ],
+      "sourceId": "w-uae-feb26",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "w2-data-held-by-companies",
+      "topicId": "w2-technology",
+      "scope": "writing-task2",
+      "titleZh": "企业持有个人信息",
+      "promptEn": "Do the benefits of internet companies storing personal data outweigh the drawbacks?",
+      "promptZh": "互联网公司储存个人信息的优点是否大于缺点？",
+      "tags": [
+        "科技",
+        "隐私",
+        "信息",
+        "影响"
+      ],
+      "sourceId": "w-au-jan26",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "advantages-outweigh-disadvantages",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "w2-biodiversity-decline",
+      "topicId": "w2-environment",
+      "scope": "writing-task2",
+      "titleZh": "生物多样性下降",
+      "promptEn": "Why is biodiversity declining, and how could these losses be reduced?",
+      "promptZh": "生物多样性为什么下降？如何减少损失？",
+      "tags": [
+        "环境",
+        "资源",
+        "污染",
+        "责任"
+      ],
+      "sourceId": "w-oman-feb26",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "causes-solutions",
+      "reportedAt": "2026-02"
+    },
+    {
+      "id": "w2-study-abroad-balance",
+      "topicId": "w2-globalisation",
+      "scope": "writing-task2",
+      "titleZh": "出国留学的利弊",
+      "promptEn": "Do the advantages of studying in another country outweigh the difficulties?",
+      "promptZh": "到其他国家求学的好处是否超过困难？",
+      "tags": [
+        "教育",
+        "工作",
+        "家庭",
+        "全球化"
+      ],
+      "sourceId": "w-germany-nov25",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "advantages-outweigh-disadvantages",
+      "reportedAt": "2025-11"
+    },
+    {
+      "id": "w2-robots-views",
+      "topicId": "w2-technology",
+      "scope": "writing-task2",
+      "titleZh": "机器人有利还是危险",
+      "promptEn": "Some see robots as vital for development; others see risks. Discuss both perspectives and your opinion.",
+      "promptZh": "机器人对发展很重要还是危险？讨论双方并给出观点。",
+      "tags": [
+        "科技",
+        "隐私",
+        "信息",
+        "影响"
+      ],
+      "sourceId": "w-uae-dec25",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "discussion",
+      "reportedAt": "2025-12"
+    },
+    {
+      "id": "w2-tourists-environment",
+      "topicId": "w2-environment",
+      "scope": "writing-task2",
+      "titleZh": "游客的环保责任",
+      "promptEn": "Tourists should take responsibility for protecting nature. Explain whether you agree.",
+      "promptZh": "游客应承担环保责任。说明是否赞同。",
+      "tags": [
+        "环境",
+        "资源",
+        "污染",
+        "责任"
+      ],
+      "sourceId": "w-saudi-oct25",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "agree-disagree",
+      "reportedAt": "2025-10"
+    },
+    {
+      "id": "w2-electronic-games",
+      "topicId": "w2-technology",
+      "scope": "writing-task2",
+      "titleZh": "电子娱乐对社会的影响",
+      "promptEn": "Portable electronic games can harm individuals and society. Explain the extent of your agreement.",
+      "promptZh": "便携设备上的游戏可能损害个人与社会。说明赞同程度。",
+      "tags": [
+        "科技",
+        "隐私",
+        "信息",
+        "影响"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "adapted",
+      "basis": "根据报道的考生回忆主题练习性改写；不是官方题干，不保证在当前考季出现。",
+      "taskType": "agree-disagree",
+      "reportedAt": "2026-01"
+    },
+    {
+      "id": "w2-free-transport",
+      "topicId": "w2-transport",
+      "scope": "writing-task2",
+      "titleZh": "公共交通免费",
+      "promptEn": "Therefore, public transport should be free for all citizens. To what extent do you agree or disagree?",
+      "promptZh": "为减少城市交通拥堵与污染，公共交通应对所有公民免费。你在多大程度上赞同？",
+      "tags": [
+        "交通",
+        "城市",
+        "环境",
+        "政府"
+      ],
+      "sourceId": "idp-w-position",
+      "sourceType": "official",
+      "basis": "官方文章题干短摘录，原题的城市交通拥堵与污染背景已在中文题意中概述；完整题干见来源。",
+      "taskType": "agree-disagree"
+    },
+    {
+      "id": "w2-arts-education-budget",
+      "topicId": "w2-government",
+      "scope": "writing-task2",
+      "titleZh": "艺术与教育预算",
+      "promptEn": "Should public spending prioritise education over the arts? Discuss both perspectives and give your view.",
+      "promptZh": "公共支出是否应优先教育而非艺术？讨论双方并给出观点。",
+      "tags": [
+        "政府",
+        "资金",
+        "艺术",
+        "教育"
+      ],
+      "sourceId": "ielts-w-format",
+      "sourceType": "adapted",
+      "basis": "Yasy 按官方大作文题型说明自建的练习题；这个具体主题与问法并非官方原题。",
+      "taskType": "discussion"
+    },
+    {
+      "id": "w2-rules-freedom",
+      "topicId": "w2-society",
+      "scope": "writing-task2",
+      "titleZh": "社会规则与个人自由",
+      "promptEn": "Should individual freedom be limited to protect society? Explain the extent of your agreement.",
+      "promptZh": "为保护社会是否应限制个人自由？说明赞同程度。",
+      "tags": [
+        "社会",
+        "法律",
+        "自由",
+        "责任"
+      ],
+      "sourceId": "ielts-w-format",
+      "sourceType": "adapted",
+      "basis": "Yasy 按官方大作文题型说明自建的练习题；这个具体主题与问法并非官方原题。",
+      "taskType": "agree-disagree"
+    },
+    {
+      "id": "w1-population",
+      "topicId": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "城市人口：实际与预测",
+      "promptEn": "Compare actual and forecast populations in the practice table. Report the main differences.",
+      "promptZh": "比较练习表中城市人口实际值和预测值，概述主要差异。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ],
+      "sourceId": "w-ca-aug25",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "bar",
+      "reportedAt": "2025-08",
+      "visual": {
+        "kind": "bar",
+        "title": "自建：城市人口（百万人）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "城市",
+          "2000实际",
+          "2020实际",
+          "2020预测"
+        ],
+        "rows": [
+          [
+            "A",
+            2.1,
+            3.4,
+            3.8
+          ],
+          [
+            "B",
+            3.6,
+            4.0,
+            4.1
+          ],
+          [
+            "C",
+            1.5,
+            2.8,
+            2.3
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-office-plan",
+      "topicId": "w1-maps",
+      "scope": "writing-task1",
+      "titleZh": "办公楼改造",
+      "promptEn": "Describe changes between the current office layout and the proposed plan.",
+      "promptZh": "根据方位表描述办公楼现状与改造方案。",
+      "tags": [
+        "方位",
+        "变化",
+        "比较"
+      ],
+      "sourceId": "w-ca-may25",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "map",
+      "reportedAt": "2025-05",
+      "visual": {
+        "kind": "map",
+        "title": "自建：办公楼布局（北朝上）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "位置",
+          "现在",
+          "计划"
+        ],
+        "rows": [
+          [
+            "西北",
+            "办公室1",
+            "会议室"
+          ],
+          [
+            "东北",
+            "办公室2",
+            "共享办公区"
+          ],
+          [
+            "西南",
+            "仓库",
+            "休息区"
+          ],
+          [
+            "东南",
+            "接待处",
+            "接待处"
+          ],
+          [
+            "中央",
+            "走廊",
+            "走廊"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-residential-water",
+      "topicId": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "家庭用水占比",
+      "promptEn": "Compare purposes of household water use across the two years in the practice data.",
+      "promptZh": "比较两年家庭用水用途的占比。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ],
+      "sourceId": "w-ca-may26",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "pie",
+      "reportedAt": "2026-05",
+      "visual": {
+        "kind": "pie",
+        "title": "自建：家庭用水用途（%）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "用途",
+          "2005",
+          "2025"
+        ],
+        "rows": [
+          [
+            "洗浴",
+            35,
+            40
+          ],
+          [
+            "洗衣",
+            25,
+            20
+          ],
+          [
+            "厨房",
+            20,
+            15
+          ],
+          [
+            "园艺",
+            15,
+            20
+          ],
+          [
+            "其他",
+            5,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-marriage-divorce",
+      "topicId": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "结婚与离婚率",
+      "promptEn": "Summarise marriage and divorce rates in four fictional countries and compare them.",
+      "promptZh": "概述四个虚构国家的结婚与离婚率并比较。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ],
+      "sourceId": "w-uae-feb26",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "bar",
+      "reportedAt": "2026-02",
+      "visual": {
+        "kind": "bar",
+        "title": "自建：2020每千人结婚与离婚数量",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "国家",
+          "结婚",
+          "离婚"
+        ],
+        "rows": [
+          [
+            "A",
+            7.2,
+            2.1
+          ],
+          [
+            "B",
+            5.8,
+            2.8
+          ],
+          [
+            "C",
+            4.3,
+            1.5
+          ],
+          [
+            "D",
+            6.1,
+            3.0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-teacher-pay",
+      "topicId": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "教师薪资对比",
+      "promptEn": "Compare starting and senior teacher salaries in the practice table.",
+      "promptZh": "比较练习表的教师起薪与资深教师薪资。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ],
+      "sourceId": "w-au-jan26",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "table",
+      "reportedAt": "2026-01",
+      "visual": {
+        "kind": "table",
+        "title": "自建：教师年薪（千美元，虚构）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "国家",
+          "起薪",
+          "15年后",
+          "最高薪资"
+        ],
+        "rows": [
+          [
+            "A",
+            30,
+            48,
+            60
+          ],
+          [
+            "B",
+            35,
+            50,
+            55
+          ],
+          [
+            "C",
+            28,
+            42,
+            58
+          ],
+          [
+            "D",
+            40,
+            65,
+            75
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-internet-use",
+      "topicId": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "互联网用途对比",
+      "promptEn": "Compare internet activities of men and women in the practice chart.",
+      "promptZh": "比较练习图中男性与女性的互联网用途。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ],
+      "sourceId": "w-oman-feb26",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "bar",
+      "reportedAt": "2026-02",
+      "visual": {
+        "kind": "bar",
+        "title": "自建：过去一月参与网络活动比例（%）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "活动",
+          "男性",
+          "女性"
+        ],
+        "rows": [
+          [
+            "发邮件",
+            82,
+            86
+          ],
+          [
+            "网购",
+            65,
+            72
+          ],
+          [
+            "看新闻",
+            76,
+            62
+          ],
+          [
+            "游戏",
+            55,
+            36
+          ],
+          [
+            "在线学习",
+            43,
+            48
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-park-changes",
+      "topicId": "w1-maps",
+      "scope": "writing-task1",
+      "titleZh": "公园布局变化",
+      "promptEn": "Describe how the fictional park layout changed between two dates.",
+      "promptZh": "描述虚构公园两个时间点之间的布局变化。",
+      "tags": [
+        "方位",
+        "变化",
+        "比较"
+      ],
+      "sourceId": "w-germany-nov25",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "map",
+      "reportedAt": "2025-11",
+      "visual": {
+        "kind": "map",
+        "title": "自建：公园布局（北朝上）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "位置",
+          "1990",
+          "2025"
+        ],
+        "rows": [
+          [
+            "西北",
+            "花坛",
+            "咖啡馆"
+          ],
+          [
+            "东北",
+            "池塘",
+            "儿童活动区"
+          ],
+          [
+            "西南",
+            "露天舞台",
+            "剧场"
+          ],
+          [
+            "东南",
+            "草地",
+            "水景"
+          ],
+          [
+            "中央",
+            "步道",
+            "步道与座椅"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-recycling-trend",
+      "topicId": "w1-dynamic",
+      "scope": "writing-task1",
+      "titleZh": "垃圾回收率变化",
+      "promptEn": "Report the major trends in recycling rates for three waste materials.",
+      "promptZh": "报告三种垃圾材料回收率的主要趋势。",
+      "tags": [
+        "趋势",
+        "比较",
+        "数据"
+      ],
+      "sourceId": "au-jan26",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "line",
+      "reportedAt": "2026-01",
+      "visual": {
+        "kind": "line",
+        "title": "自建：城市垃圾回收率（%）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "年份",
+          "纸",
+          "玻璃",
+          "塑料"
+        ],
+        "rows": [
+          [
+            2000,
+            30,
+            22,
+            8
+          ],
+          [
+            2005,
+            42,
+            30,
+            12
+          ],
+          [
+            2010,
+            55,
+            45,
+            18
+          ],
+          [
+            2015,
+            62,
+            50,
+            28
+          ],
+          [
+            2020,
+            68,
+            60,
+            35
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-tourist-transport",
+      "topicId": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "游客交通选择",
+      "promptEn": "Compare transport modes used by visitors from four fictional countries.",
+      "promptZh": "比较四个虚构国家游客的交通方式。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ],
+      "sourceId": "w-uae-dec25",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "bar",
+      "reportedAt": "2025-12",
+      "visual": {
+        "kind": "bar",
+        "title": "自建：游客主要交通方式（%）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "国家",
+          "汽车",
+          "公交",
+          "火车"
+        ],
+        "rows": [
+          [
+            "A",
+            50,
+            30,
+            20
+          ],
+          [
+            "B",
+            35,
+            40,
+            25
+          ],
+          [
+            "C",
+            20,
+            45,
+            35
+          ],
+          [
+            "D",
+            60,
+            25,
+            15
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-employment-older",
+      "topicId": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "老年就业比例",
+      "promptEn": "Compare employment percentages for older men and women across two years.",
+      "promptZh": "比较两年男性与女性老年人的就业比例。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ],
+      "sourceId": "w-saudi-oct25",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "bar",
+      "reportedAt": "2025-10",
+      "visual": {
+        "kind": "bar",
+        "title": "自建：60–64岁就业比例（%）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "地区",
+          "2000男性",
+          "2000女性",
+          "2020男性",
+          "2020女性"
+        ],
+        "rows": [
+          [
+            "A",
+            70,
+            35,
+            62,
+            48
+          ],
+          [
+            "B",
+            65,
+            40,
+            55,
+            50
+          ],
+          [
+            "C",
+            80,
+            45,
+            68,
+            57
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-frog-cycle",
+      "topicId": "w1-process",
+      "scope": "writing-task1",
+      "titleZh": "青蛙生命周期",
+      "promptEn": "Summarise the stages of the simplified frog life-cycle exercise.",
+      "promptZh": "概述简化练习中青蛙生命周期的阶段。",
+      "tags": [
+        "流程",
+        "顺序",
+        "被动语态"
+      ],
+      "sourceId": "idp-w-process",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "process",
+      "visual": {
+        "kind": "process",
+        "title": "自建：简化生命周期练习",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "steps": [
+          "水中的卵",
+          "孵化成蝌蚪",
+          "后腿发育",
+          "前腿发育并逐渐吸收尾部",
+          "成蛙",
+          "成蛙产卵，重新开始循环"
+        ]
+      }
+    },
+    {
+      "id": "w1-coffee-process",
+      "topicId": "w1-process",
+      "scope": "writing-task1",
+      "titleZh": "咖啡生产流程",
+      "promptEn": "Describe stages in the fictional coffee-production exercise.",
+      "promptZh": "描述虚构咖啡生产练习流程。",
+      "tags": [
+        "流程",
+        "顺序",
+        "被动语态"
+      ],
+      "sourceId": "idp-w-process",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "process",
+      "visual": {
+        "kind": "process",
+        "title": "自建：咖啡生产流程练习",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "steps": [
+          "采收咖啡果",
+          "去除果皮并清洗",
+          "干燥咖啡豆",
+          "烘焙",
+          "研磨",
+          "密封包装",
+          "运往商店"
+        ]
+      }
+    },
+    {
+      "id": "w1-library-site",
+      "topicId": "w1-maps",
+      "scope": "writing-task1",
+      "titleZh": "图书馆选址",
+      "promptEn": "Compare two proposed library sites using the location table.",
+      "promptZh": "根据位置说明表比较两个图书馆拟建地点。",
+      "tags": [
+        "方位",
+        "变化",
+        "比较"
+      ],
+      "sourceId": "idp-w-maps",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "map",
+      "visual": {
+        "kind": "map",
+        "title": "自建：图书馆拟建地点",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "要素",
+          "S1：北侧",
+          "S2：中心"
+        ],
+        "rows": [
+          [
+            "周边",
+            "住宅区",
+            "商业区"
+          ],
+          [
+            "主路距离",
+            "600米",
+            "50米"
+          ],
+          [
+            "公交",
+            "一条线路",
+            "三条线路"
+          ],
+          [
+            "停车",
+            "60个车位",
+            "15个车位"
+          ],
+          [
+            "学校距离",
+            "200米",
+            "800米"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-energy-trends",
+      "topicId": "w1-dynamic",
+      "scope": "writing-task1",
+      "titleZh": "能源来源变化",
+      "promptEn": "Summarise changes in the three energy sources over the period.",
+      "promptZh": "概述三种能源来源在给定时期的变化。",
+      "tags": [
+        "趋势",
+        "比较",
+        "数据"
+      ],
+      "sourceId": "ielts-w-format",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "line",
+      "visual": {
+        "kind": "line",
+        "title": "自建：城市能源消费（PJ）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "年份",
+          "煤",
+          "天然气",
+          "可再生能源"
+        ],
+        "rows": [
+          [
+            2000,
+            60,
+            20,
+            5
+          ],
+          [
+            2005,
+            55,
+            28,
+            10
+          ],
+          [
+            2010,
+            48,
+            35,
+            18
+          ],
+          [
+            2015,
+            35,
+            42,
+            30
+          ],
+          [
+            2020,
+            25,
+            40,
+            45
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-budget-pies",
+      "topicId": "w1-static",
+      "scope": "writing-task1",
+      "titleZh": "家庭预算占比",
+      "promptEn": "Compare household spending categories in two years of practice data.",
+      "promptZh": "比较两年练习数据中的家庭支出占比。",
+      "tags": [
+        "比较",
+        "占比",
+        "数据"
+      ],
+      "sourceId": "ielts-w-format",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "pie",
+      "visual": {
+        "kind": "pie",
+        "title": "自建：家庭支出（%）",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "类别",
+          "2010",
+          "2025"
+        ],
+        "rows": [
+          [
+            "住房",
+            30,
+            40
+          ],
+          [
+            "饮食",
+            25,
+            20
+          ],
+          [
+            "交通",
+            15,
+            10
+          ],
+          [
+            "教育",
+            10,
+            15
+          ],
+          [
+            "休闲",
+            15,
+            10
+          ],
+          [
+            "其他",
+            5,
+            5
+          ]
+        ]
+      }
+    },
+    {
+      "id": "w1-mixed-transport",
+      "topicId": "w1-dynamic",
+      "scope": "writing-task1",
+      "titleZh": "出行总量与方式",
+      "promptEn": "Report changes in total journeys and the shares of transport modes.",
+      "promptZh": "概述出行总量与方式占比的变化。",
+      "tags": [
+        "趋势",
+        "比较",
+        "数据"
+      ],
+      "sourceId": "ielts-w-format",
+      "sourceType": "adapted",
+      "basis": "按来源公开题型或回忆主题设计的改写练习。来源链接用于查看原样题或报道；所附图表数据与布局全部由 Yasy 自建，不能视作真题数据。",
+      "taskType": "mixed",
+      "visual": {
+        "kind": "table",
+        "title": "自建：每日出行总量及方式占比",
+        "note": "Yasy 自建练习数据/布局（synthetic）：不是官方图表、考试原图或报道重绘图的数据。只根据本处输入描述。",
+        "columns": [
+          "年份",
+          "总出行（千次）",
+          "公交（%）",
+          "汽车（%）",
+          "步行/骑行（%）"
+        ],
+        "rows": [
+          [
+            2000,
+            400,
+            35,
+            45,
+            20
+          ],
+          [
+            2010,
+            520,
+            30,
+            50,
+            20
+          ],
+          [
+            2020,
+            600,
+            40,
+            35,
+            25
+          ]
+        ]
+      }
+    }
+  ]
+}

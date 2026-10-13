@@ -1,0 +1,32 @@
+{
+  "name": "yasy",
+  "version": "0.1.0",
+  "description": "Personal IELTS workbench: real materials and expressive language, local-first.",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc --noEmit && vite build",
+    "start": "node server/index.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "lucide-react": "^1.55.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
