@@ -39,12 +39,14 @@ function validateQuestion(o,job) {
     assert(!v.rows.length || (columns.length>0 && v.rows.every(row=>row.length===columns.length)),'图表列名与每行数据的数量必须一致。');
     visual={kind:v.kind,title:text(v.title,'图表标题',500),columns,rows:v.rows,steps,note:text(v.note ?? '','图表说明',3000,true)};
   }
-  return {scope:o.scope,topicZh:text(o.topicZh,'中文主题',200),topicEn:text(o.topicEn,'英文主题',200),titleZh:text(o.titleZh,'题目标题',300),promptEn:text(o.promptEn,'英文题干',10000),promptZh:text(o.promptZh,'中文题干',10000),part,taskType:text(o.taskType,'题型',200,o.scope==='speaking'),cuePoints:stringList(o.cuePoints,'题卡要点',20),tags:tags(o.tags),sourceNote:text(o.sourceNote,'原文件页码 / 来源说明',3000),sourceType:o.sourceType,visual};
+  if(o.sourcePage!==undefined) assert(Number.isInteger(o.sourcePage) && o.sourcePage>0 && o.sourcePage<=20000,'来源页码无效。');
+  if(o.sourcePages!==undefined) assert(Array.isArray(o.sourcePages) && o.sourcePages.length<=400 && o.sourcePages.every(p=>Number.isInteger(p) && p>0 && p<=20000),'来源跨页范围无效。');
+  return {scope:o.scope,topicZh:text(o.topicZh,'中文主题',200),topicEn:text(o.topicEn,'英文主题',200),titleZh:text(o.titleZh,'题目标题',300),promptEn:text(o.promptEn,'英文题干',10000),promptZh:text(o.promptZh,'中文题干',10000),part,taskType:text(o.taskType,'题型',200,o.scope==='speaking'),cuePoints:stringList(o.cuePoints,'题卡要点',20),tags:tags(o.tags),sourceNote:text(o.sourceNote,'原文件页码 / 来源说明',3000),sourceType:o.sourceType,visual,...(o.sourcePage!==undefined ? {sourcePage:o.sourcePage} : {}),...(o.sourcePages!==undefined ? {sourcePages:[...new Set(o.sourcePages)]} : {})};
 }
 export function previewBatch(store,id,input) {
   const job=store.get('batch_jobs',id);assert(job,'批量任务不存在。',404);assert(job.status!=='completed','本批已经确认入库；可创建新批次。',409);
   const result=parseResult(input.result);assert(result.requestId===job.id,'这份题目列表不属于当前上传任务。',409);
-  assert(Array.isArray(result.questions) && result.questions.length>0 && result.questions.length<=500,'每批需包含 1–500 道题。');
+  assert(Array.isArray(result.questions) && result.questions.length>0 && result.questions.length<=1000,'每批需包含 1–1000 道题。');
   const known=new Set(store.all('questions').map(fingerprint));
   const candidates=result.questions.map((o,i)=>{
     const q=validateQuestion(o,job);const key=`${id}:${i}`;const f=fingerprint(q);const duplicate=known.has(f);known.add(f);return {...q,key,duplicate};
@@ -53,7 +55,7 @@ export function previewBatch(store,id,input) {
   return {job:next,candidates};
 }
 export function commitBatch(store,id,keys) {
-  assert(Array.isArray(keys) && keys.length>0 && keys.length<=500 && keys.every(k=>typeof k==='string'),'请选择希望正式入库的题目。');
+  assert(Array.isArray(keys) && keys.length>0 && keys.length<=1000 && keys.every(k=>typeof k==='string'),'请选择希望正式入库的题目。');
   return store.transaction(()=> {
     const job=store.get('batch_jobs',id);assert(job && job.status==='previewed','请先预览并核对本批题目。',409);
     assert(new Set(keys).size===keys.length && keys.every(k=>job.candidates.some(c=>c.key===k)),'所选题目不属于本批次。');

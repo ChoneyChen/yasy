@@ -1,3 +1,4 @@
+import { approvedConfidence } from './admission-fixture.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
@@ -19,7 +20,7 @@ const question = (id, scope, promptEn = 'Do you enjoy learning English with frie
 });
 const bank = { sources: [source], topics, questions: [question('feature-speaking-1', 'speaking'), question('feature-speaking-2', 'speaking', 'Why do you enjoy sharing experiences?'), question('feature-writing-1', 'writing-task1'), question('feature-writing-2', 'writing-task2', 'Some people prefer learning alone, while others prefer learning with friends. Discuss both views and give your opinion.')] };
 const draftZh = '我喜欢和朋友一起学英语，因为我们可以分享各自真实的经历。我会先写下中文素材，然后练习把这个故事清楚地讲出来，这让我越来越有信心，也帮助朋友更好地了解我的想法。';
-const prose = 'I enjoy learning English with friends because it helps me build confidence. We share real experiences and help each other express ideas clearly.';
+const prose = 'I enjoy learning English with friends because it helps me build confidence. We share real experiences and help each other express ideas clearly every week.';
 const essay = `Learning with friends can help people build confidence, although studying alone also has advantages. In my view, the most useful approach combines focused individual preparation with regular opportunities to discuss ideas with other learners.
 
 Individual study allows learners to work at a pace that suits their needs. A person who finds a topic difficult can spend more time on it without feeling that they are delaying a group. Working alone can also make it easier to concentrate, especially when a task requires careful reading or sustained practice. These benefits explain why independent preparation remains an important part of learning.
@@ -64,7 +65,7 @@ function answerResult(job) {
     requestId: job.id, questionId: job.questionId, scope: job.scope, quality: { passed: true, suggestions: [] },
     answer: { textEn: prose, outlineZh: '直接回答，说明共同学习的收益。', materialSpans: [{ quote: prose, materialIndex: 0 }] },
     materials: [{ title: 'Learning with friends', summaryZh: '和朋友交流真实经历提升表达信心', summaryEn: 'Sharing real experiences with friends builds confidence.', detailZh: draftZh, detailEn: prose, tags: ['learning'] }],
-    expressions: [{ textEn: 'build confidence', meaningZh: '建立信心', category: '情绪态度', categoryEn: 'Feelings and attitudes', exampleEn: 'Practice can help build confidence.', usageNote: '用于描述练习带来的自信。', usageNoteEn: 'Use this collocation for confidence gained through practice.', tags: ['confidence'], materialIndexes: [0] }],
+    expressions: [{ textEn: 'build confidence', meaningZh: '建立信心', category: '情绪态度', categoryEn: 'Feelings and attitudes', exampleEn: 'Practice can help build confidence.', usageNote: '用于描述练习带来的自信。', usageNoteEn: 'Use this collocation for confidence gained through practice.', tags: ['confidence'], materialIndexes: [0], admission: approvedConfidence }],
     recommendations: [],
   };
 }

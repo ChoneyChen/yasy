@@ -7,8 +7,10 @@ import { AppError, assert, checkQuality, uid, now, parseResult, validateResult }
 import { getProvider } from './providers.mjs';
 import { getReviewQueue, recordReview } from './reviews.mjs';
 import { createBatch, previewBatch, commitBatch, batchFile } from './batches.mjs';
+import { generateBatchWithAPI } from './batch-api.mjs';
 import { AIConfig } from './ai-config.mjs';
-import { IIIAPIProvider, generateJob, recoverProcessingJobs } from './iiiapi.mjs';
+import { IIIAPIProvider, generateJob, startGenerateJob, auditCorpus, recoverProcessingJobs } from './iiiapi.mjs';
+import { draftIdea } from './ideas.mjs';
 
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.json':'application/json; charset=utf-8','.woff2':'font/woff2'};
 export function createApp(store,{staticDir=resolve('dist'),aiProvider=new IIIAPIProvider({config:new AIConfig({file:resolve(dirname(store.file),'api-secrets.json')})})}={}) {
@@ -52,16 +54,21 @@ export function createApp(store,{staticDir=resolve('dist'),aiProvider=new IIIAPI
       else if(req.method==='GET' && parts[1]==='ai' && parts[2]==='models') data=await aiProvider.models();
       else if(req.method==='POST' && parts[1]==='ai' && parts[2]==='test') {const models=await aiProvider.models();data={ok:true,model:models.selectedModel,message:`已获取 ${models.models.length} 个模型。本次仅查询列表，未发起内容生成。`};}
       else if(req.method==='GET' && parts[1]==='v1' && parts[2]==='manifest') data={schemaVersion:1,readOnly:true,deviceRole:'full-reader',scopes:['speaking','writing-task1','writing-task2'],endpoints:{snapshot:'/api/v1/snapshot',content:'/api/v1/content/{questionId}'},connectivity:'loopback-only',pairing:'reserved'};
+      else if(req.method==='GET' && parts[1]==='v2' && parts[2]==='manifest') data={schemaVersion:2,readOnly:false,deviceRole:'full-client',apiBase:'/api',platformPolicy:{macProviders:['iiiapi','web-bridge'],iosProviders:['iiiapi']},endpoints:{snapshot:'/api/v1/snapshot',content:'/api/v1/content/{questionId}',draft:'/api/drafts/{questionId}',ideas:'/api/ideas',createJob:'/api/jobs',generate:'/api/jobs/{jobId}/generate',materialHistory:'/api/materials/{materialId}/history',corpusAudit:'/api/corpus/audit',reviews:'/api/reviews',words:'/api/words',batches:'/api/batches',batchGenerate:'/api/batches/{batchId}/generate',batchCommit:'/api/batches/{batchId}/commit',settings:'/api/settings',backup:'/api/backup'},connectivity:'loopback-only',pairing:'reserved'};
       else if(req.method==='GET' && parts[1]==='v1' && parts[2]==='snapshot') data={schemaVersion:1,generatedAt:now(),state:store.state(),answerRevisions:store.all('revisions'),reviews:store.all('review_states'),reviewEvents:store.all('review_events'),batches:store.all('batch_jobs')};
       else if(req.method==='GET' && parts[1]==='v1' && parts[2]==='content' && parts[3]) {
         const question=store.question(parts[3]);const answer=store.all('answers').find(a=>a.questionId===question.id);
         data={schemaVersion:1,question,answer:answer ?? null,draft:store.get('drafts',question.id) ?? null,materials:store.all('materials').filter(m=>answer?.materialIds.includes(m.id)),expressions:store.all('expressions').filter(e=>answer?.expressionIds.includes(e.id)),recommendations:store.recommendations(question.id)};
       }
       else if(req.method==='GET' && parts[1]==='state') data=store.state();
+      else if(req.method==='GET' && parts[1]==='materials' && parts[3]==='history') data=store.materialHistory(parts[2]);
+      else if(req.method==='POST' && parts[1]==='corpus' && parts[2]==='audit') data=await auditCorpus(store,aiProvider,await body());
+      else if(req.method==='POST' && parts[1]==='ideas') data=await draftIdea(store,aiProvider,await body());
       else if(req.method==='GET' && parts[1]==='reviews' && parts[2]==='next') data=getReviewQueue(store,url.searchParams.get('kind') ?? 'speaking');
       else if(req.method==='POST' && parts[1]==='reviews' && !parts[2]) {const input=await body();data=recordReview(store,input.kind,input.id);}
       else if(req.method==='GET' && parts[1]==='batches' && !parts[2]) data={jobs:store.all('batch_jobs')};
       else if(req.method==='POST' && parts[1]==='batches' && !parts[2]) data=await createBatch(store,await body());
+      else if(req.method==='POST' && parts[1]==='batches' && parts[3]==='generate') {await body();data=await generateBatchWithAPI(store,aiProvider,parts[2]);}
       else if(req.method==='POST' && parts[1]==='batches' && parts[3]==='preview') data=previewBatch(store,parts[2],await body());
       else if(req.method==='POST' && parts[1]==='batches' && parts[3]==='commit') data=commitBatch(store,parts[2],(await body()).selectedKeys);
       else if(req.method==='GET' && parts[1]==='batches' && parts[3]==='file') {
@@ -84,19 +91,27 @@ export function createApp(store,{staticDir=resolve('dist'),aiProvider=new IIIAPI
         const selectedMaterials=store.validateMaterials(q,draft.materialIds);
         const candidates=store.candidates(q);
         const id=uid('job');
-        const {prompt}=getProvider(store.settings().provider).prepare({question:q,draftZh:draft.textZh,selectedMaterials,candidates,targetBand:store.settings().targetBand,requestId:id});
-        const job={id,questionId:q.id,scope:q.scope,textZh:draft.textZh,materialIds:draft.materialIds,prompt,status:'pending',createdAt:now(),candidateIds:candidates.map(c=>c.id)};
+        assert(input.client===undefined || input.client==='ios','未知客户端类型。');
+        const provider=input.client==='ios' ? 'iiiapi' : store.settings().provider;
+        const {prompt}=getProvider(provider).prepare({question:q,draftZh:draft.textZh,selectedMaterials,candidates,targetBand:store.settings().targetBand,requestId:id});
+        const job={id,questionId:q.id,scope:q.scope,textZh:draft.textZh,materialIds:draft.materialIds,materialVersions:Object.fromEntries(selectedMaterials.map(m=>[m.id,m.version ?? 1])),selectedMaterialSnapshots:selectedMaterials.map(m=>({...m,version:m.version ?? 1})),targetBand:store.settings().targetBand,contractVersion:2,provider,...(input.client ? {client:input.client} : {}),prompt,status:'pending',createdAt:now(),candidateIds:candidates.map(c=>c.id)};
         store.saveJob(job);data={job,prompt,quality};
       }
-      else if(req.method==='POST' && parts[1]==='jobs' && parts[3]==='generate') {assert(store.settings().provider==='iiiapi','请先切换到 iiiapi API 处理方式。',409);data=await generateJob(store,aiProvider,parts[2]);}
+      else if(req.method==='POST' && parts[1]==='jobs' && parts[3]==='generate') {
+        assert(store.settings().provider==='iiiapi' || store.get('jobs',parts[2])?.client==='ios','请先切换到 iiiapi API 处理方式。',409);
+        const input=await body();
+        if(input.background===true) {data=await startGenerateJob(store,aiProvider,parts[2]);reply(res,202,data);return;}
+        data=await generateJob(store,aiProvider,parts[2]);
+      }
       else if(req.method==='POST' && parts[1]==='jobs' && parts[3]==='result') {
         const input=await body();
         const job=store.assertPendingJob(parts[2]);
+        assert(job.client!=='ios','手机端只使用 API 整理通道。',409);
         const parsed=parseResult(input.result);
         const q=store.question(job.questionId);
         const candidates=(job.candidateIds ?? []).map(id=>store.question(id));
         const validated=validateResult(parsed,job,q,candidates);
-        if(!validated.passed) {store.insert('jobs',{...job,status:'needs-revision'});throw new AppError('AI 认为素材仍需补充；答案尚未保存。',422,{quality:{passed:false,score:0,suggestions:validated.suggestions,checks:[],note:'AI 素材质量反馈，请修改中文素材后重新生成提示词。'}});}
+        if(!validated.passed) {const quality={passed:false,score:0,suggestions:validated.suggestions,checks:[],note:'AI 素材质量反馈，请修改中文素材后重新生成提示词。'};store.insert('jobs',{...job,status:'needs-revision',finishedAt:now(),quality});throw new AppError('AI 认为素材仍需补充；答案尚未保存。',422,{quality});}
         store.importResult(job,validated);data={state:store.state()};
       }
       else if(req.method==='POST' && parts[1]==='words' && !parts[2]) data=store.addWord(await body());

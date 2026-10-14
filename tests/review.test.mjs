@@ -1,3 +1,4 @@
+import { approvedSharing } from './admission-fixture.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer, request } from 'node:http';
@@ -34,9 +35,9 @@ function result(job) {
   return {
     requestId: job.id, questionId: job.questionId, scope: job.scope,
     quality: { passed: true, suggestions: [] },
-    answer: { textEn: 'Yes, I enjoy learning English with my friends because we can share our experiences and help each other express our ideas clearly.', outlineZh: '直接回答，说明原因。', materialSpans:[{quote:'Yes, I enjoy learning English with my friends because we can share our experiences and help each other express our ideas clearly.',materialIndex:0}] },
+    answer: { textEn: 'Yes, I enjoy learning English with my friends because we can share our experiences and help each other express our ideas clearly with growing confidence.', outlineZh: '直接回答，说明原因。', materialSpans:[{quote:'Yes, I enjoy learning English with my friends because we can share our experiences and help each other express our ideas clearly with growing confidence.',materialIndex:0}] },
     materials: [{ title: 'Learning with friends', summaryZh: '通过分享真实经历学习英语', detailZh: draft, summaryEn:'Learning through real experiences.',detailEn:'My friends and I learn English by sharing our experiences.',tags: ['learning'] }],
-    expressions: [{ textEn: 'share our experiences', meaningZh: '分享我们的经历', category: '口语搭配',categoryEn:'Spoken collocation', exampleEn: 'We can share our experiences.', usageNote: '用于交流真实经历。',usageNoteEn:'Use when talking about real experiences.', tags: ['learning'], materialIndexes: [0] }],
+    expressions: [{ textEn: 'share our experiences', meaningZh: '分享我们的经历', category: '口语搭配',categoryEn:'Spoken collocation', exampleEn: 'We can share our experiences.', usageNote: '用于交流真实经历。',usageNoteEn:'Use when talking about real experiences.', tags: ['learning'], materialIndexes: [0], admission: approvedSharing }],
     recommendations: [],
   };
 }
@@ -137,7 +138,7 @@ test('AI output cannot associate more than the three best expressions with one m
   const job = await makeJob();
   const payload = result(job);
   payload.expressions = ['enjoy learning English', 'share our experiences', 'help each other', 'express our ideas clearly'].map(textEn => ({
-    ...payload.expressions[0], textEn, materialIndexes: [0],
+    ...payload.expressions[0], textEn, materialIndexes: [0], admission: approvedSharing,
   }));
   const response = await api(`/api/jobs/${job.id}/result`, { result: payload });
   assert.equal(response.status, 400);

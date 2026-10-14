@@ -1,3 +1,4 @@
+import { approvedConfidence } from './admission-fixture.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
@@ -25,7 +26,7 @@ function output(job, extra = {}) {
     quality: { passed: true, suggestions: [] },
     answer: { textEn: prose, outlineZh: '直接回答—具体经历—感受', materialSpans: [{ quote: prose, materialIndex: 0 }] },
     materials: [{ title: 'Learning with friends', summaryZh: '和朋友练习英语让我更自信', detailZh: draftZh, summaryEn: 'Learning with friends helped me become more confident.', detailEn: prose, tags: ['learning'] }],
-    expressions: [{ textEn: 'build confidence', meaningZh: '建立信心', category: '成长', categoryEn: 'Personal growth', exampleEn: 'Their encouragement helps me build confidence.', usageNote: '用于描述逐步获得信心。', usageNoteEn: 'Use this collocation to describe becoming more confident.', tags: ['learning'], materialIndexes: [0] }],
+    expressions: [{ textEn: 'build confidence', meaningZh: '建立信心', category: '成长', categoryEn: 'Personal growth', exampleEn: 'Their encouragement helps me build confidence.', usageNote: '用于描述逐步获得信心。', usageNoteEn: 'Use this collocation to describe becoming more confident.', tags: ['learning'], materialIndexes: [0], admission: approvedConfidence }],
     recommendations: [], ...extra,
   };
 }
@@ -66,6 +67,7 @@ async function fixture(t, { timeoutMs = 1000, modelTimeoutMs = 1000 } = {}) {
   });
   const mockBase = await listen(mock);
   const provider = new IIIAPIProvider({ config, baseUrl: `${mockBase}/v1`, timeoutMs, modelTimeoutMs });
+  // These tests isolate dispatch/import behavior; real two-step review is covered separately.
   let server = createServer(createApp(store, { aiProvider: provider }));
   let base = await listen(server);
   t.after(async () => { await close(server); await close(mock); for (const timer of timers) clearTimeout(timer); store.close(); rmSync(dir, { recursive: true, force: true }); });
@@ -170,7 +172,7 @@ test('incomplete, malformed or credential-bearing completions never become saved
   const scenarios = [
     { name: 'missing choices', response: () => ({ model: MODEL, choices: [] }), status: 502 },
     { name: 'truncated generation', response: job => completion(output(job), { choices: [{ message: { content: JSON.stringify(output(job)) }, finish_reason: 'length' }] }), status: 502 },
-    { name: 'assistant text is not JSON', response: () => ({ choices: [{ message: { content: 'Here is your answer, without the requested JSON.' }, finish_reason: 'stop' }] }), status: 400 },
+    { name: 'assistant text is not JSON', response: () => ({ choices: [{ message: { content: 'Here is your answer, without the requested JSON.' }, finish_reason: 'stop' }] }), status: 502 },
     { name: 'English answer has wrong value type', response: job => { const value = output(job); value.answer.textEn = 42; return completion(value); }, status: 400 },
     { name: 'credentials inside answer content', response: job => { const value = output(job); value.materials[0].detailEn += SENTINEL; return completion(value); }, status: 502 },
   ];
@@ -310,10 +312,12 @@ test('restoring an unfinished API job makes it immediately retryable without an 
 
 test('API processing retains the full expression corpus while limiting each material to three links', async t => {
   const f = await fixture(t);
-  const phrases = ['I enjoy learning English', 'learning English with friends', 'encouragement', 'build confidence', 'our real experiences', 'explaining my ideas'];
+  const phrases = ['make steady progress', 'constructive feedback', 'build confidence', 'broaden my perspective', 'put things into perspective', 'a sense of achievement'];
+  const reading='My friends help me make steady progress by sharing ideas in a relaxed atmosphere. Their constructive feedback helps me build confidence and broaden my perspective. I have learned to put things into perspective when a mistake feels embarrassing, and regular practice gives me a sense of achievement.';
   f.setHandler(({ res, body, store }) => {
     const job = store.all('jobs').find(job => job.prompt === body.messages[1].content);
     const result = output(job);
+    result.answer.textEn=reading;result.answer.materialSpans=[{quote:reading,materialIndex:0}];result.materials[0].detailEn=reading;
     result.expressions = phrases.map(textEn => ({ ...result.expressions[0], textEn }));
     send(res, completion(result));
   });

@@ -1,64 +1,88 @@
-# Yasy AI 处理、网页桥与结果合同
+# AI 处理、网页桥与结果合同
 
-用户希望“电脑接收中文后，自动通过浏览器使用定制提示词询问 ChatGPT”。Yasy 将业务流程和 AI 连接方式分离：题目、中文素材、质量反馈和结构化结果使用稳定合同；浏览器提交可以逐步自动化，不能让整个学习库依赖一次网页界面操作是否成功。
+Yasy 把题目、真实中文原料、答案、素材与语料的业务合同，与 AI 的连接方式分离。Mac 支持 iiiapi 自动处理和 ChatGPT 手动网页桥；手机未来使用同功能的 API 客户端，UI 不提供网页复制路径。
 
-## 已实现的两种处理方式
+## 两种处理方式
 
-| provider | 能力 | 用户需要做什么 |
+| provider | 工作方式 | 保存方式 |
 | --- | --- | --- |
-| iiiapi | 本地服务查询可用模型并调用对话生成，校验后自动入库 | 配置密钥、选择模型，中文初检通过后点击“一键 AI 整理” |
-| web-bridge | 本机生成同一套专用提示词，用户在 ChatGPT 网页处理后导入 JSON | 复制提示词、在自己登录的网页提交，再复制完整 JSON 回 Yasy |
+| `iiiapi` | 本地后台一次调用完成最终答案与精选积累 | 全部本地校验通过后自动保存 |
+| `web-bridge` · Mac | 复制专用提示词，在自己登录的 ChatGPT 网页手动提交，再带回完整 JSON | 用户预览后导入；经过同一业务校验，不由后端额外调用复核模型 |
 
-iiiapi 生产地址固定为 `https://api.iiiapi.com/v1`，已接入 `GET /models` 与 `POST /chat/completions`。2026-10-13 的真实连接返回 28 个模型，本次本机选用 `claude-sonnet-4-6`；模型数量和权限仍以账号实时列表为准。已在隔离环境完成真实生成、完整正式题库的同域候选推荐调用、JSON 解析与业务校验，没有把验证用答案写入正式学习库。[iiiapi 文档](https://iiiapi.com/docs)
+iiiapi 固定服务地址为 `https://api.iiiapi.com/v1`，使用 `GET /models` 和 `POST /chat/completions`。用户从真实列表选择并保存模型，处理以当前选择为准；新环境需配置自己的密钥与模型。模型数量和权限以实时返回为准。[iiiapi 文档](https://iiiapi.com/docs)
 
-网页桥不需要 API key；iiiapi 使用用户自己的服务密钥。批量 PDF / DOC / DOCX 提取仍走网页附原文件流程，现有 API 生成器只处理题目、中文素材和候选列表，不自动读取上传的文件正文。全自动操控 ChatGPT 消费者网页没有实现。
+网页桥无需 API 密钥，仍为“复制 → 手动提交 → 粘贴 JSON”。Yasy 没有实现全自动操控 ChatGPT 消费者网页。批量文件现在另有 API 文字提取路径，和个人答案处理使用不同提示词与确认流程。
 
-## 配置与密钥边界
-
-在「偏好与数据」切换 provider、保存密钥、刷新模型列表并保存模型。客户端使用以下本机接口：
+## 配置与密钥
 
 | 本机接口 | 行为 |
 | --- | --- |
-| GET /api/ai/config | 返回 provider、服务地址、hasKey、model 和 configured；不返回 apiKey |
-| PATCH /api/ai/config | 保存密钥或模型，或切换 provider；返回脱敏配置状态 |
-| GET /api/ai/models | 向当前固定 iiiapi 服务请求账号的模型列表，返回可选择的模型 ID |
-| POST /api/ai/test | 仅查询模型列表和连接状态，不生成答案 |
-| POST /api/jobs/{jobId}/generate | 对已创建的当前题任务执行 API 整理与校验入库 |
+| `GET /api/ai/config` | provider、服务地址、hasKey、model、configured，不返回 apiKey |
+| `PATCH /api/ai/config` | 保存密钥/模型或切换 provider，返回脱敏状态 |
+| `GET /api/ai/models` | 查询账号可用模型 ID |
+| `POST /api/ai/test` | 仅查模型列表和连接状态，不生成答案 |
 
-密钥与模型配置在 `.local/api-secrets.json`，文件权限 600；写入临时文件后原子替换。浏览器保存后清空密钥输入，后续只显示“已配置”等状态。密钥不进入学习 state、任务提示词、手机快照、Git 或 JSON 学习备份；远端错误信息也会脱敏。换机恢复学习资料后，需要重新配置密钥与模型。
+密钥保存在 `.local/api-secrets.json`，权限 600，原子替换写入。界面保存后清空密钥输入，只显示配置状态。密钥不进入 Git、state、提示词、手机快照或 JSON 学习备份，远端错误脱敏；换机后重新配置。客户端不能将生产服务地址改为任意主机。
 
-使用 iiiapi 时，本地服务向该服务发送当前题目、真实中文草稿、已选素材及同区候选题；数据库和原始文件仍在本机。网页模式由用户提交提示词与附件。两种方式都使用本地结果校验，不能仅凭模型返回了 JSON 就认为它贴题或可信。
+API 答案处理一次发送本题、中文原料、选中素材与同区候选。API 文件导入发送本机读取的文字。网页方式由用户提交提示词或附件。本机存储不意味着 AI 离线，模型认可也不替代本地校验。
 
-## 任务状态、失败与过期保护
+## 中文构思先预览
 
-任务保留输入快照和 requestId。正常 API 流程为 pending → processing → completed；连接、超时、截断或格式/业务校验失败会转为 failed。AI 判断素材不足则进入 needs-revision，用户先补充内容，再创建新任务。网页模式在 pending 任务中等待人工导入。
-
-API 默认生成超时为 180 秒，模型列表查询为 20 秒，计时覆盖正文读取。失败可以手动重试，当前没有自动换模型或无限重试；只有用户草稿与已选素材仍匹配任务快照时，才可重新处理。服务重启或恢复备份时，会将遗留 processing 任务标为 failed，提示上一次处理被中断并允许确认后重试。
-
-每次生成有独立 runId。远端返回后重新检查任务归属、最新草稿、素材选择与题目是否仍活动；新任务替代、草稿修改或题库归档后，旧结果不能落库。没有 await 间隙的最终归属检查和 SQLite 事务使同一生成不会重复导入；失败不会产生半份答案或部分素材。
-
-三套提示词在输入中附结果 JSON Schema，但 iiiapi 当前请求通过普通 Chat Completions 返回 JSON 文本，**没有宣称服务提供 strict Structured Outputs 保证**。本地还需解析、校验和处理拒绝、空正文或输出截断。OpenAI 的官方结构化输出文档可作为后续 provider 的参考，不能替代第三方服务的实际能力验证。[Structured Outputs](https://developers.openai.com/api/docs/guides/structured-outputs)
-
-## 三套提示词
-
-`server/prompts.mjs` 提供无依赖的 `buildPrompt({ question, draftZh, selectedMaterials, candidates, targetBand, requestId })`。它按 question.scope 选择独立正文：
-
-| scope | 独立处理要求 |
-| --- | --- |
-| speaking | 口语二检；按 Part 1/2/3 组织自然英文；真实双语独立素材元及答案片段；口语表达；同区其他题推荐 |
-| writing-task1 | 图表/流程/地图信息二检；Academic 客观报告；含 overview；不创建素材、素材片段或推荐；只积累 Task 1 语料 |
-| writing-task2 | 题型、立场、所有问题覆盖和论据二检；正式论证作文；双语独立论证素材元及答案片段；Task 2 语料与同区推荐 |
-
-三套共享外层结果结构与安全绑定，不共享英语语域和成文方法。中文素材保留用户真实事实，候选题只是推荐目标，Part 2 候选保留完整 cuePoints 以匹配具体限制；不允许模型通过候选题描述补造用户经历。目标分数只是练习难度参数，不是系统给予的考试分数。
-
-## 结果合同
-
-结果必须是一个 JSON 对象，字段为：
+`POST /api/ideas` 接受 `{questionId,textZh}`，调用当前模型返回：
 
 ```json
 {
-  "requestId": "由本地任务生成，须原样回传",
-  "questionId": "当前题目 ID，须原样回传",
+  "questionId": "当前题目 ID",
+  "draftZh": "待用户核对、采纳的中文构思",
+  "origin": "generated",
+  "notes": ["确认真实情况后再使用。"],
+  "requiresConfirmation": true
+}
+```
+
+空白输入为 `generated`：给可修改示例，明确未确认为用户经历，待确认细节有标记。已有中文为 `refined`：保留事实、立场和限定，组织理由和结构，不暗添亲历。Task 1 缺图时只能请求补图，不能构思数据。
+
+中文助写是用户单独点击后的一次独立调用，不会自动触发英文整理；正式答案整理也不会自动调用中文助写。返回值绑定题目、输入 origin 和确认标记，密钥回显、其他题目 ID、截断或不合法内容会被拒绝。此调用**不自动写 Draft、Answer 或素材**；用户预览并采纳之后再编辑、保存草稿。构思与正式答案处理分开，也不进入后台答案任务状态。
+
+## 一次调用与后台任务
+
+1. `POST /api/jobs` 保存题目、中文、选材和版本快照，创建 `pending` 任务；iOS 使用 `client: "ios"` 固定 API provider。
+2. `POST /api/jobs/{jobId}/generate` 发送 `{ "background": true }`。接受后返回 **202**，本地服务继续执行；同一处理中任务再次启动返回 **409**。
+3. 模型只接收一次详细任务，直接输出完整英文答案、双语素材、精选语料、标注及关联推荐。没有第二次审核或自动修订调用，也不自动重试。
+4. 后端检查身份绑定、词数、英文字段、原文引用、素材版本及语料准入合同后事务保存。App 从 `/api/state` 显示结果，用户可离开写别题、切换页面或刷新。
+
+不带 `background: true` 时保留等待完成的兼容方式。202 仅表示接受任务，不表示完成；通知是工作台内状态提示。中文构思与旧语料批量复核各是用户主动触发的一次独立调用，不是每道答案的附加步骤。大型题目文件按实际文字分段提取，属于文件规模处理，不用于反复审核答案。
+
+提示词在一次成稿中落实任务回应、内容展开、连贯、词汇和语法要求：粗略中文不应只被翻译，能合理组织和发展的问题由模型直接完善。先完成答案，再从最终正文提取内聚素材和真正可迁移的表达，允许零语料；不返回待审初稿、内部思维过程或成绩承诺。这是文本学习辅助，不能凭文字评估口语发音。
+
+正常状态为 `pending → processing → completed`。真实内容不足进入 `needs-revision`，连接、超时、截断或格式/业务错误进入 `failed`；失败不保存半份答案或部分素材，只在用户点击后重试。每次运行有 runId，返回后重新检查任务归属、草稿、选材、活动题和素材版本，旧结果不能覆盖新内容。
+
+Mac 服务需保持运行；关闭网页不停止任务，关闭服务会中断。生成默认超时180秒，模型列表20秒。重启或恢复备份将中断的 processing 标为失败，由用户确认重试。
+
+## 三套成文提示词
+
+`server/prompts.mjs` 导出 `buildPrompt`、`buildIdeaPrompt` 与文件提取 `buildBatchPrompt`。答案按照 scope 选择独立处理正文，默认 Academic、目标 Band 7.0。
+
+| scope | 原料如何成为答案 |
+| --- | --- |
+| `speaking` | 从粗略真实想法组织自然可说的回答，按 Part 区分直接问答、长答、抽象讨论；提取双语素材和口语语料 |
+| `writing-task1` | 从可读原图选特征、概括 overview、分组比较；完整客观报告，不创建素材、素材片段或推荐 |
+| `writing-task2` | 从立场与论点回应具体题型，主动发展推理、支撑、限定和衔接；正式作文、独立双语论证素材和写作语料 |
+
+中文是原料，**不逐句机械翻译**。未写成成稿不应自动失败；关键事实不足、题卡对象不符、立场无法判断或矛盾未澄清时请求补充。可以合理解释已有观点，用明确限定的一般性/假设性例子，但不能创造亲历、数字或研究依据。候选题只用于匹配，不提供用户事实。
+
+口语练习建议为 P1 35–80、P2 170–260、P3 70–130 词，follow-up 20–50 词，均非官方词数门槛；纯文字不评发音。[官方口语格式](https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-speaking)
+
+Academic Task 1 至少 150 词、Task 2 至少 250 词；建议分别 160–210、260–320 词，均为完整英文正文。[官方写作格式](https://ielts.org/take-a-test/test-types/ielts-academic-test/ielts-academic-format-writing) · [完整产品方法](product-design.md#三套独立处理方法)
+
+## 答案结果合同
+
+所有 provider 共用 `{requestId,questionId,scope,quality,answer,materials,expressions,recommendations}`。以下仅为结构示意，不是达到练习长度的完整答案：
+
+```json
+{
+  "requestId": "本地任务 ID 原样回传",
+  "questionId": "本题 ID 原样回传",
   "scope": "speaking",
   "quality": { "passed": true, "suggestions": [] },
   "answer": {
@@ -66,58 +90,103 @@ API 默认生成超时为 180 秒，模型列表查询为 20 秒，计时覆盖�
     "outlineZh": "中文答题结构",
     "materialSpans": [{ "quote": "The experience helped me build confidence.", "materialIndex": 0 }]
   },
-  "materials": [
-    { "title": "Learning with friends", "summaryZh": "核心事实摘要", "summaryEn": "Fact-equivalent English summary", "detailZh": "独立完整的中文细节", "detailEn": "Complete, fact-equivalent English detail", "tags": ["learning"] }
-  ],
-  "expressions": [
-    { "textEn": "build confidence", "meaningZh": "建立信心", "category": "情绪态度", "categoryEn": "Feelings and attitudes", "exampleEn": "Practice can help build confidence.", "usageNote": "中文用法边界", "usageNoteEn": "Use this collocation to describe becoming more confident through experience or practice.", "tags": ["confidence"], "materialIndexes": [0] }
-  ],
-  "recommendations": [
-    { "materialIndex": 0, "questionId": "本次候选题之一", "reason": "可复用的具体事实及需要补充的维度", "score": 0.8 }
-  ]
+  "materials": [{
+    "title": "Learning with friends",
+    "summaryZh": "核心事实摘要",
+    "summaryEn": "Fact-equivalent English summary",
+    "detailZh": "独立完整的真实中文细节",
+    "detailEn": "Complete, fact-equivalent English detail",
+    "tags": ["learning"]
+  }],
+  "expressions": [{
+    "textEn": "build confidence",
+    "meaningZh": "建立信心",
+    "category": "成长",
+    "categoryEn": "Personal growth",
+    "exampleEn": "Practice can help build confidence.",
+    "usageNote": "描述练习带来的信心增长。",
+    "usageNoteEn": "Use this collocation for confidence gained through practice.",
+    "admission": {
+      "approved": true,
+      "reasonZh": "自然动词名词搭配，可迁移到学习与成长。",
+      "reasonEn": "This natural verb-noun collocation describes confidence gained through practice across learning contexts.",
+      "benefit": "collocation",
+      "transferExampleEn": "Regular public speaking can help build confidence."
+    },
+    "tags": ["confidence"],
+    "materialIndexes": [0]
+  }],
+  "recommendations": [{
+    "materialIndex": 0,
+    "questionId": "本次同区候选题 ID",
+    "reason": "具体可复用内容及仍需补充的条件",
+    "score": 0.8
+  }]
 }
 ```
 
-以上为结构示意，不是符合雅思练习长度的完整答案。`server/prompts.mjs` 导出 `resultSchema`。材料默认是新素材；若用户所选的已有素材在 title、summaryZh、summaryEn、detailZh、detailEn、tags 上完全未改，可添加 `existingMaterialId` 复用其本地 ID。Schema 使用 materials.items 的两种 `anyOf` 对象表示“新建”与“已有”，每种均禁止额外字段并声明全部字段必填，避免未来 strict schema 把可选字段误当不支持的结构。新素材 ID 由 Yasy 生成，不由模型生成。
+Schema 中新素材与复用素材是两种完整对象，复用对象增加 `existingMaterialId`。新 ID 由本机创建，模型只可引用本次选中的已有 ID。英文标题和 tags、双语摘要/细节完整必填，不能把中文直接复制到 En 字段。
 
-表达的 materialIndexes、推荐的 materialIndex 是本次结果数组的索引，而不是数据库 ID。导入器将有效索引映射到落库素材。这个设计使第一次处理从零创建素材时，也能建立稳定关系。
+`materialIndex` / `materialIndexes` 是本次数组索引，导入后映射到稳定本地 ID。素材片段 quote 必须是最终答案唯一出现的精确连续原文；本地转换成 UTF-16 start/end（0 起点、end 不包含）。不让模型数字符，也不向答案插 HTML。
 
-`answer.materialSpans` 在模型输出中使用 `{quote,materialIndex}`，quote 是最终答案的精确连续原文。模型不负责数 UTF-16 字符；本地验证 quote 出现的位置并转换成 `{start,end,materialIndex}` 或映射后的素材 ID，start 从 0 开始、end 不包含。quote 必须在最终答案中唯一出现；重复短句会被拒绝，需改用能唯一定位的完整句子或更长片段。语料高光和素材颜色分别渲染，不向原始答案插入 HTML 或颜色标签。Task 1 与质量失败的 materialSpans 必须为空数组。
+答案与语料正文、分类、用法和例句以英语显示，中文辅助字段保留；素材中英事实必须等值。Task 1 的 materials、recommendations、materialSpans 和表达 materialIndexes 为空。
 
-summaryZh/summaryEn、detailZh/detailEn 的中英内容必须事实等值。素材 title 与素材/表达 tags 使用英语，不新增 titleZh；中文含义保留在双语素材中。categoryEn 与 usageNoteEn 直接服务于英语语料界面；中文分类、释义和说明只保留为 metadata，不在语料区混合显示。字段迁移不能通过直接复制中文到带 En 后缀的字段伪装为英语；旧数据缺少英语时应明确待补，或经过同区提示词重新补全。
+## 素材更新与旧答案保护
 
-## 必须在导入器落实的业务校验
+同一核心可补入用户提供的新细节或改善组织方式，返回 `existingMaterialId` 更新原素材。ID 保持稳定，变化时 `version` 递增，旧内容存入 `material_revisions`；未变内容不增版本。新增独立核心才新建素材，不能为复用 ID 改写成另一段经历。
 
-JSON Schema 只验证形状；以下规则必须额外落实，不能依赖模型答应遵守：
+任务创建时保存 `materialVersions` 和 `selectedMaterialSnapshots`。导入检查其基准版本仍是当前版本；并发任务先更新后，晚结果返回 409，并回滚整笔保存，不覆盖事实。查询 `GET /api/materials/{materialId}/history` 得到当前素材与降序历史快照。
 
-- requestId、questionId 和 scope 必须与任务快照逐字相同。网页导入检查 pending；API 先检查 processing 的 runId 归属，再交给同一正式导入器；未知或过期结果不能落库。
-- 提示词要求 quality.passed=false 时答案与积累为空；本地收到失败判定只保存质量反馈，不写答案、素材或语料。通过时英文答案必须非空。
-- existingMaterialId 必须来自本次任务选择的同区素材；复用内容必须与已有素材一致。未知、未选择、跨区或内容改变却复用旧 ID 的结果应拒绝。
-- 所有材料索引必须是合法非负整数，并在本次 materials 长度范围内。推荐题 ID 必须存在于本次同区候选集合；不可指向当前题或其他 scope。
-- 每个 materialSpans.quote 必须是最终英文答案实际出现的连续原文，不接受模型估算的位置；映射后的字符范围必须有效、不越界、不相互冲突，同一片段只有一个素材归属。
-- 推荐 score 必须是大于 0、且不超过 1 的有限数值。关系去重；每个素材元每次最多推荐 3 道题，并关联最相关的 3 条表达。API 会保留所有表达、仅截取前 3 条素材关系；网页导入的超量关系需修正后再导入。
-- expression.textEn 应与 answer.textEn 的连续原文一致，才能成为准确高光。表达保留本题 scope，禁止跨库写入。
-- writing-task1 的 materials、recommendations 与 answer.materialSpans 必须为空，每条 expression.materialIndexes 必须为空；Task 1/2 英文答案分别达到最低词数，未达要求时返回清晰错误供重试。
-- 一个任务成功导入不能再次重复落库。更新同题答案保持当前答案唯一性，并避免旧请求覆盖后来已经处理的新结果。
+答案保留 `materialVersions` 与 `materialSnapshots`。素材后续更新不会改掉过去答案的事实依据；同题再整理更新唯一当前答案，旧答案留在 revisions。阅读详情优先使用答案快照，不能以最新素材替换旧答案的生成时内容。版本历史与答案快照进入 JSON 学习备份。
 
-保存结果宜在同一 SQLite 事务中完成：先验证全部内容，再写答案、素材、语料、关联和任务状态。校验失败不应产生部分素材或半份答案。用户中文事实是否准确仍依赖输入及其复核；模型相关度是推荐提示，不应描述为事实概率。
+## 语料准入
 
-## 用户题库文件批次
+每条新候选包含 `admission`：模型明确是否值得收录、双语理由、benefit 与迁移例句。benefit 仅为 `collocation`、`idiomatic`、`precision`、`structure`、`discourse`。
 
-`buildBatchPrompt({requestId,filename,scope})` 为附件提取提供另一套独立提示词，不与生成个人答案混用。scope 可以为三种学习域之一，或 `all`（默认）。用户在 ChatGPT 网页手动上传原文件，模型只处理实际可读附件；Yasy 本机当前只创建文件任务、提示词和结果导入流程，不自动抽取 PDF/Office 正文。
+`server/corpus.mjs` 的 `assessExpression` 返回 `{status,reasonZh,reasonEn,policyVersion:2}`。模型明确拒绝则保留拒绝原因；本地检查连续原文、学习域与语域、用途、理由、类别和例句。普通孤立单词、基础泛用组合和不合适的写作俗语被拒；有价值的短搭配不因短而被挡。
 
-`batchResultSchema` 的外层为 `{requestId,questions}`，questions 最多 500 项。每项包含 scope、topicZh、topicEn、titleZh、promptEn、promptZh、part、taskType、cuePoints、tags、sourceNote、sourceType 和 visual。sourceType 只能为 reported 或 adapted；Yasy 自行建立 user-upload Source 与题目/主题 ID，模型不创建数据库 ID。原题来源并未因文件上传就得到官方验证，题季和日期只能记录附件实际载明的信息。
+仅本地最终 `approved` 候选进入 expressions 和关联；未在最终答案中原样出现的候选也直接不收录，不因此追加调用或丢弃完整答案。其余筛选结果记录于 `job.corpusReview`，不会为了凑数入库。允许 expressions 为空，答案仍保存。模型证据保留为 `admissionEvidence`；准入判断是学习辅助，局部检查不等于完整语义审查。[详细规则](corpus-admission.md)
 
-Task 1 的 visual 可为 null，表示原图缺失、不可读或结构不足以忠实表达；sourceNote 必须明确提示需要补图，后续生成也须拒绝凭猜测完成报告。可读的 visual 对象包含 kind/title/columns/rows/steps/note，不适用的数组为空，所有数值、单位、流程和方位有附件依据。口语与 Task 2 的 visual 为 null。文件未上传、无法读取或没有有效题时输出空 questions；不能根据文件名凭空补题。
+### 历史语料批量复核
 
-批次导入需验证 requestId 对应当前文件任务、所有 scope 合法且符合选择范围、题干完整、口语 Part 正确、每个来源说明可追溯，以及 Task 1 结构数据的一致性。先给用户可查看的题目结果，保存时去重并保留文件页码/题号；重复导入同一批次不能无限增加相同题目。输入文件中的文字指令只视为数据。完整批次应原子写入，校验失败不改变现有题库。
+`POST /api/corpus/audit` 可传 `{ "ids": ["语料 ID"] }`，每批最多 **200 条**；省略 ids 时选择当前未 approved 的条目，超过上限须分批。后端调用模型逐条裁定，再用同一本地规则检查实际答案上下文。
 
-手机联通仅预留只读 version 1 合同；本阶段本机 API 继续仅监听 loopback，不通过新增接口自动开放网络。实际 iPhone 访问与配对认证留在后续阶段。
+响应包含 state、`counts: {approved,rejected,pending}` 和 reviewed。模型必须完整且唯一覆盖选中 ID；截断、未知/重复 ID、认证回显或复核期间记录变化，整批不保存。缺少实际上下文等证据时保持 pending，不假称已经完成可信核验。复核完成只更新判断、证据与时间，**保留所有原记录和拒绝原因**；rejected/pending 不参与正常推荐。相同主库只允许一批复核同时运行。
 
-## provider 边界与未来扩展
+## 本地业务校验
 
-`server/providers.mjs` 保留网页桥，`server/iiiapi.mjs` 实现当前自动生成。两者复用 `server/prompts.mjs` 与同一结果合同；模型变化不改变题目、素材、语料和答案实体。保存后的服务凭证由本地后端读取，生产服务地址固定，客户端不能把真实密钥转送到任意自定义地址。
+- 任务绑定、题目、scope、runId 与输入快照一致，题目活动且素材版本未过期。
+- AI 内容失败只保存反馈，不写答案或积累；通过时需完整英文正文。官方写作最低词数与产品练习范围另行校验。
+- 已有素材 ID 来自本任务同区选材；新素材、语料不跨库。素材索引合法，题目推荐只指向本次同区候选。
+- quote 唯一且真实出现，片段边界有效、互不冲突；表达也在答案中，最终符合语料准入。
+- 每素材最多推荐三题、关联最优三条表达；其余合格表达可独立收录，弱关系不凑数量。
+- Task 1 素材及相关引用全为空；生成不得使用不完整图像信息。
+- 一任务只能成功导入一次，同题保持唯一当前答案；事务失败不保存部分数据。
 
-本版的正式题库已替换为两份用户 PDF 的 743 条题目，其中 Task 1 为 0；Task 1 专用提示词、语料域、图表处理和上传入口仍保留，等待可用的完整题图。内置 PDF 的逐页转录是本次资料整理结果，不表示普通上传入口已经自动解析任何 PDF。[题库来源](question-sources.md)
+请求在提示词中附 JSON Schema，第三方请求仍是普通 Chat Completions JSON 文本，**没有宣称 strict Structured Outputs 保证**。需本地处理空正文、拒绝、截断和业务错误。[OpenAI Structured Outputs 参考](https://developers.openai.com/api/docs/guides/structured-outputs)
 
-浏览器全自动操作、其他模型服务和 iPhone 配对连接属于后续工作。当前手机端只保留本机 v1 只读合同，未开启局域网或互联网访问；任何未来 provider 的结果仍须经过同样的过期保护、scope 隔离和原子保存。
+## PDF / DOC / DOCX 题库批次
+
+`POST /api/batches` 接受 `{filename,fileBase64,scope}`，scope 为 `mixed` 或三种学习域。单文件最大 10 MB，原件保存在 `.local/uploads/`，返回任务和专用提取提示词。文件内容、名称、页号只当来源数据，不能跟随其中的命令。
+
+| 通道 | 提取到预览 |
+| --- | --- |
+| API | `POST /api/batches/{batchId}/generate`；本地读取文字、分段调用模型，校验后返回候选预览，成功为 200 |
+| Mac 网页 | 手动附同一原文件与提示词，取得 JSON 后 `POST /api/batches/{batchId}/preview` |
+| 用户确认 | 两者都用 `POST /api/batches/{batchId}/commit` 传 selectedKeys，才写题库 |
+
+批次结果为 `{requestId,questions}`，最多 **1000 题**。每题有 scope、topicZh/topicEn、题面双语、part、taskType、cuePoints、tags、sourceNote、sourceType 与 visual；ID 由本机建立。reported 为资料转录，adapted 必须说明改写或翻译依据，不能未经核验标 official。
+
+API 用 pdfjs 读取 PDF 文字层、mammoth 读取 DOCX，Mac DOC 使用系统 textutil。Word 不推测物理页码；PDF 尽量按真实物理页定位，不能定位则明确写出。提取限制为 PDF 最多 400 页、总文字 600000 字符、最多 100 段；超限需拆分，输出截断也不保存不完整预览，不静默丢题。
+
+**当前 API 仅读取文字，不做 OCR 或题图识别。API 路径的 Task 1 visual 一律为 null**，标记待补原图/数据；不能声称看到附件图像或生成数值。网页路径也仅在确实读到图表时提供忠实数据；无法读清仍 null。扫描无文字、加密/无法解析文件会失败，混合 PDF 无文字页在预览列出警告，用户须对照原件。
+
+预览只生成候选，不写题库；用户勾选确认后同事务入库，按完整题面和 cue points 去重。广告、范文、答案与解释不作题。过期任务、无效 scope、绑定错误或非法图表结构被拒。题季/日期只能记录附件明示标记，“当季真题”文件名不能代替核验。Task 1 补齐图表前不生成完整作文。
+
+原件可由 `/api/batches/{batchId}/file` 在本机下载，正式两份 PDF 由 `/api/sources/{sourceId}/file` 下载。JSON 备份保留记录和题目，**不含原文件**；须单独备份 `.local/uploads/`、`.local/source-pdfs/`。
+
+## 平台与扩展
+
+正式活动题库为用户资料的 743 条（Task 1 为 0）。后续 API 自动导入的覆盖程度仍需用户预览核对，不能等同于正式 PDF 的本次逐页审计。[题库来源](question-sources.md)
+
+Mac 两个 provider 保留，iOS 固定 API，不允许人工结果导入。`GET /api/v2/manifest` 声明 full-client 与共用读写路径，v1 只读合同继续保留；当前仍 loopback-only，认证、配对、实际跨设备连接与同步未上线。[手机合同](mobile-api.md)

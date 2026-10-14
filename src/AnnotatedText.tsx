@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { isApprovedExpression } from './backgroundJobs.mjs';
 import type { Answer, Expression, Material, Scope } from './types';
 
 export function AnnotatedText({ text, answer, materials = [], expressions = [], scope, questionId, onMaterial, onExpression }: { text: string; answer?: Answer; materials?: Material[]; expressions?: Expression[]; scope: Scope; questionId?: string; onMaterial?: (material: Material) => void; onExpression?: (expression: Expression) => void }) {
@@ -9,7 +10,7 @@ export function AnnotatedText({ text, answer, materials = [], expressions = [], 
       if (material && span.start >= 0 && span.end <= text.length && span.start < span.end) ranges.push({ start: span.start, end: span.end, material, color: Math.max(0, answer!.materialIds.indexOf(material.id)) % 3 });
     }
     for (const expression of expressions) {
-      if (!expression.textEn) continue;
+      if (!isApprovedExpression(expression) || !expression.textEn) continue;
       const escaped = expression.textEn.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const regex = new RegExp(escaped, 'gi');
       for (const match of text.matchAll(regex)) {
