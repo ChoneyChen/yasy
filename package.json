@@ -7,7 +7,11 @@
     "build": "tsc --noEmit && vite build",
     "start": "node server/index.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit",
+    "ios:check": "node scripts/check-ios-env.mjs",
+    "ios:test": "node scripts/test-ios-security.mjs",
+    "ios:build": "npm run ios:prepare && xcodebuild -project ios/Yasy.xcodeproj -scheme Yasy -configuration Debug -destination 'generic/platform=iOS Simulator' -derivedDataPath .local/ios-build CODE_SIGNING_ALLOWED=NO build",
+    "ios:prepare": "node scripts/prepare-ios.mjs"
   },
   "keywords": [],
   "author": "",
@@ -17,13 +21,17 @@
     "lucide-react": "^1.55.0",
     "mammoth": "^1.13.0",
     "pdfjs-dist": "^6.4.299",
+    "qrcode": "^1.5.4",
     "react": "^19.3.0",
-    "react-dom": "^19.3.0"
+    "react-dom": "^19.3.0",
+    "sql.js": "^1.15.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.5",
+    "@types/qrcode": "^1.5.6",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "@types/sql.js": "^1.4.11",
     "typescript": "^7.0.2",
     "vite": "^8.3.4"
   },

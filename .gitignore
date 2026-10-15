@@ -11,3 +11,5 @@ dist/
 coverage/
 test-results/
 *.log
+**/xcuserdata/
+*.xcuserstate

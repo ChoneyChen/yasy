@@ -863,3 +863,41 @@ body { font-size: 15px; }
 .batch-import-warnings ul { padding-left: 18px; font-size: 14px; line-height: 1.9; margin-bottom: 0; }
 .batch-file-progress { font-size: 13px; color: #637d4d; line-height: 1.8; }
 @media (max-width: 760px) { .ideas-assist-row > .button { margin-left: auto; } .ideas-draft-preview { padding: 18px; font-size: 16px; } .answer-review-summary { font-size: 12px; } .answer-review-summary > details { font-size: 12px; } }
+
+/* Today is a focused entry into one-question practice. */
+.today-choices { max-width: 930px; margin: clamp(35px, 10vh, 120px) auto 35px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px; }
+.today-choice { text-align: left; border: 1px solid #dfe6d6; border-radius: 15px; background: #fffefa; padding: 35px; display: flex; align-items: flex-start; gap: 22px; min-height: 205px; position: relative; transition: border-color .18s, transform .18s, box-shadow .18s; }
+.today-choice:hover:not(:disabled) { transform: translateY(-3px); border-color: #a7c194; box-shadow: 0 8px 25px #334f2110; }
+.today-choice-icon { width: 63px; height: 63px; border-radius: 15px; display: grid; place-items: center; background: #eef3e3; color: #65834c; flex-shrink: 0; }
+.writing-choice .today-choice-icon { background: #f8eddf; color: #b28a5b; }
+.today-choice > div { padding-top: 9px; min-width: 0; }
+.today-choice h1 { font-size: 26px; color: #385733; letter-spacing: -.5px; font-weight: 500; }
+.today-choice p { margin-top: 15px; font-size: 15px; color: #66765b; line-height: 1.9; max-width: 240px; }
+.today-choice > svg { position: absolute; right: 29px; bottom: 28px; color: #7b9367; }
+.workspace-top-actions { display: flex; align-items: center; justify-content: flex-end; gap: 20px; flex-wrap: wrap; }
+.practice-empty-shell { max-width: 860px; margin: 0 auto; }
+.practice-empty-card { margin-top: 28px; min-height: 310px; padding: 60px 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.practice-empty-card > .spin { color: #6d8955; }
+.practice-empty-icon { color: #7a935f; background: #f0f5e5; width: 75px; height: 75px; border-radius: 50%; display: grid; place-items: center; }
+.practice-empty-card h2 { font-size: 24px; color: #3e5f33; margin-top: 26px; font-weight: 500; }
+.practice-empty-card p { max-width: 440px; margin-top: 16px; color: #667a54; line-height: 1.9; font-size: 15px; }
+.practice-empty-actions { display: flex; justify-content: center; gap: 13px; flex-wrap: wrap; margin-top: 32px; }
+@media (max-width: 1100px) { .today-choice { padding: 29px; gap: 17px; } .today-choice-icon { width: 54px; height: 54px; } .today-choice h1 { font-size: 24px; } .today-choice p { font-size: 14px; } }
+@media (max-width: 760px) { .today-choices { grid-template-columns: 1fr; max-width: 530px; gap: 18px; margin: 30px auto; } .today-choice { min-height: 165px; padding: 27px; align-items: center; } .today-choice > div { padding-top: 0; } .today-choice p { max-width: 240px; margin-top: 8px; } .today-choice > svg { right: 24px; bottom: 24px; width: 19px; } .workspace-top { align-items: flex-start; gap: 15px; } .workspace-top-actions { gap: 10px; } .practice-empty-card { padding: 38px 23px; min-height: 280px; } .practice-empty-card h2 { font-size: 22px; } .practice-empty-card p { font-size: 14px; } }
+@media (max-width: 420px) { .today-choice { gap: 18px; padding: 23px; } .today-choice h1 { font-size: 23px; } .today-choice p { max-width: 190px; font-size: 13px; } .workspace-top { flex-wrap: wrap; } .workspace-top-actions { margin-left: auto; } }
+
+/* Mac controls for the opt-in, authenticated iPhone connection. */
+.mobile-connection-card > p { color: #46584e; line-height: 1.8; margin-bottom: 20px; }
+.mobile-connection-status { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 22px; }
+.mobile-pairing-content { display: grid; grid-template-columns: 240px 1fr; align-items: center; gap: 24px; margin: 20px 0; }
+.mobile-pairing-qr { width: 240px; height: 240px; border: 1px solid #dbe2d8; border-radius: 12px; }
+.mobile-pairing-code { letter-spacing: .12em; font-variant-numeric: tabular-nums; color: #254c3a; }
+.mobile-pairing-link { grid-column: 1 / -1; width: 100%; font-size: 12px; color: #44574b; padding: 12px; background: #f7f8f3; border: 1px solid #dce2d7; border-radius: 8px; }
+.mobile-paired-devices { margin-top: 28px; padding-top: 22px; border-top: 1px solid #e3e7df; }
+.mobile-paired-devices h3 { margin-bottom: 12px; }
+.mobile-paired-devices > div, .mobile-paired-devices span { display: flex; align-items: center; gap: 9px; }
+.mobile-paired-devices > div { justify-content: space-between; padding: 10px 0; }
+@media (max-width: 760px) { .mobile-pairing-content { grid-template-columns: 1fr; } .mobile-pairing-qr { justify-self: center; } }
+[data-word-scope] { -webkit-touch-callout: none; }
+
+/* Native WKWebView content overrides live in ios.css, imported after this file. */

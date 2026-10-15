@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000000000000000000000132 /* dist in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000131 /* dist */; };
+		0000000000000000000000E1 /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 0000000000000000000000E0 /* AppIcon.icon */; };
+		000000000000000000000052 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000051 /* PrivacyInfo.xcprivacy */; };
+		0000000000000000000000C8 /* ConnectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000064 /* ConnectionModel.swift */; };
+		0000000000000000000000C9 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000065 /* ConnectionView.swift */; };
+		0000000000000000000000CA /* MobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000066 /* MobileClient.swift */; };
+		0000000000000000000000CB /* PairingSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000067 /* PairingSecurity.swift */; };
+		0000000000000000000000CC /* QRScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000068 /* QRScanner.swift */; };
+		0000000000000000000000CD /* YasyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000069 /* YasyApp.swift */; };
+		0000000000000000000000CE /* YasyWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00000000000000000000006A /* YasyWebView.swift */; };
+		000000000000000000000120 /* LocalPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000110 /* LocalPersistence.swift */; };
+		000000000000000000000121 /* NativeAI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000111 /* NativeAI.swift */; };
+		000000000000000000000122 /* NativeFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000112 /* NativeFiles.swift */; };
+		000000000000000000000123 /* NativeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000113 /* NativeServices.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		000000000000000000000131 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = ../dist; sourceTree = SOURCE_ROOT; };
+		0000000000000000000000E0 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.icon; path = AppIcon.icon; sourceTree = "<group>"; };
+		000000000000000000000009 /* Yasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000000000000000000000050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		000000000000000000000051 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		000000000000000000000064 /* ConnectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionModel.swift; sourceTree = "<group>"; };
+		000000000000000000000065 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		000000000000000000000066 /* MobileClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileClient.swift; sourceTree = "<group>"; };
+		000000000000000000000067 /* PairingSecurity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingSecurity.swift; sourceTree = "<group>"; };
+		000000000000000000000068 /* QRScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanner.swift; sourceTree = "<group>"; };
+		000000000000000000000069 /* YasyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasyApp.swift; sourceTree = "<group>"; };
+		00000000000000000000006A /* YasyWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YasyWebView.swift; sourceTree = "<group>"; };
+		000000000000000000000110 /* LocalPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPersistence.swift; sourceTree = "<group>"; };
+		000000000000000000000111 /* NativeAI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAI.swift; sourceTree = "<group>"; };
+		000000000000000000000112 /* NativeFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeFiles.swift; sourceTree = "<group>"; };
+		000000000000000000000113 /* NativeServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeServices.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		000000000000000000000007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000000000000000000000003 = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000004 /* Yasy */,
+				000000000000000000000131 /* dist */,
+				000000000000000000000005 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		000000000000000000000004 /* Yasy */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000064 /* ConnectionModel.swift */,
+				000000000000000000000065 /* ConnectionView.swift */,
+				000000000000000000000066 /* MobileClient.swift */,
+				000000000000000000000067 /* PairingSecurity.swift */,
+				000000000000000000000068 /* QRScanner.swift */,
+				000000000000000000000069 /* YasyApp.swift */,
+				00000000000000000000006A /* YasyWebView.swift */,
+				000000000000000000000110 /* LocalPersistence.swift */,
+				000000000000000000000111 /* NativeAI.swift */,
+				000000000000000000000112 /* NativeFiles.swift */,
+				000000000000000000000113 /* NativeServices.swift */,
+				000000000000000000000050 /* Info.plist */,
+				000000000000000000000051 /* PrivacyInfo.xcprivacy */,
+				0000000000000000000000E0 /* AppIcon.icon */,
+			);
+			path = Yasy;
+			sourceTree = "<group>";
+		};
+		000000000000000000000005 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				000000000000000000000009 /* Yasy.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		000000000000000000000002 /* Yasy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00000000000000000000000B /* Build configuration list for PBXNativeTarget "Yasy" */;
+			buildPhases = (
+				000000000000000000000006 /* Sources */,
+				000000000000000000000007 /* Frameworks */,
+				000000000000000000000008 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yasy;
+			productName = Yasy;
+			productReference = 000000000000000000000009 /* Yasy.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		000000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					000000000000000000000002 = {
+						CreatedOnToolsVersion = 27.0;
+					};
+				};
+			};
+			buildConfigurationList = 00000000000000000000000A /* Build configuration list for PBXProject "Yasy" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = zh_CN;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				zh_CN,
+				en,
+				Base,
+			);
+			mainGroup = 000000000000000000000003;
+			productRefGroup = 000000000000000000000005 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				000000000000000000000002 /* Yasy */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		000000000000000000000008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000000000000000000000052 /* PrivacyInfo.xcprivacy in Resources */,
+				0000000000000000000000E1 /* AppIcon.icon in Resources */,
+				000000000000000000000132 /* dist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		000000000000000000000006 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0000000000000000000000C8 /* ConnectionModel.swift in Sources */,
+				0000000000000000000000C9 /* ConnectionView.swift in Sources */,
+				0000000000000000000000CA /* MobileClient.swift in Sources */,
+				0000000000000000000000CB /* PairingSecurity.swift in Sources */,
+				0000000000000000000000CC /* QRScanner.swift in Sources */,
+				0000000000000000000000CD /* YasyApp.swift in Sources */,
+				0000000000000000000000CE /* YasyWebView.swift in Sources */,
+				000000000000000000000123 /* NativeServices.swift in Sources */,
+				000000000000000000000122 /* NativeFiles.swift in Sources */,
+				000000000000000000000121 /* NativeAI.swift in Sources */,
+				000000000000000000000120 /* LocalPersistence.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+
+
+/* Begin XCBuildConfiguration section */
+		00000000000000000000000C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		00000000000000000000000D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		00000000000000000000000E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2N863TMNHB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Yasy/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.choney.yasy.mobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		00000000000000000000000F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2N863TMNHB;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Yasy/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.choney.yasy.mobile;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00000000000000000000000A /* Build configuration list for PBXProject "Yasy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00000000000000000000000C /* Debug */,
+				00000000000000000000000D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00000000000000000000000B /* Build configuration list for PBXNativeTarget "Yasy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00000000000000000000000E /* Debug */,
+				00000000000000000000000F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 000000000000000000000001 /* Project object */;
+}

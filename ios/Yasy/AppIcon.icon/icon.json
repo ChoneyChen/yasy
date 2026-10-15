@@ -1,0 +1,37 @@
+{
+  "fill": {
+    "solid": "extended-srgb:0.13725,0.29412,0.21961,1.00000"
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "03-New-growth.svg",
+          "name": "03-New-growth"
+        },
+        {
+          "image-name": "02-Right-page.svg",
+          "name": "02-Right-page"
+        },
+        {
+          "image-name": "01-Left-page.svg",
+          "name": "01-Left-page"
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.3
+      }
+    }
+  ],
+  "supported-platforms": {
+    "circles": [
+      "watchOS"
+    ],
+    "squares": "shared"
+  }
+}

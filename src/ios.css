@@ -1,0 +1,402 @@
+/*
+ * Native WKWebView content layer. Imported after styles.css.
+ * Native NavigationStack/TabView own Liquid Glass; content surfaces stay opaque.
+ * The native appearance bridge supplies --yasy-text-scale and the body data
+ * attributes below. Every selector is scoped so the Mac workbench is unchanged.
+ */
+body.native-ios {
+  color-scheme: light dark;
+  --ios-page: #f2f2f7;
+  --ios-surface: #ffffff;
+  --ios-elevated: #ffffff;
+  --ios-secondary-surface: #f2f2f7;
+  --ios-control: #e9e9ee;
+  --ios-label: #1c1c1e;
+  --ios-secondary-label: #626267;
+  --ios-separator: #c7c7cc;
+  --ios-accent: #1d614d;
+  --ios-on-accent: #ffffff;
+  --ios-accent-soft: #e8f2ed;
+  --ios-warning: #84500e;
+  --ios-warning-soft: #fff1db;
+  --ios-error: #ad232c;
+  --ios-error-soft: #fff0ee;
+  --ios-corpus: #b52430;
+  --ios-material-yellow: #fff0b7;
+  --ios-material-blue: #deecff;
+  --ios-material-green: #e1f1d9;
+  --ios-scrim: #00000060;
+  --ios-body: calc(17px * var(--yasy-text-scale, 1));
+  --ios-reading: calc(19px * var(--yasy-text-scale, 1));
+  --ios-callout: calc(16px * var(--yasy-text-scale, 1));
+  --ios-caption: max(11px, calc(13px * var(--yasy-text-scale, 1)));
+  --ios-small: max(11px, calc(12px * var(--yasy-text-scale, 1)));
+  --ios-title: calc(26px * var(--yasy-text-scale, 1));
+  --ios-heading: calc(22px * var(--yasy-text-scale, 1));
+  --ios-text-weight: 400;
+  --ios-emphasis-weight: 600;
+  --green: var(--ios-accent);
+  --dark: var(--ios-label);
+  --muted: var(--ios-secondary-label);
+  --border: var(--ios-separator);
+  --orange: var(--ios-warning);
+  margin: 0;
+  background: var(--ios-page);
+  color: var(--ios-label);
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, 'PingFang SC', sans-serif;
+  font-size: var(--ios-body);
+  font-weight: var(--ios-text-weight);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
+  body.native-ios {
+    --ios-page: #000000;
+    --ios-surface: #1c1c1e;
+    --ios-elevated: #2c2c2e;
+    --ios-secondary-surface: #2c2c2e;
+    --ios-control: #3a3a3c;
+    --ios-label: #f5f5f7;
+    --ios-secondary-label: #b9b9c1;
+    --ios-separator: #4a4a50;
+    --ios-accent: #9fd9be;
+    --ios-on-accent: #0b3021;
+    --ios-accent-soft: #223c30;
+    --ios-warning: #f4c07b;
+    --ios-warning-soft: #3b2d1a;
+    --ios-error: #ffb3ba;
+    --ios-error-soft: #3b2025;
+    --ios-corpus: #ff9ba7;
+    --ios-material-yellow: #55451c;
+    --ios-material-blue: #203d55;
+    --ios-material-green: #274733;
+    --ios-scrim: #000000a6;
+  }
+}
+
+/* The native bars provide the app's navigation and toolbar actions. */
+body.native-ios :is(.sidebar, .sidebar-scrim, .topbar, .page-footer) { display: none !important; }
+body.native-ios :is(#root, .english-context, .app-shell) { min-inline-size: 0; min-block-size: 100%; background: var(--ios-page); }
+body.native-ios .main-shell { margin: 0; inline-size: 100%; min-block-size: 100dvh; background: var(--ios-page); }
+body.native-ios .main-content {
+  inline-size: 100%; max-inline-size: 1080px; min-inline-size: 0;
+  margin-inline: auto;
+  padding-block: calc(20px + var(--ios-native-top-inset, 0px)) 28px;
+  padding-inline: max(16px, env(safe-area-inset-left, 0px)) max(16px, env(safe-area-inset-right, 0px));
+}
+body.native-ios .workspace-content { max-inline-size: 960px; }
+body.native-ios :is(.card, .topic-card, .today-choice, .outbound-card, .material-card, .expression-card, .word-card, .question-visual, .practice-note, .device-card, .map-panel, .process-stage) {
+  background: var(--ios-surface); color: var(--ios-label); border: 1px solid var(--ios-separator); border-radius: 16px;
+  box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+body.native-ios :is(.card, .today-choice, .topic-card, .material-card, .expression-card, .word-card) { min-inline-size: 0; }
+body.native-ios :is(.editor-card, .answer-card, .recall-card, .settings-card, .topic-detail, .recommendation-card, .answer-aside > .card) { padding: 20px; }
+body.native-ios :is(.topic-grid, .collection-grid, .word-grid) {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(275px * var(--yasy-text-scale, 1))), 1fr)); gap: 16px;
+}
+body.native-ios :is(.workspace-grid, .answer-layout, .settings-grid) { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+body.native-ios .workspace-aside { display: block; }
+body.native-ios .workspace-tip { margin-top: 20px; }
+body.native-ios .answer-aside > .card { display: block; }
+body.native-ios :is(.page-heading, .section-heading, .workspace-heading, .workspace-top, .detail-toolbar, .material-version-bar) { gap: 16px; flex-wrap: wrap; }
+body.native-ios .page-heading { margin-bottom: 24px; }
+body.native-ios .page-heading > .button { margin-top: 0; }
+body.native-ios :is(.page-heading > div, .section-heading > div, .workspace-heading > div, .workspace-top-actions, .api-generation-intro > div) { min-inline-size: 0; }
+
+/* Type is scaled by UIFont.body / 17 from the native appearance bridge. */
+body.native-ios :is(h1, h2, h3, h4, p, li, blockquote, button, input, select, textarea) { font-family: inherit; overflow-wrap: anywhere; }
+body.native-ios :is(h1, h2, h3, h4) { color: var(--ios-label); font-weight: var(--ios-emphasis-weight); letter-spacing: -.02em; }
+body.native-ios h1 { font-size: var(--ios-title); line-height: 1.25; }
+body.native-ios h2 { font-size: var(--ios-heading); line-height: 1.3; }
+body.native-ios :is(h3, h4) { font-size: var(--ios-body); line-height: 1.4; }
+body.native-ios :is(p, li, blockquote) { font-size: var(--ios-body); line-height: 1.65; color: var(--ios-label); font-weight: var(--ios-text-weight); }
+body.native-ios strong { font-weight: var(--ios-emphasis-weight); }
+body.native-ios :is(small, .muted, .eyebrow, .prompt-eyebrow, .save-status, .editor-bottom, .usage-note, .annotation-legend, .source-link, .question-source-page, .source-note p, .prompt-source, .prompt-source a) { font-size: var(--ios-caption); line-height: 1.5; color: var(--ios-secondary-label); }
+body.native-ios :is(.page-heading p, .section-heading p, .topic-card > p, .topic-detail-heading p, .workspace-tip p, .practice-empty-card p, .settings-explanation, .device-card p, .recall-method p, .recall-empty p) { font-size: var(--ios-callout); color: var(--ios-secondary-label); }
+body.native-ios :is(.section-heading h2, .section-heading h3, .workspace-aside .section-heading h3) { font-size: var(--ios-heading); color: var(--ios-label); line-height: 1.3; }
+body.native-ios :is(.topic-card h3, .material-card h3, .expression-card h3, .quick-access strong, .reading-linked-expression strong, .linked-question strong) { font-size: var(--ios-body); color: var(--ios-label); line-height: 1.5; }
+body.native-ios :is(.topic-en, .topic-tags span, .topic-card-footer, .topic-card-footer > span:last-child, .library-info, .card-bottom, .linked-pills span, .review-count, .recall-badge, .recall-toolbar > span) { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios :is(.question-english, .question-row-body > p, .cue-points, .recall-question, .batch-candidate details > p, .batch-candidate details > ul) { font-size: var(--ios-reading); color: var(--ios-label); line-height: 1.65; }
+body.native-ios :is(.question-chinese, .candidate-chinese, .compact-expression p, .answer-expression p, .material-card > p, .expression-card blockquote) { font-size: var(--ios-body); color: var(--ios-label); line-height: 1.65; }
+body.native-ios :is(.answer-text, .recall-answer, .preview-answer, .material-full-reading p, .english-detail-section p) { font-family: inherit; font-size: var(--ios-reading); color: var(--ios-label); line-height: 1.8; font-weight: var(--ios-text-weight); max-inline-size: 68ch; }
+body.native-ios :is(.answer-text, .recall-answer, .preview-answer, .ideas-draft-preview) { overflow-wrap: anywhere; }
+body.native-ios :is(.answer-expression strong, .compact-expression strong, .material-full-reading h3, .expression-full-reading > h3) { font-size: var(--ios-heading); color: var(--ios-label); }
+body.native-ios :is(.answer-expression small, .reading-linked-expression span, .linked-question small, .answer-tools > span, .recall-card footer > span, .corpus-review-note, .admission-card-reason) { font-size: var(--ios-caption); color: var(--ios-secondary-label); line-height: 1.6; }
+body.native-ios :is(.word-card h3, .recall-word h2) { font-family: inherit; font-size: calc(30px * var(--yasy-text-scale, 1)); font-weight: var(--ios-emphasis-weight); color: var(--ios-label); line-height: 1.3; }
+body.native-ios :is(.word-card > p, .word-card blockquote, .recall-word p, .recall-translation) { font-size: var(--ios-body); color: var(--ios-label); line-height: 1.65; }
+body.native-ios .eyebrow { letter-spacing: .06em; }
+body.native-ios :is(.topic-tags, .linked-pills) { gap: 8px; }
+body.native-ios .linked-pills span { background: var(--ios-secondary-surface); padding: 6px 10px; }
+
+/* Ordinary, opaque controls. System navigation owns the glass material. */
+body.native-ios :is(button, summary, input:not([type='checkbox']):not([type='radio']), select) { min-block-size: 44px; }
+body.native-ios button { min-inline-size: 44px; touch-action: manipulation; font-weight: var(--ios-emphasis-weight); }
+body.native-ios :is(.button, .small-button, .text-button, .icon-button, .reveal-meaning) { min-block-size: 44px; min-inline-size: 44px; font-size: var(--ios-callout); border-radius: 12px; white-space: normal; line-height: 1.4; }
+body.native-ios .button { padding: 12px 16px; max-inline-size: 100%; }
+body.native-ios .button.primary { color: var(--ios-on-accent); background: var(--ios-accent); border-color: var(--ios-accent); }
+body.native-ios :is(.button.secondary, .reveal-meaning) { background: var(--ios-secondary-surface); border: 1px solid var(--ios-separator); color: var(--ios-label); }
+body.native-ios .button.danger { background: var(--ios-error-soft); color: var(--ios-error); border-color: var(--ios-error); }
+body.native-ios .text-button { color: var(--ios-accent); padding: 10px 4px; }
+body.native-ios .icon-button { display: inline-grid; place-items: center; padding: 10px; color: var(--ios-accent); flex-shrink: 0; }
+body.native-ios :is(.button, .topic-card, .today-choice):hover:not(:disabled) { transform: none; box-shadow: none; }
+body.native-ios .button.primary:hover:not(:disabled) { background: var(--ios-accent); }
+body.native-ios button:active:not(:disabled) { filter: brightness(.9); }
+body.native-ios button:disabled { opacity: 1; color: var(--ios-secondary-label); background: var(--ios-secondary-surface); border-color: var(--ios-separator); }
+body.native-ios :is(button, a, summary):focus-visible { outline: 3px solid var(--ios-accent); outline-offset: 3px; }
+body.native-ios :is(input, textarea, select):focus { outline: 2px solid var(--ios-accent); outline-offset: 2px; }
+body.native-ios a { color: var(--ios-accent); overflow-wrap: anywhere; }
+body.native-ios .source-link { display: inline-flex; align-items: center; min-block-size: 44px; }
+body.native-ios :is(.editor-actions, .api-generation-actions, .answer-footer, .modal-actions, .words-actions, .practice-empty-actions, .background-task-actions) { display: flex; gap: 12px; flex-wrap: wrap; }
+body.native-ios :is(.editor-actions, .answer-footer, .modal-actions) > .button { flex: 1 1 180px; }
+body.native-ios .editor-actions .button { font-size: var(--ios-callout); }
+body.native-ios :is(.pill, .question-pills .pill) { font-size: var(--ios-caption); line-height: 1.4; padding: 6px 10px; background: var(--ios-secondary-surface); border-color: var(--ios-separator); color: var(--ios-secondary-label); max-inline-size: 100%; white-space: normal; }
+body.native-ios .pill.green { color: var(--ios-accent); background: var(--ios-accent-soft); }
+body.native-ios .pill.orange { color: var(--ios-warning); background: var(--ios-warning-soft); }
+body.native-ios .question-pills { gap: 8px; }
+body.native-ios :is(.segmented, .segmented.small) { display: flex; flex-wrap: wrap; gap: 4px; border-radius: 12px; background: var(--ios-control); padding: 4px; max-inline-size: 100%; }
+body.native-ios :is(.segmented button, .segmented.small button, .words-toolbar .segmented button, .recall-toolbar .segmented button) { min-block-size: 44px; padding: 10px 12px; font-size: var(--ios-callout); color: var(--ios-secondary-label); border-radius: 9px; white-space: normal; line-height: 1.4; }
+body.native-ios .segmented button.selected { color: var(--ios-label); background: var(--ios-surface); box-shadow: none; }
+body.native-ios :is(.corpus-status-tabs button > span, .tabs button > span) { font-size: var(--ios-caption); }
+body.native-ios :is(.writing-switch, .words-toolbar, .recall-toolbar, .library-toolbar, .library-info, .corpus-toolbar) { flex-wrap: wrap; gap: 16px; }
+body.native-ios .writing-switch > button { inline-size: auto; min-inline-size: 0; flex: 1 1 180px; padding: 16px; background: var(--ios-surface); border-color: var(--ios-separator); border-radius: 12px; }
+body.native-ios .writing-switch > button.selected { background: var(--ios-accent-soft); border-color: var(--ios-accent); }
+body.native-ios .writing-switch span { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios .writing-switch small { font-size: var(--ios-caption); color: var(--ios-secondary-label); line-height: 1.5; }
+body.native-ios .writing-switch > button > svg { flex-shrink: 0; color: var(--ios-accent); }
+body.native-ios .library-toolbar { align-items: stretch; }
+body.native-ios .tabs { display: flex; flex-wrap: wrap; gap: 8px; inline-size: 100%; }
+body.native-ios .tabs > button { min-block-size: 44px; flex: 1 1 auto; padding: 10px 8px; font-size: var(--ios-callout); color: var(--ios-secondary-label); white-space: normal; line-height: 1.4; }
+body.native-ios .tabs > button.active { color: var(--ios-accent); }
+body.native-ios .tabs > button.active:after { background: var(--ios-accent); bottom: 0; }
+body.native-ios .tabs > button > svg { flex-shrink: 0; }
+body.native-ios .search-box { background: var(--ios-surface); border: 1px solid var(--ios-separator); border-radius: 12px; inline-size: 100%; max-inline-size: 100%; }
+body.native-ios .search-box input { font-size: var(--ios-body); color: var(--ios-label); background: transparent; min-inline-size: 0; }
+body.native-ios .search-box > svg { color: var(--ios-secondary-label); flex-shrink: 0; }
+
+/* Forms remain editable at large Dynamic Type sizes, with no fixed text heights. */
+body.native-ios .form-label { font-size: var(--ios-body); color: var(--ios-label); gap: 10px; }
+body.native-ios :is(.form-label input, .form-label select, .form-label textarea, .chinese-editor, .json-editor, .prompt-preview, .ideas-draft-preview) { font-size: var(--ios-body); color: var(--ios-label); background: var(--ios-secondary-surface); border: 1px solid var(--ios-separator); border-radius: 12px; padding: 14px; line-height: 1.6; min-inline-size: 0; max-inline-size: 100%; }
+body.native-ios :is(input, textarea)::placeholder { color: var(--ios-secondary-label); font-size: inherit; opacity: 1; }
+body.native-ios .chinese-editor { min-block-size: 320px; margin-top: 22px; }
+body.native-ios :is(.form-label small, .form-label > span small, .form-label > small) { font-size: var(--ios-caption); color: var(--ios-secondary-label); line-height: 1.5; }
+body.native-ios :is(.form-columns, .provider-switch) { display: flex; flex-wrap: wrap; gap: 12px; }
+body.native-ios .form-columns > * { min-inline-size: 0; flex: 1 1 180px; }
+body.native-ios input:is([type='checkbox'], [type='radio']) { inline-size: 24px; block-size: 24px; accent-color: var(--ios-accent); flex-shrink: 0; }
+body.native-ios .provider-switch > button { padding: 14px; min-inline-size: 0; flex: 1 1 180px; background: var(--ios-surface); border-color: var(--ios-separator); }
+body.native-ios .provider-switch > button.selected { background: var(--ios-accent-soft); border-color: var(--ios-accent); }
+body.native-ios .provider-switch > button > span { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios :is(.provider-switch small, .api-key-label > span small, .api-key-label > small, .model-select-label small, .ai-test-row > small, .api-config-status code, .storage-path, .storage-path small, .data-summary span) { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios :is(.api-key-input, .ai-test-row, .api-config-status, .provider-selected, .ai-model-heading) { gap: 12px; flex-wrap: wrap; }
+body.native-ios .api-key-input input { flex: 1 1 180px; }
+body.native-ios .provider-selected { background: var(--ios-accent-soft); }
+body.native-ios .provider-selected strong { color: var(--ios-label); font-size: var(--ios-body); }
+body.native-ios .provider-selected p { color: var(--ios-secondary-label); font-size: var(--ios-callout); }
+body.native-ios .storage-path { background: var(--ios-secondary-surface); border-color: var(--ios-separator); }
+body.native-ios code { overflow-wrap: anywhere; white-space: pre-wrap; }
+
+/* The two Today choices are content actions, not a second navigation bar. */
+body.native-ios .today-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(320px * var(--yasy-text-scale, 1))), 1fr)); max-inline-size: 960px; margin: 12px auto 24px; gap: 16px; }
+body.native-ios .today-choice { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; padding: 24px 20px; min-block-size: 150px; gap: 16px; }
+body.native-ios .today-choice > div { padding: 0; min-inline-size: 0; }
+body.native-ios .today-choice h1 { font-size: calc(24px * var(--yasy-text-scale, 1)); color: var(--ios-label); line-height: 1.3; }
+body.native-ios .today-choice p { font-size: var(--ios-callout); color: var(--ios-secondary-label); margin-top: 8px; max-inline-size: none; }
+body.native-ios .today-choice-icon { inline-size: 48px; block-size: 48px; border-radius: 12px; color: var(--ios-accent); background: var(--ios-accent-soft); }
+body.native-ios .writing-choice .today-choice-icon { color: var(--ios-warning); background: var(--ios-warning-soft); }
+body.native-ios .today-choice > svg { position: static; color: var(--ios-secondary-label); inline-size: 20px; block-size: 20px; }
+body.native-ios .practice-empty-card { padding: 40px 22px; min-block-size: 280px; }
+body.native-ios .practice-empty-card h2 { color: var(--ios-label); font-size: var(--ios-heading); }
+body.native-ios .practice-empty-icon { color: var(--ios-accent); background: var(--ios-accent-soft); }
+body.native-ios .workspace-top { margin-bottom: 20px; align-items: center; }
+body.native-ios .workspace-top-actions { gap: 12px; }
+body.native-ios .workspace-heading h1 { font-size: var(--ios-title); color: var(--ios-label); }
+body.native-ios .question-prompt { padding: 20px; }
+body.native-ios .workspace-steps { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 22px; }
+body.native-ios .workspace-steps > button { flex: 1 1 calc(115px * var(--yasy-text-scale, 1)); min-block-size: 44px; min-inline-size: 0; font-size: var(--ios-callout); line-height: 1.4; padding: 10px 6px; gap: 8px; color: var(--ios-secondary-label); white-space: normal; }
+body.native-ios .workspace-steps > button.active { color: var(--ios-accent); }
+body.native-ios .workspace-steps > button.active > span { background: var(--ios-accent); color: white; border-color: var(--ios-accent); }
+body.native-ios .workspace-steps button > span { inline-size: auto; block-size: auto; min-inline-size: 26px; min-block-size: 26px; flex-shrink: 0; white-space: nowrap; padding: 4px; font-size: var(--ios-caption); background: var(--ios-secondary-surface); }
+body.native-ios .workspace-steps button > svg { display: none; }
+body.native-ios .question-title { min-block-size: 44px; font-size: var(--ios-reading); color: var(--ios-label); line-height: 1.4; text-align: start; }
+body.native-ios .question-row { padding-block: 22px; border-color: var(--ios-separator); gap: 16px; }
+body.native-ios .question-row-body { min-inline-size: 0; }
+body.native-ios .question-row-actions { margin-inline-start: auto; max-inline-size: 100%; }
+body.native-ios .question-row-actions .button { white-space: normal; }
+body.native-ios .recommendation-item { padding: 18px; min-inline-size: 0; max-inline-size: 100%; background: var(--ios-surface); border-color: var(--ios-separator); border-radius: 12px; }
+body.native-ios .recommendation-item.selected { background: var(--ios-accent-soft); border-color: var(--ios-accent); }
+body.native-ios .recommendation-item h4 { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios :is(.recommendation-item p, .recommendation-item small, .recommendation-action, .recommendation-empty p, .recommendation-empty small) { font-size: var(--ios-callout); color: var(--ios-secondary-label); line-height: 1.6; }
+body.native-ios :is(.recommendation-rank, .recommendation-choice) { color: var(--ios-accent); }
+body.native-ios :is(.workspace-tip, .ideas-assist-row, .ideas-preview-notice, .english-detail-section, .material-history-list, .answer-review-summary, .mobile-api-note) { color: var(--ios-label); background: var(--ios-secondary-surface); border: 1px solid var(--ios-separator); border-radius: 12px; }
+body.native-ios .ideas-assist-row { align-items: flex-start; }
+body.native-ios .ideas-assist-row > div { min-inline-size: 0; flex: 1 1 200px; }
+body.native-ios .ideas-assist-row span { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios .ideas-assist-row small { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios :is(.ideas-preview-notice p, .ideas-preview-notes li, .ideas-preview-notes h3, .ideas-draft-changed) { font-size: var(--ios-callout); line-height: 1.65; }
+body.native-ios .ideas-preview-notice p { color: var(--ios-label); }
+body.native-ios .ideas-draft-preview { font-size: var(--ios-reading); max-block-size: 50dvh; }
+body.native-ios :is(.ideas-draft-changed, .batch-import-warnings, .expression-admission-reason) { color: var(--ios-warning); background: var(--ios-warning-soft); border-color: var(--ios-warning); }
+body.native-ios :is(.api-processing-banner, .quality-panel.passed, .ai-test-result.passed) { color: var(--ios-accent); background: var(--ios-accent-soft); border-color: var(--ios-accent); }
+body.native-ios :is(.api-processing-banner strong, .api-processing-banner p, .quality-panel.passed p, .quality-panel.passed strong) { color: var(--ios-accent); }
+body.native-ios :is(.api-processing-banner strong, .api-job-error strong, .api-generation-intro h2, .quality-panel strong) { font-size: var(--ios-body); }
+body.native-ios :is(.api-processing-banner p, .api-job-error p, .api-generation-intro p, .background-generation-note, .quality-panel p, .quality-panel li, .quality-checks, .ai-test-result) { font-size: var(--ios-callout); line-height: 1.65; }
+body.native-ios :is(.api-generation-intro h2, .background-generation-note, .api-generation-intro p) { color: var(--ios-label); }
+body.native-ios :is(.quality-panel, .api-job-error) { background: var(--ios-warning-soft); border-color: var(--ios-warning); color: var(--ios-warning); }
+body.native-ios :is(.quality-panel p, .quality-panel strong, .quality-panel li, .quality-checks span, .api-job-error strong, .api-job-error p) { color: inherit; }
+body.native-ios :is(.quality-checks span.passed, .quality-checks span.passed svg) { color: var(--ios-accent); }
+body.native-ios .quality-checks { flex-wrap: wrap; }
+body.native-ios :is(.api-job-error .text-button, .archive-question-note) { font-size: var(--ios-callout); color: var(--ios-secondary-label); }
+body.native-ios .api-generation-intro { align-items: flex-start; flex-wrap: wrap; }
+body.native-ios .api-generation-intro > .pill { margin-inline-start: 0; }
+body.native-ios :is(.ai-inline-error, .background-task-error, .restore-warning) { font-size: var(--ios-callout); color: var(--ios-error) !important; }
+body.native-ios .ai-test-result { color: var(--ios-warning); background: var(--ios-warning-soft); }
+body.native-ios .answer-expression { border-color: var(--ios-separator); }
+body.native-ios :is(.answer-tools, .recall-card > header, .recall-card > footer, .reading-linked-expression, .material-version-bar) { border-color: var(--ios-separator); }
+body.native-ios .answer-tools { flex-wrap: wrap; }
+body.native-ios .answer-tools .text-button { font-size: var(--ios-callout); }
+body.native-ios .recall-card > header { flex-wrap: wrap; }
+body.native-ios .recall-card footer { flex-wrap: wrap; gap: 16px; }
+body.native-ios .recall-card footer .button { max-inline-size: 100%; }
+body.native-ios .recall-word { padding-inline: 0; }
+body.native-ios .review-count { background: var(--ios-secondary-surface); }
+body.native-ios .remove-word { color: var(--ios-error); }
+
+/* Annotations retain color and distinct underline treatments in both themes. */
+body.native-ios .expression-underline { text-decoration-color: var(--ios-corpus); text-decoration-thickness: 2px; text-underline-offset: .22em; }
+body.native-ios .material-highlight { color: inherit; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+body.native-ios .material-color-0 { background: var(--ios-material-yellow); }
+body.native-ios .material-color-1 { background: var(--ios-material-blue); }
+body.native-ios .material-color-2 { background: var(--ios-material-green); }
+body.native-ios .reading-linked-expression strong { text-decoration-color: var(--ios-corpus); }
+body.native-ios .legend-expression { border-color: var(--ios-corpus); }
+body.native-ios :is(.legend-material, .highlight-dot) { background: var(--ios-material-yellow); border-color: var(--ios-secondary-label); }
+body.native-ios [data-word-scope] { -webkit-touch-callout: none; }
+
+/* Tables keep a contained horizontal scroll region; the page never needs one. */
+body.native-ios :is(.question-visual, .numeric-question-chart, .pie-chart-group, .table-scroll) { min-inline-size: 0; max-inline-size: 100%; }
+body.native-ios :is(.table-scroll, .numeric-question-chart, .pie-chart-group) { overflow-x: auto; overscroll-behavior-x: contain; }
+body.native-ios .question-visual { padding: 16px; }
+body.native-ios .question-visual > strong { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios .question-visual table { font-size: var(--ios-callout); color: var(--ios-label); border-color: var(--ios-separator); }
+body.native-ios :is(.question-visual th, .question-visual td) { padding: 12px; border-color: var(--ios-separator); }
+body.native-ios .question-visual th { color: var(--ios-label); background: var(--ios-secondary-surface); }
+body.native-ios :is(.question-visual small, .chart-legend, .map-panel figcaption small, .map-room small) { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios .numeric-question-chart > svg { min-inline-size: calc(640px * var(--yasy-text-scale, 1)); inline-size: 100%; block-size: auto; }
+body.native-ios .numeric-question-chart text { fill: var(--ios-label); font-size: 12px; }
+body.native-ios .numeric-question-chart line { stroke: var(--ios-separator); }
+body.native-ios .pie-charts { display: flex; flex-wrap: wrap; gap: 20px; }
+body.native-ios .pie-charts figure { min-inline-size: 0; max-inline-size: 100%; margin-inline: auto; overflow-x: auto; }
+body.native-ios .pie-charts svg { min-inline-size: calc(220px * var(--yasy-text-scale, 1)); block-size: auto; }
+body.native-ios .pie-charts svg text { fill: #161618; font-size: 12px; font-weight: 600; }
+body.native-ios :is(.pie-charts figcaption, .map-panel figcaption, .map-room span, .map-attributes strong, .map-corridor, .process-stage p) { font-size: var(--ios-body); color: var(--ios-label); line-height: 1.5; }
+body.native-ios :is(.map-room, .map-corridor, .map-attributes > div, .process-stage > span) { color: var(--ios-label); background: var(--ios-secondary-surface); border-color: var(--ios-separator); }
+body.native-ios .process-stage > span { font-size: var(--ios-caption); }
+
+/* Custom sheets and vocabulary popovers use solid elevated surfaces. */
+body.native-ios .modal-overlay { background: var(--ios-scrim); padding: 12px; align-items: center; }
+body.native-ios .modal { background: var(--ios-elevated); color: var(--ios-label); border: 1px solid var(--ios-separator); border-radius: 20px; padding: 20px; inline-size: min(100%, 680px); max-inline-size: 100%; max-block-size: calc(100dvh - 24px); overflow-y: auto; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.native-ios :is(.modal.wide, .modal.batch-modal) { inline-size: min(100%, 880px); }
+body.native-ios .modal > header { align-items: flex-start; gap: 16px; }
+body.native-ios .modal > header h2 { font-size: var(--ios-heading); color: var(--ios-label); line-height: 1.3; }
+body.native-ios :is(.modal-description, .modal-section > h3, .import-preview-note, .preview-details summary, .batch-modal header p, .batch-note p, .batch-explanation, .batch-file-label, .batch-selection-heading, .batch-file-progress) { font-size: var(--ios-callout); color: var(--ios-secondary-label); line-height: 1.6; }
+body.native-ios .preview-details pre { font-size: var(--ios-caption); color: var(--ios-label); background: var(--ios-secondary-surface); white-space: pre-wrap; overflow-wrap: anywhere; }
+body.native-ios .material-version-bar strong { font-size: var(--ios-callout); color: var(--ios-label); }
+body.native-ios :is(.material-version-bar span, .material-history-list button, .material-history-list .muted) { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios .material-history-list > button { min-block-size: 44px; flex-wrap: wrap; padding: 12px; }
+body.native-ios .material-history-list > button.selected { background: var(--ios-accent-soft); color: var(--ios-accent); }
+body.native-ios .expression-admission-reason p { font-size: var(--ios-callout); color: var(--ios-warning); }
+body.native-ios .batch-steps { flex-wrap: wrap; font-size: var(--ios-caption); color: var(--ios-secondary-label); gap: 10px; }
+body.native-ios .batch-steps > span.active { color: var(--ios-accent); }
+body.native-ios .batch-candidate { background: var(--ios-surface); border-color: var(--ios-separator); border-radius: 12px; }
+body.native-ios .batch-candidate > label { display: flex; gap: 12px; min-block-size: 44px; padding-block: 10px; align-items: flex-start; }
+body.native-ios .batch-candidate label > span { min-inline-size: 0; }
+body.native-ios .batch-candidate label strong { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios :is(.batch-candidate label small, .batch-candidate details > small) { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios .batch-candidate details { margin-inline-start: 0; }
+body.native-ios .batch-candidate details > .candidate-chinese { font-size: var(--ios-body); color: var(--ios-secondary-label); }
+body.native-ios .batch-api-panel { color: var(--ios-accent); }
+body.native-ios .batch-api-panel h3 { font-size: var(--ios-heading); color: var(--ios-label); }
+body.native-ios :is(.batch-api-panel p, .batch-api-working) { font-size: var(--ios-callout); color: var(--ios-secondary-label); }
+body.native-ios .batch-api-working { flex-wrap: wrap; }
+body.native-ios .file-dropzone { background: var(--ios-secondary-surface); color: var(--ios-accent); border-color: var(--ios-separator); }
+body.native-ios .file-dropzone strong { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios .file-dropzone span { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios .background-task-list { max-block-size: 65dvh; }
+body.native-ios .background-task-row { gap: 12px; border-color: var(--ios-separator); }
+body.native-ios .background-task-title { flex-wrap: wrap; }
+body.native-ios .background-task-title strong { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios .background-task-title > span { font-size: var(--ios-caption); color: var(--ios-secondary-label); white-space: normal; }
+body.native-ios .background-task-row p { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios .background-task-row li { font-size: var(--ios-callout); color: var(--ios-warning); }
+body.native-ios :is(.task-job-icon, .status-processing .task-job-icon, .status-completed .task-job-icon) { color: var(--ios-accent); }
+body.native-ios :is(.status-failed .task-job-icon, .status-needs-revision .task-job-icon) { color: var(--ios-warning); }
+body.native-ios .word-context-menu { background: var(--ios-elevated); color: var(--ios-label); border: 1px solid var(--ios-separator); border-radius: 16px; padding: 16px; inline-size: min(300px, calc(100vw - 24px)); max-inline-size: calc(100vw - 24px); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
+body.native-ios .word-context-menu strong { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios .word-menu-add { min-block-size: 44px; font-size: var(--ios-body); background: var(--ios-accent-soft); color: var(--ios-accent); padding: 14px; border-radius: 12px; }
+body.native-ios .word-context-menu > small { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios .toast { left: 50%; bottom: calc(16px + var(--ios-visual-bottom-offset, 0px) + max(env(safe-area-inset-bottom, 0px), var(--ios-overlay-bottom-inset, 0px))); background: var(--ios-elevated); color: var(--ios-label); border: 1px solid var(--ios-separator); font-size: var(--ios-callout); padding: 14px 16px; border-radius: 14px; max-inline-size: calc(100vw - 24px); box-shadow: none; }
+body.native-ios .toast.error { color: var(--ios-error); border-color: var(--ios-error); background: var(--ios-error-soft); }
+body.native-ios .toast button { min-block-size: 44px; min-inline-size: 44px; color: inherit; margin-inline-start: 0; }
+
+/* Native accessibility attributes supplement the corresponding CSS queries. */
+body.native-ios[data-bold-text='true'] { --ios-text-weight: 600; --ios-emphasis-weight: 700; }
+body.native-ios[data-increase-contrast='true'] { --ios-secondary-label: var(--ios-label); --ios-separator: #69696f; }
+body.native-ios[data-increase-contrast='true'] :is(.button.secondary, .reveal-meaning, input, textarea, select, .segmented, .card, .topic-card, .today-choice) { border-width: 2px; }
+body.native-ios[data-increase-contrast='true'] .material-highlight { border-block-end: 2px solid currentColor; }
+body.native-ios[data-reduce-transparency='true'] .modal-overlay { background: var(--ios-page); }
+body.native-ios[data-reduce-transparency='true'] :is(.card, .modal, .word-context-menu, .toast, .segmented) { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; opacity: 1; }
+body.native-ios[data-reduce-motion='true'] *, body.native-ios[data-reduce-motion='true'] *::before, body.native-ios[data-reduce-motion='true'] *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+body.native-ios[data-reduce-motion='true'] :is(.button, .topic-card, .today-choice):hover { transform: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  body.native-ios *, body.native-ios *::before, body.native-ios *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  body.native-ios .modal-overlay { background: var(--ios-page); }
+  body.native-ios :is(.card, .modal, .word-context-menu, .toast, .segmented) { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; opacity: 1; }
+}
+@media (prefers-contrast: more) {
+  body.native-ios { --ios-secondary-label: var(--ios-label); --ios-separator: #69696f; }
+  body.native-ios :is(.button.secondary, .reveal-meaning, input, textarea, select, .segmented, .card, .topic-card, .today-choice) { border-width: 2px; }
+  body.native-ios .material-highlight { border-block-end: 2px solid currentColor; }
+}
+@media (prefers-color-scheme: dark) {
+  body.native-ios[data-increase-contrast='true'] { --ios-separator: #a0a0a8; }
+}
+@media (prefers-color-scheme: dark) and (prefers-contrast: more) { body.native-ios { --ios-separator: #a0a0a8; } }
+@media (forced-colors: active) {
+  body.native-ios { --ios-page: Canvas; --ios-surface: Canvas; --ios-elevated: Canvas; --ios-secondary-surface: Canvas; --ios-label: CanvasText; --ios-secondary-label: CanvasText; --ios-separator: CanvasText; --ios-accent: LinkText; --ios-on-accent: Canvas; --ios-accent-soft: Canvas; --ios-control: Canvas; --ios-corpus: LinkText; }
+}
+
+/* Small metadata and icon wells also track the native palette and type size. */
+body.native-ios :is(.topic-icon, .provider-icon, .quick-icon, .empty-icon, .recall-empty > span) { background: var(--ios-accent-soft); color: var(--ios-accent); }
+body.native-ios .topic-tags > span { background: var(--ios-secondary-surface); color: var(--ios-secondary-label); font-size: var(--ios-caption); }
+body.native-ios :is(.topic-card-footer, .card-bottom, .map-layout) { border-color: var(--ios-separator); }
+body.native-ios .map-layout { background: var(--ios-secondary-surface); }
+body.native-ios :is(.map-charts, .process-chart) { grid-template-columns: repeat(auto-fit, minmax(min(100%, calc(180px * var(--yasy-text-scale, 1))), 1fr)); }
+body.native-ios .process-stage > svg { color: var(--ios-secondary-label); }
+body.native-ios .search-box > button { color: var(--ios-secondary-label); }
+body.native-ios :is(.recall-loading, .ai-config-loading) { color: var(--ios-secondary-label); font-size: var(--ios-callout); }
+body.native-ios .brand-loading { color: var(--ios-accent); font-size: calc(40px * var(--yasy-text-scale, 1)); }
+body.native-ios .brand-loading > span { color: var(--ios-warning); }
+body.native-ios code { font-size: inherit; color: inherit; }
+body.native-ios .ai-model-heading > span { color: var(--ios-label); font-size: var(--ios-body); }
+body.native-ios .preview-stats { flex-wrap: wrap; gap: 16px; background: var(--ios-secondary-surface); }
+body.native-ios .preview-stats > span { min-inline-size: 0; flex: 1 1 100px; color: var(--ios-secondary-label); font-size: var(--ios-caption); }
+body.native-ios .preview-stats strong { font-size: var(--ios-heading); color: var(--ios-label); }
+body.native-ios .batch-selection-heading strong { font-size: var(--ios-body); color: var(--ios-label); }
+body.native-ios .batch-selection-heading span { font-size: var(--ios-caption); color: var(--ios-secondary-label); }
+body.native-ios :is(.settings-buttons, .settings-buttons .button) { min-inline-size: 0; max-inline-size: 100%; }
+body.native-ios .answer-text mark { color: var(--ios-label); background: var(--ios-material-yellow); border-color: var(--ios-secondary-label); }
+
+/* Keep geographic positions intact when the diagram needs more room. */
+body.native-ios .map-panel { min-inline-size: 0; max-inline-size: 100%; overflow-x: auto; }
+body.native-ios .map-layout { min-inline-size: calc(360px * var(--yasy-text-scale, 1)); }
+body.native-ios .map-layout-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+body.native-ios .numeric-question-chart > svg { max-block-size: none; max-height: none; }
+body.native-ios .map-attributes { background: var(--ios-secondary-surface); border-color: var(--ios-separator); }
+body.native-ios .map-attributes small { color: var(--ios-secondary-label); font-size: var(--ios-caption); }
+
+/* Fixed popovers scroll internally when Dynamic Type exceeds the visible area. */
+body.native-ios .word-context-menu { overflow-y: auto; overscroll-behavior: contain; }
+body.native-ios .word-context-menu > div > strong { min-inline-size: 0; }

@@ -1,14 +1,16 @@
 import { before, after, test } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'vite';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
 import { createSnapshotGate } from '../src/snapshotGate.mjs';
 
 let server;
-let recommendationRevision, apiAvailable, jobRequest;
+let recommendationRevision, apiAvailable, jobRequest, practicePath, practiceEmptyCopy, clientPolicy, Today, Workspace;
 before(async () => {
   // Load the actual TSX exports without mounting the app or contacting an API.
   server = await createServer({ configFile: false, server: { middlewareMode: true, watch: null }, appType: 'custom' });
-  ({ recommendationRevision, apiAvailable, jobRequest } = await server.ssrLoadModule('/src/App.tsx'));
+  ({ recommendationRevision, apiAvailable, jobRequest, practicePath, practiceEmptyCopy, clientPolicy, Today, Workspace } = await server.ssrLoadModule('/src/App.tsx'));
 });
 after(async () => { await server?.close(); });
 const question = { id: 'q-a', scope: 'speaking', topicId: 'topic-a', promptEn: 'Describe a trip.', promptZh: '描述一次旅行', tags: ['trip'] };
@@ -52,4 +54,39 @@ test('iOS API availability and job binding remain independent of the Mac web pre
   assert.equal(apiAvailable({ ...config, hasKey: false }, true), false); assert.equal(apiAvailable({ ...config, model: '' }, true), false);
   assert.deepEqual(jobRequest('q-a', '粗略想法', ['m-a'], true), { questionId: 'q-a', textZh: '粗略想法', materialIds: ['m-a'], client: 'ios' });
   assert.deepEqual(jobRequest('q-a', '粗略想法', [], false), { questionId: 'q-a', textZh: '粗略想法', materialIds: [] });
+});
+
+test('the Today entry renders only speaking and writing choices without plans, counts or recent content', () => {
+  const html = renderToStaticMarkup(createElement(Today, { start: () => {}, busy: false }));
+  assert.equal((html.match(/<button\b/g) || []).length, 2);
+  assert.match(html, /口语积累/); assert.match(html, /作文积累/);
+  assert.doesNotMatch(html, /今日任务|安排|计划|已整理答案|近期|最近的积累|stats-grid|welcome-card/);
+});
+test('practice requests bind sequential switching and random continuation to the visible current question', () => {
+  assert.equal(practicePath('speaking', 'first'), '/practice/next?kind=speaking&mode=first');
+  assert.equal(practicePath('writing', 'switch', 'q-a'), '/practice/next?kind=writing&mode=switch&currentId=q-a');
+  assert.equal(practicePath('speaking', 'random', 'q-a'), '/practice/next?kind=speaking&mode=random&currentId=q-a');
+  assert.notEqual(practiceEmptyCopy('speaking', 'processing').title, practiceEmptyCopy('speaking', 'all-completed').title);
+  assert.match(practiceEmptyCopy('writing', 'no-questions').detail, /作文区/);
+});
+const workspaceFixture = (completed = false) => {
+  const q = { ...question, titleZh: '独特的当前题', sourceId: 'test-source', sourceType: 'adapted', part: 'Part 1' };
+  const bank = { questions: [q, { ...q, id: 'q-b', promptEn: 'A different question that must not render.' }], archivedQuestions: [], sources: [], topics: [], materials: [], expressions: [], links: [], drafts: [], jobs: [], words: [], settings: { provider: 'iiiapi', targetBand: '7.0' }, answers: completed ? [{ id: 'answer-a', questionId: q.id, textEn: 'This is my saved answer.', wordCount: 5, materialIds: [], expressionIds: [], jobId: 'job-a' }] : [] };
+  return { question: q, prefill: [], state: bank, reload: async () => bank, notify: () => {}, goBack: () => {}, openQuestion: () => {}, addWord: () => {}, onMaterial: () => {}, onExpression: () => {}, aiConfig: { provider: 'iiiapi', hasKey: true, model: 'fixture-model' }, registerJob: () => {}, runBackground: async () => {}, questionBusy: false, apiMode: true, iosClient: false, practice: { kind: 'speaking', busy: false, next: async () => {} }, onSettings: () => {} };
+};
+test('practice uses the same single-question editor while removing every task-plan control', () => {
+  const html = renderToStaticMarkup(createElement(Workspace, workspaceFixture()));
+  assert.match(html, /返回今日积累/); assert.match(html, /换道题/); assert.match(html, /帮我想素材/);
+  assert.match(html, /Describe a trip\./); assert.doesNotMatch(html, /A different question that must not render\./);
+  assert.doesNotMatch(html, /今日任务|加入今日|安排任务|选题数量/);
+});
+test('a completed practice answer offers the next unanswered question instead of the direct-library next button', () => {
+  const html = renderToStaticMarkup(createElement(Workspace, workspaceFixture(true)));
+  assert.match(html, /This is my saved answer\./); assert.match(html, /下一道未积累题/);
+  assert.doesNotMatch(html, /下一道题<|今日任务|复制提示词并打开/);
+});
+test('native iOS stays API-only at iPad width, while narrow Mac still retains local pairing administration', () => {
+  assert.deepEqual(clientPolicy('?client=ios', false), { nativeIOSClient: true, iosClient: true });
+  assert.deepEqual(clientPolicy('', true), { nativeIOSClient: false, iosClient: true });
+  assert.deepEqual(clientPolicy('', false), { nativeIOSClient: false, iosClient: false });
 });
