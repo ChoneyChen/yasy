@@ -23,6 +23,7 @@ struct YasyWebView: UIViewControllerRepresentable {
         view.isOpaque = false; view.backgroundColor = .systemBackground
         view.allowsBackForwardNavigationGestures = false
         view.scrollView.contentInsetAdjustmentBehavior = .automatic
+        view.scrollView.keyboardDismissMode = .interactive
         let controller = YasyTabBarController()
         controller.delegate = context.coordinator
         controller.viewControllers = MobileView.tabs.enumerated().map { index, section in
@@ -39,6 +40,7 @@ struct YasyWebView: UIViewControllerRepresentable {
         model.bindBrowser(owner: coordinator.owner,
                           reconnect: { [weak coordinator] in coordinator?.connectionRestored() },
                           navigate: { [weak coordinator] section in coordinator?.requestNavigation(section) },
+                          back: { [weak coordinator] in coordinator?.requestBack() },
                           backgroundTasks: { [weak coordinator] in coordinator?.showBackgroundTasks() })
         model.syncProgress = { [weak coordinator] direction, run in coordinator?.dispatch("yasy:sync", detail: ["direction": direction, "confirmed": true, "runId": run]) }
         coordinator.observeAppearance()
@@ -87,12 +89,19 @@ struct YasyWebView: UIViewControllerRepresentable {
             attachBrowser(); requestNavigation(MobileView.tabs[tabBarController.selectedIndex])
         }
         func requestNavigation(_ section: MobileView) {
+            webView?.endEditing(true)
             navigationSequence += 1
             let ticket = navigationSequence
             pendingNavigation = (section, ticket); awaitingTicket = ticket
             model.navigationView = section; model.navigationTitle = section.title; model.canGoBack = false
             if let index = MobileView.tabs.firstIndex(of: section) { tabController?.selectedIndex = index; attachBrowser() }
             deliverPendingNavigation()
+        }
+        func requestBack() {
+            guard reactReady else { return }
+            webView?.endEditing(true)
+            navigationSequence += 1; awaitingTicket = navigationSequence
+            dispatch("yasy:back", detail: ["ticket": navigationSequence])
         }
         private func deliverPendingNavigation() {
             guard reactReady, let pending = pendingNavigation else { return }
@@ -264,6 +273,7 @@ struct YasyWebView: UIViewControllerRepresentable {
                 model.navigationView = section
                 model.navigationTitle = (data["title"] as? String).map { String($0.prefix(80)) } ?? section.title
                 model.canGoBack = data["canGoBack"] as? Bool ?? false
+                model.backTitle = String((data["backTitle"] as? String ?? "返回").prefix(16))
                 model.backgroundCount = min(999, max(0, data["backgroundCount"] as? Int ?? 0))
                 if let index = MobileView.tabs.firstIndex(of: section) { tabController?.selectedIndex = index; attachBrowser() }
                 emitAppearance()

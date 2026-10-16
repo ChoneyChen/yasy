@@ -1,8 +1,9 @@
-import { AppError, assert, checkQuality, uid, now, validateResult, parseAPIContent } from '../../server/domain.mjs';
-import { buildPrompt, buildBatchPrompt } from '../../server/prompts.mjs';
+import { AppError, assert, uid, now, validateResult, parseAPIContent } from '../../server/domain.mjs';
+import { buildBatchPrompt } from '../../server/prompts.mjs';
+import { buildIOSPrompt, checkIOSQuality, IOS_PROMPT_VERSION } from './prompts.mjs';
 import { limitExpressionLinks, recoverProcessingJobs, auditCorpus } from '../../server/ai-workflow.mjs';
 import { getReviewQueue, recordReview } from '../../server/reviews.mjs';
-import { draftIdea } from '../../server/ideas.mjs';
+import { draftIOSIdea } from './ideas.mjs';
 import { getPracticeNext } from '../../server/practice.mjs';
 import { previewBatch, commitBatch } from '../../server/batch-core.mjs';
 import { segmentBatchText, segmentPrompt, sourceLocation } from '../../server/batch-text.mjs';
@@ -29,8 +30,16 @@ export async function createLocalRouter({ runtime, call = nativeCall, providerFa
       const original = store.get('jobs', id); assert(original && ['pending', 'failed'].includes(original.status), '任务不存在或正在处理。', 409);
       if (original.status === 'failed') store.insert('jobs', { ...original, status: 'pending', error: undefined });
       store.assertPendingJob(id);
-      assert(store.question(original.questionId).active !== false, '归档题目仅可查看。', 409);
-      const next = { ...original, status: 'processing', phase: 'drafting', runId: uid('run'), model: provider.config.secret().model, startedAt: now(), error: undefined, finishedAt: undefined };
+      const question = store.question(original.questionId);
+      assert(question.active !== false, '归档题目仅可查看。', 409);
+      // Pending/failed jobs can come from an older phone build or a Mac backup.
+      // Upgrade the prompt locally before the single paid call, retaining the
+      // job's bound input and candidates rather than silently reusing old policy.
+      const prompt = original.promptVersion === IOS_PROMPT_VERSION ? original.prompt : buildIOSPrompt({ question, requestId: original.id,
+        draftZh: original.textZh, targetBand: original.targetBand,
+        selectedMaterials: original.selectedMaterialSnapshots || store.validateMaterials(question, original.materialIds),
+        candidates: (original.candidateIds || []).map(candidateId => store.question(candidateId)) });
+      const next = { ...original, prompt, promptVersion: IOS_PROMPT_VERSION, contractVersion: 2, status: 'processing', phase: 'drafting', runId: uid('run'), model: provider.config.secret().model, startedAt: now(), error: undefined, finishedAt: undefined };
       store.insert('jobs', next); return next;
     });
     const operation = (async () => {
@@ -112,14 +121,14 @@ export async function createLocalRouter({ runtime, call = nativeCall, providerFa
       else if (parts[0] === 'drafts' && method === 'PUT') value = await commit(() => store.saveDraft(parts[1], input()));
       else if (parts[0] === 'questions' && parts[2] === 'recommendations') value = store.recommendations(parts[1]);
       else if (parts[0] === 'materials' && parts[2] === 'history') value = store.materialHistory(parts[1]);
-      else if (parts[0] === 'quality' && method === 'POST') { const data = input(); value = checkQuality(store.question(data.questionId), data.textZh); }
-      else if (parts[0] === 'ideas' && method === 'POST') value = await draftIdea(store, await providerFactory(), input());
+      else if (parts[0] === 'quality' && method === 'POST') { const data = input(); value = checkIOSQuality(store.question(data.questionId), data.textZh); }
+      else if (parts[0] === 'ideas' && method === 'POST') value = await draftIOSIdea(store, await providerFactory(), input());
       else if (parts[0] === 'jobs' && method === 'POST' && !parts[1]) value = await commit(() => {
-        const data = input(), question = store.question(data.questionId), draft = store.saveDraft(question.id, data), quality = checkQuality(question, draft.textZh);
+        const data = input(), question = store.question(data.questionId), draft = store.saveDraft(question.id, data), quality = checkIOSQuality(question, draft.textZh);
         if (!quality.passed) throw new AppError('中文素材还需补充。', 422, { quality });
         const selectedMaterials = store.validateMaterials(question, draft.materialIds), candidates = store.candidates(question), id = uid('job');
-        const prompt = buildPrompt({ question, draftZh: draft.textZh, selectedMaterials, candidates, targetBand: store.settings().targetBand, requestId: id });
-        const job = { id, questionId: question.id, scope: question.scope, textZh: draft.textZh, materialIds: draft.materialIds, materialVersions: Object.fromEntries(selectedMaterials.map(m => [m.id, m.version || 1])), selectedMaterialSnapshots: selectedMaterials.map(m => ({ ...m, version: m.version || 1 })), targetBand: store.settings().targetBand, contractVersion: 2, provider: 'iiiapi', client: 'ios', prompt, status: 'pending', createdAt: now(), candidateIds: candidates.map(c => c.id) };
+        const prompt = buildIOSPrompt({ question, draftZh: draft.textZh, selectedMaterials, candidates, targetBand: store.settings().targetBand, requestId: id });
+        const job = { id, questionId: question.id, scope: question.scope, textZh: draft.textZh, materialIds: draft.materialIds, materialVersions: Object.fromEntries(selectedMaterials.map(m => [m.id, m.version || 1])), selectedMaterialSnapshots: selectedMaterials.map(m => ({ ...m, version: m.version || 1 })), targetBand: store.settings().targetBand, contractVersion: 2, promptVersion: IOS_PROMPT_VERSION, provider: 'iiiapi', client: 'ios', prompt, status: 'pending', createdAt: now(), candidateIds: candidates.map(c => c.id) };
         store.saveJob(job); return { job, prompt, quality };
       });
       else if (parts[0] === 'jobs' && parts[2] === 'generate' && method === 'POST') return await generate(parts[1], input().background === true);

@@ -143,7 +143,7 @@ API 任务显示待处理、后台处理中、失败、需补充或完成。切�
 
 两份文件都标记为 `user-upload` 来源，题目为 `reported` 资料转录。“最新”“新题”“旧题”“必考题”与题季是文件自身说法，**不表示 Yasy 已获得官方题库或核验了考试真实性**。
 
-正式 JSON 随代码提交至私人仓库；**原 PDF 在 Mac 的 `.local/source-pdfs/`，不进入 Git**。`ios:prepare` 会把该目录下可用的来源 PDF 附入自用 App，便于手机本地查看；题库和译文不依赖原 PDF 可下载。原件不随 JSON 备份或进度同步传送。查看 [来源与收录边界](docs/question-sources.md) · [合并题库](data/question-bank.json) · [口语 JSON](data/imported-speaking.json) / [逐页审计](docs/pdf-speaking-audit.md) · [Task 2 JSON](data/imported-writing.json) / [逐页审计](docs/pdf-writing-audit.md)。
+正式 JSON 随代码保存在本仓库；**原 PDF 在 Mac 的 `.local/source-pdfs/`，不进入 Git**。`ios:prepare` 会把该目录下可用的来源 PDF 附入自用 App，便于手机本地查看；题库和译文不依赖原 PDF 可下载。原件不随 JSON 备份或进度同步传送。查看 [来源与收录边界](docs/question-sources.md) · [合并题库](data/question-bank.json) · [口语 JSON](data/imported-speaking.json) / [逐页审计](docs/pdf-speaking-audit.md) · [Task 2 JSON](data/imported-writing.json) / [逐页审计](docs/pdf-writing-audit.md)。
 
 ### 更替题库与旧题归档
 
@@ -212,7 +212,7 @@ npm run check     # TypeScript 检查
 npm run build     # 构建网页工作台
 npm run ios:check # 检查本机 Xcode、SDK、签名和连接设备
 npm run ios:test  # 原生配对与证书检查（临时数据）
-npm run ios:prepare # 构建并准备内置网页、题库与可用的来源 PDF
+npm run ios:prepare # 仅构建手机资源，不替换 Mac 网页产物
 npm run ios:build # 准备资源后执行不签名的模拟器目标构建
 ```
 

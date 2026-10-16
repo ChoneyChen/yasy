@@ -14,7 +14,7 @@ npm run ios:prepare
 
 `ios:check` 检查 Xcode 首次启动、SDK、模拟器运行环境、签名和已连接设备。签名、设备 ID 和凭据不写进文档；本机详细日志留在被 Git 忽略的 `.local/qa/`。Xcode 提示许可未同意时，由本人打开 Xcode 阅读并接受协议、完成首次组件安装。工程不依赖 CocoaPods 或第三方 Swift 包；网页业务依赖由 npm 安装并打包。
 
-`ios:prepare` 构建内置网页和 JSON 题库，并把 Mac `.local/source-pdfs/` 中可用的来源 PDF 附入这份自用 App。学习记录、上传原件和 API 密钥不会打包。Xcode 构建阶段将生成的 `dist/` 复制到 App 资源；修改前端或题库后需要重新准备资源，再构建安装。没有来源 PDF 仍可使用题库与译文，对应原件下载会提示缺失。
+`ios:prepare` 构建内置网页和 JSON 题库，并把 Mac `.local/source-pdfs/` 中可用的来源 PDF 附入这份自用 App。学习记录、上传原件和 API 密钥不会打包。手机构建输出到 `.local/ios-web/dist/`，Xcode 将其作为 `dist` 资源附入 App，不替换 Mac 正在使用的根目录 `dist/`；修改前端或题库后需要重新准备资源，再构建安装。没有来源 PDF 仍可使用题库与译文，对应原件下载会提示缺失。
 
 ## 安装到自己的 iPhone
 

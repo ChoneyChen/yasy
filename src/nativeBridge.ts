@@ -35,10 +35,10 @@ export function applyNativeAppearance(value: unknown) {
 
 export function initialNativeAppearance() { return (window as NativeWindow).__YASY_NATIVE_APPEARANCE__; }
 
-export function postNativeNavigation(state: { view: NativeView; canGoBack: boolean; backgroundCount: number; title: string; ticket: number }): boolean {
+export function postNativeNavigation(state: { view: NativeView; canGoBack: boolean; backTitle?: string; backgroundCount: number; title: string; ticket: number }): boolean {
   const bridge = (window as NativeWindow).webkit?.messageHandlers?.yasyNavigation;
   if (!bridge || new URLSearchParams(window.location.search).get('client') !== 'ios') return false;
   // Only navigation metadata crosses this bridge; draft and answer text remain in the learning API.
-  bridge.postMessage({ view: state.view, canGoBack: state.canGoBack, backgroundCount: Math.max(0, Math.floor(state.backgroundCount)), title: state.title.slice(0, 40), ticket: state.ticket });
+  bridge.postMessage({ view: state.view, canGoBack: state.canGoBack, ...(state.backTitle ? { backTitle: state.backTitle.slice(0, 16) } : {}), backgroundCount: Math.max(0, Math.floor(state.backgroundCount)), title: state.title.slice(0, 40), ticket: state.ticket });
   return true;
 }

@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		000000000000000000000131 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = ../dist; sourceTree = SOURCE_ROOT; };
+		000000000000000000000131 /* dist */ = {isa = PBXFileReference; lastKnownFileType = folder; name = dist; path = ../.local/ios-web/dist; sourceTree = SOURCE_ROOT; };
 		0000000000000000000000E0 /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 		000000000000000000000009 /* Yasy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yasy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		000000000000000000000050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };

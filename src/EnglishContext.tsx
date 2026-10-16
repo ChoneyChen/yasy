@@ -7,6 +7,17 @@ type MenuWord = { textEn: string; scope: Scope; questionId?: string; x: number; 
 type WordInput = { textEn: string; meaningZh: string; exampleEn: string; scope: Scope; questionId?: string };
 function viewportBounds(): VisibleViewport { const viewport = window.visualViewport; return { left: viewport?.offsetLeft || 0, top: viewport?.offsetTop || 0, width: viewport?.width ?? window.innerWidth, height: viewport?.height ?? window.innerHeight }; }
 function overlayBottomInset() { const value = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--ios-overlay-bottom-inset')); return Number.isFinite(value) ? Math.max(0, value) : 0; }
+export function installNativeWordMenuBack(hasMenu: () => boolean, close: () => void) {
+  if (new URLSearchParams(window.location.search).get('client') !== 'ios') return () => {};
+  const dismiss = (event: Event) => {
+    if (!hasMenu()) return;
+    // Vocabulary popovers sit above content sheets. Capture the shared dismiss
+    // event before a sheet consumes it, so one native Back closes one layer.
+    event.preventDefault(); event.stopImmediatePropagation(); close();
+  };
+  window.addEventListener('yasy:dismiss-sheet', dismiss, true);
+  return () => window.removeEventListener('yasy:dismiss-sheet', dismiss, true);
+}
 function wordAtPoint(x: number, y: number) {
   const reader = document as Document & { caretPositionFromPoint?: (x: number, y: number) => { offsetNode: Node; offset: number } | null; caretRangeFromPoint?: (x: number, y: number) => Range | null };
   const position = reader.caretPositionFromPoint?.(x, y);
@@ -22,11 +33,12 @@ function wordAtPoint(x: number, y: number) {
 }
 export function EnglishContext({ children, addWord }: { children: ReactNode; addWord: (word: WordInput) => void }) {
   const [menu, setMenu] = useState<MenuWord | null>(null);
+  const currentMenu = useRef(menu); currentMenu.current = menu;
   const [placement, setPlacement] = useState<MenuPosition | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const touchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const longPressed = useRef(false);
-  const closeMenu = () => { setMenu(null); setPlacement(null); };
+  const closeMenu = () => { currentMenu.current = null; setMenu(null); setPlacement(null); };
   const openMenu = (target: EventTarget | null, x: number, y: number) => {
     const element = target instanceof Element ? target : null;
     const context = element?.closest<HTMLElement>('[data-word-scope]');
@@ -37,7 +49,8 @@ export function EnglishContext({ children, addWord }: { children: ReactNode; add
     const textEn = selectedInside && /^[\p{Script=Latin}][\p{Script=Latin}\p{M}\s’'.,;:!?()-]*$/u.test(selected) && selected.length <= 160 ? selected : wordAtPoint(x, y);
     if (!textEn || !/\p{Script=Latin}/u.test(textEn)) return false;
     setPlacement(null);
-    setMenu({ textEn, scope: context.dataset.wordScope as Scope, questionId: context.dataset.wordQuestion, x, y });
+    const next = { textEn, scope: context.dataset.wordScope as Scope, questionId: context.dataset.wordQuestion, x, y };
+    currentMenu.current = next; setMenu(next);
     return true;
   };
   const contextMenu = (event: MouseEvent) => { if (openMenu(event.target, event.clientX, event.clientY)) event.preventDefault(); };
@@ -45,12 +58,13 @@ export function EnglishContext({ children, addWord }: { children: ReactNode; add
   const touchStart = (event: TouchEvent) => { cancelTouch(); longPressed.current = false; const touch = event.touches[0]; if (event.touches.length !== 1 || !touch || !(event.target instanceof Element) || !event.target.closest('[data-word-scope]')) return; const target = event.target; touchTimer.current = setTimeout(() => { longPressed.current = openMenu(target, touch.clientX, touch.clientY); }, 600); };
   const touchEnd = (event: TouchEvent) => { cancelTouch(); if (longPressed.current && event.cancelable) event.preventDefault(); };
   useEffect(() => {
-    const dismiss = () => { setMenu(null); setPlacement(null); longPressed.current = false; cancelTouch(); };
+    const dismiss = () => { closeMenu(); longPressed.current = false; cancelTouch(); };
+    const removeNativeBack = installNativeWordMenuBack(() => currentMenu.current !== null, dismiss);
     const close = (event: KeyboardEvent) => { if (event.key === 'Escape') dismiss(); };
     document.addEventListener('keydown', close);
     window.addEventListener('yasy:navigate', dismiss);
     window.addEventListener('yasy:background-tasks', dismiss);
-    return () => { document.removeEventListener('keydown', close); window.removeEventListener('yasy:navigate', dismiss); window.removeEventListener('yasy:background-tasks', dismiss); cancelTouch(); };
+    return () => { removeNativeBack(); document.removeEventListener('keydown', close); window.removeEventListener('yasy:navigate', dismiss); window.removeEventListener('yasy:background-tasks', dismiss); cancelTouch(); };
   }, []);
 
   // This variable is only consumed by fixed overlays such as Toast; document

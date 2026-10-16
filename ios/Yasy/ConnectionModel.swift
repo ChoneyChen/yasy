@@ -42,6 +42,7 @@ enum MobileView: String, CaseIterable {
     @Published var navigationView: MobileView = .today
     @Published var navigationTitle = MobileView.today.title
     @Published var canGoBack = false
+    @Published var backTitle = "返回"
     @Published var backgroundCount = 0
     let dataStore = WKWebsiteDataStore.default()
     private var client: MobileClient?
@@ -52,6 +53,7 @@ enum MobileView: String, CaseIterable {
     private var periodicCheck: Task<Void, Never>?
     var reconnected: (() -> Void)?
     var navigate: ((MobileView) -> Void)?
+    var goBack: (() -> Void)?
     var openBackgroundTasks: (() -> Void)?
     var syncProgress: ((String, String) -> Void)?
     @Published var learningReady = false
@@ -61,13 +63,13 @@ enum MobileView: String, CaseIterable {
     private var browserOwner: UUID?
 
     func bindBrowser(owner: UUID, reconnect: @escaping () -> Void,
-                     navigate: @escaping (MobileView) -> Void, backgroundTasks: @escaping () -> Void) {
-        browserOwner = owner; reconnected = reconnect; self.navigate = navigate; openBackgroundTasks = backgroundTasks
+                     navigate: @escaping (MobileView) -> Void, back: @escaping () -> Void, backgroundTasks: @escaping () -> Void) {
+        browserOwner = owner; reconnected = reconnect; self.navigate = navigate; goBack = back; openBackgroundTasks = backgroundTasks
     }
 
     func unbindBrowser(owner: UUID) {
         guard browserOwner == owner else { return }
-        browserOwner = nil; reconnected = nil; navigate = nil; openBackgroundTasks = nil; syncProgress = nil
+        browserOwner = nil; reconnected = nil; navigate = nil; goBack = nil; openBackgroundTasks = nil; syncProgress = nil
     }
 
     init() {

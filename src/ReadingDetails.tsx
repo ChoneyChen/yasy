@@ -2,11 +2,13 @@ import { useEffect, useState, type ReactNode } from 'react';
 import { ArrowRight, History, Layers3, LoaderCircle, Plus, Sparkles, X } from 'lucide-react';
 import type { Expression, Material, MaterialVersion, Question, Scope, State } from './types';
 import { expressionStatus, isApprovedExpression } from './backgroundJobs.mjs';
+import { IOSSheet, isNativeIOS } from './IOSSheet';
 
 const scopeNames: Record<Scope, string> = { speaking: 'Speaking', 'writing-task1': 'Writing · Task 1', 'writing-task2': 'Writing · Task 2' };
 type WordInput = { textEn: string; meaningZh: string; exampleEn: string; scope: Scope; questionId?: string };
 function DetailOverlay({ title, children, close }: { title: string; children: ReactNode; close: () => void }) {
-  useEffect(() => { const handler = (event: KeyboardEvent) => { if (event.key === 'Escape') close(); }; document.addEventListener('keydown', handler); return () => document.removeEventListener('keydown', handler); }, [close]);
+  useEffect(() => { if (isNativeIOS()) return; const handler = (event: KeyboardEvent) => { if (event.key === 'Escape') close(); }; document.addEventListener('keydown', handler); return () => document.removeEventListener('keydown', handler); }, [close]);
+  if (isNativeIOS()) return <IOSSheet title={title} close={close} wide className="reading-detail">{children}</IOSSheet>;
   return <div className="modal-overlay" onClick={close}><section className="modal wide reading-detail" role="dialog" aria-modal="true" aria-label={title} onClick={event => event.stopPropagation()}><header><h2>{title}</h2><button className="icon-button" aria-label="Close" onClick={close}><X size={20} /></button></header>{children}</section></div>;
 }
 const timestamp = (value?: string) => value && Number.isFinite(Date.parse(value)) ? new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' }).format(new Date(value)) : '';

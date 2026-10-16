@@ -400,3 +400,121 @@ body.native-ios .map-attributes small { color: var(--ios-secondary-label); font-
 /* Fixed popovers scroll internally when Dynamic Type exceeds the visible area. */
 body.native-ios .word-context-menu { overflow-y: auto; overscroll-behavior: contain; }
 body.native-ios .word-context-menu > div > strong { min-inline-size: 0; }
+
+/* Compact native learning flow. The desktop DOM and styles stay untouched. */
+body.native-ios .main-content { padding-block-start: 16px; padding-inline: max(14px, env(safe-area-inset-left, 0px)) max(14px, env(safe-area-inset-right, 0px)); }
+body.native-ios :is(.page-heading .eyebrow, .page-heading > div > p, .device-card) { display: none; }
+body.native-ios .page-heading { margin-block-end: 18px; }
+body.native-ios :is(.editor-card, .answer-card, .recommendation-card) { padding: 18px; }
+body.native-ios .workspace-top { margin-block-end: 12px; gap: 8px; }
+body.native-ios .workspace-top .text-button { padding-inline: 0; }
+body.native-ios .workspace-heading { margin-block-end: 14px; }
+body.native-ios .workspace-heading h1 { font-size: calc(23px * var(--yasy-text-scale, 1)); margin-block-start: 10px; line-height: 1.35; }
+body.native-ios .workspace-heading .pill { padding: 4px 8px; font-size: var(--ios-small); }
+body.native-ios .question-prompt { padding: 18px; }
+body.native-ios .prompt-eyebrow { font-size: var(--ios-small); letter-spacing: 0; margin-block-end: 8px; }
+body.native-ios .question-prompt .question-english { margin: 0; font-size: var(--ios-reading); line-height: 1.6; }
+body.native-ios .question-prompt .cue-points { margin-block: 12px 0; padding-inline-start: 22px; font-size: var(--ios-body); line-height: 1.6; }
+body.native-ios .ios-question-details { margin-block-start: 14px; border-block-start: 1px solid var(--ios-separator); }
+body.native-ios .ios-question-details > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--ios-secondary-label); font-size: var(--ios-caption); list-style: none; cursor: pointer; padding-block: 10px 0; }
+body.native-ios .ios-question-details > summary::-webkit-details-marker { display: none; }
+body.native-ios .ios-question-details[open] > summary > svg { transform: rotate(180deg); }
+body.native-ios .ios-question-details .question-chinese { margin-block: 12px 0; font-size: var(--ios-callout); color: var(--ios-secondary-label); }
+body.native-ios .ios-question-details .prompt-source { display: grid; gap: 4px; margin-block-start: 8px; padding-block-start: 0; border: 0; }
+body.native-ios .ios-question-details .prompt-source a { min-block-size: 44px; align-items: center; }
+body.native-ios .ios-workflow-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; background: var(--ios-control); border-radius: 14px; padding: 4px; margin-block: 16px; }
+body.native-ios .ios-workflow-tabs > button { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; align-items: center; gap: 7px; padding: 9px 5px; min-inline-size: 0; min-block-size: 46px; border-radius: 10px; font-size: var(--ios-callout); line-height: 1.35; color: var(--ios-secondary-label); }
+body.native-ios .ios-workflow-tabs > button.active { color: var(--ios-accent); background: var(--ios-surface); }
+body.native-ios .ios-workflow-tabs > button:disabled { background: transparent; opacity: .65; }
+body.native-ios .ios-workflow-number { display: inline-flex; justify-content: center; align-items: center; flex: 0 0 auto; inline-size: 20px; block-size: 20px; border-radius: 50%; background: var(--ios-secondary-surface); color: var(--ios-secondary-label); font-size: 12px; font-variant-numeric: tabular-nums; }
+body.native-ios .ios-workflow-tabs > button.active .ios-workflow-number { color: var(--ios-on-accent); background: var(--ios-accent); }
+body.native-ios .editor-card .section-heading { margin-block-end: 0; gap: 10px; }
+body.native-ios .editor-card .section-heading h2 { font-size: calc(19px * var(--yasy-text-scale, 1)); }
+body.native-ios .editor-card .section-heading p { font-size: var(--ios-caption); margin-block-start: 5px; }
+body.native-ios .chinese-editor { min-block-size: 240px; margin-block-start: 14px; padding: 14px; background: var(--ios-surface); line-height: 1.7; resize: vertical; }
+body.native-ios .editor-bottom { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; gap: 12px; min-block-size: 3em; margin-block: 4px 0; padding-block: 4px; font-size: var(--ios-small); line-height: 1.5; }
+body.native-ios .ios-save-status { min-inline-size: 0; min-block-size: 1.5em; }
+body.native-ios .ios-draft-count { min-inline-size: 0; min-block-size: 1.5em; justify-content: flex-end; text-align: end; font-variant-numeric: tabular-nums; }
+body.native-ios .ios-editor-actions { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); align-items: stretch; gap: 10px; margin-block-start: 12px; }
+body.native-ios .ios-editor-actions > .button { min-inline-size: 0; padding: 12px 10px; font-size: var(--ios-callout); }
+body.native-ios .ios-editor-options { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-block-start: 4px; }
+body.native-ios .ios-editor-options .text-button { font-size: var(--ios-caption); min-block-size: 44px; }
+body.native-ios .workspace-aside .section-heading h3 { font-size: calc(18px * var(--yasy-text-scale, 1)); }
+body.native-ios .recommendation-empty { min-block-size: 0; padding: 20px 0 8px; }
+body.native-ios .recommendation-empty > svg { display: none; }
+body.native-ios .recommendation-empty p { margin: 0; font-size: var(--ios-caption); }
+body.native-ios .recommendation-item { padding: 14px; margin-block-start: 12px; }
+body.native-ios .recommendation-item :is(small, .recommendation-action) { font-size: var(--ios-caption); }
+body.native-ios .quality-panel { padding: 14px; margin-block: 14px; }
+body.native-ios .quality-panel .quality-checks { display: none; }
+body.native-ios .quality-panel.passed > p { display: none; }
+body.native-ios .api-processing-banner { padding: 14px; gap: 10px; margin-block: 16px; }
+body.native-ios .api-processing-banner > div { min-inline-size: 0; }
+body.native-ios .api-processing-banner p { font-size: var(--ios-caption); }
+body.native-ios .api-generation-intro > .provider-icon { display: none; }
+body.native-ios .api-generation-card { padding: 18px; }
+body.native-ios .answer-tools > span { display: none; }
+body.native-ios .answer-tools { margin-block: 8px 14px; padding-block: 0; border: 0; }
+body.native-ios .answer-tools .text-button { padding-inline: 0; font-size: var(--ios-caption); }
+body.native-ios .answer-footer { margin-block-start: 20px; }
+
+/* All native dialogs use the visible WK viewport, with one scrollable body.
+   Native viewport variables never constrain the ordinary document/editor. */
+body.native-ios .ios-sheet-overlay {
+  inset: auto; top: var(--ios-visible-top, 0px); left: var(--ios-visible-left, 0px);
+  inline-size: var(--ios-visible-width, 100vw); block-size: var(--ios-visible-height, 100dvh);
+  display: flex; align-items: flex-end; justify-content: center; overflow: hidden;
+  padding: 8px max(8px, env(safe-area-inset-right, 0px)) calc(8px + max(env(safe-area-inset-bottom, 0px), var(--ios-overlay-bottom-inset, 0px))) max(8px, env(safe-area-inset-left, 0px));
+  background: var(--ios-scrim); backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+body.native-ios .modal.ios-sheet {
+  display: flex; flex-direction: column; inline-size: min(100%, 680px); max-inline-size: 100%;
+  min-block-size: 0; max-block-size: 100%; padding: 0; overflow: hidden;
+  border-radius: 22px; background: var(--ios-elevated); border: 1px solid var(--ios-separator);
+}
+body.native-ios .modal.ios-sheet.wide { inline-size: min(100%, 880px); }
+body.native-ios .ios-sheet > .ios-sheet-header {
+  display: flex; align-items: center; flex: 0 0 auto; justify-content: space-between;
+  gap: 12px; margin: 0; padding: 12px 12px 12px 18px; border-block-end: 1px solid var(--ios-separator);
+  max-block-size: max(60px, calc(var(--ios-visible-height, 100dvh) * .3)); overflow: hidden;
+}
+body.native-ios .ios-sheet-header h2 { font-size: calc(19px * var(--yasy-text-scale, 1)); line-height: 1.35; margin: 0; min-inline-size: 0; max-block-size: max(36px, calc(var(--ios-visible-height, 100dvh) * .3 - 24px)); overflow-y: auto; }
+body.native-ios :is(.ios-sheet-content, .ios-sheet-form) { display: flex; flex-direction: column; flex: 1 1 auto; min-block-size: 0; min-inline-size: 0; overflow: hidden; margin: 0; }
+body.native-ios .ios-sheet-body { flex: 1 1 auto; min-block-size: 0; min-inline-size: 0; padding: 18px; overflow: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; scroll-padding-block: 16px; }
+body.native-ios .ios-sheet-footer { flex: 0 0 auto; padding: 12px 16px; border-block-start: 1px solid var(--ios-separator); background: var(--ios-elevated); max-block-size: calc(var(--ios-visible-height, 100dvh) * .42); overflow-y: auto; overscroll-behavior: contain; }
+body.native-ios .ios-sheet-footer > .modal-actions { margin: 0; padding: 0; border: 0; gap: 10px; }
+body.native-ios .ios-sheet-footer :is(.button, .text-button) { font-size: var(--ios-callout); }
+body.native-ios .ios-sheet-footer > .button { inline-size: 100%; }
+body.native-ios .ios-sheet-footer .modal-actions > .button { flex: 1 1 120px; min-inline-size: 0; padding: 12px; }
+body.native-ios .ios-sheet-body > :first-child { margin-block-start: 0; }
+body.native-ios .ios-sheet-body > :last-child { margin-block-end: 0; }
+body.native-ios .ios-sheet-body :is(.ideas-draft-preview, .background-task-list, .batch-candidates, .preview-details pre) { max-block-size: none; overflow: visible; }
+body.native-ios .ios-sheet-body .ideas-draft-preview { padding: 0; background: transparent; border: 0; border-radius: 0; font-size: var(--ios-body); line-height: 1.75; }
+body.native-ios .ios-sheet-body .ideas-preview-notice { padding: 12px; margin-block: 0 16px; border: 0; font-size: var(--ios-caption); }
+body.native-ios .ios-sheet-body .ideas-preview-notice > svg { inline-size: 16px; block-size: 16px; }
+body.native-ios .ios-sheet-body .ideas-preview-notice p { font-size: var(--ios-caption); line-height: 1.5; }
+body.native-ios .ios-sheet-body .ideas-preview-notes { margin-block-start: 20px; }
+body.native-ios .ios-sheet-body .ideas-preview-notes h3 { font-size: var(--ios-callout); }
+body.native-ios .ios-sheet-body .ideas-preview-notes li { font-size: var(--ios-caption); }
+body.native-ios .ios-sheet-body .ideas-draft-changed { font-size: var(--ios-caption); padding: 12px; }
+body.native-ios .ios-sheet .batch-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-block: 0 18px; }
+body.native-ios .ios-sheet .batch-steps > svg { display: none; }
+body.native-ios .ios-sheet .batch-steps > span { text-align: center; font-size: var(--ios-caption); padding-block: 8px; border-block-end: 2px solid var(--ios-separator); }
+body.native-ios .ios-sheet .batch-steps > span.active { border-color: var(--ios-accent); }
+body.native-ios .ios-sheet .batch-note { padding: 12px; gap: 8px; }
+body.native-ios .ios-sheet .batch-note p { font-size: var(--ios-caption); }
+body.native-ios .ios-sheet .file-dropzone { min-block-size: 140px; }
+@media (max-height: 450px) {
+  body.native-ios .ios-sheet-header { padding-block: 6px; }
+  body.native-ios .ios-sheet-body { padding-block: 12px; }
+  body.native-ios .ios-sheet-footer { padding-block: 8px; }
+}
+
+/* Native navigation already provides the back action. */
+body.native-ios .workspace-top > .text-button:first-child { display: none; }
+body.native-ios .workspace-top { justify-content: flex-end; }
+body.native-ios .workspace-top:not(:has(> :nth-child(2))) { display: none; }
+
+/* Avoid fixed-position shrink-to-fit wrapping notices into a narrow column. */
+body.native-ios .toast { inline-size: min(420px, calc(100vw - 24px)); }
+body.native-ios .toast > span { flex: 1; min-inline-size: 0; overflow-wrap: anywhere; }

@@ -11,16 +11,16 @@ import SwiftUI
                         .toolbar {
                             if model.canGoBack {
                                 ToolbarItem(placement: .topBarLeading) {
-                                    Button { model.navigate?(model.navigationView) } label: { Label("返回", systemImage: "chevron.left") }
+                                    Button { model.goBack?() } label: { Label(model.backTitle, systemImage: "chevron.left").labelStyle(.titleAndIcon) }
                                 }
                             }
                             ToolbarItem(placement: .topBarTrailing) {
                                 Button { model.showsPairing = true } label: { Image(systemName: "arrow.triangle.2.circlepath") }
                                     .accessibilityLabel("可选：与 Mac 同步进度")
                             }
-                            ToolbarItem(placement: .topBarTrailing) {
+                            if model.navigationView != .settings { ToolbarItem(placement: .topBarTrailing) {
                                 Button { model.navigate?(.settings) } label: { Label("设置", systemImage: "gearshape") }
-                            }
+                            } }
                             ToolbarItem(placement: .topBarTrailing) {
                                 Button { model.openBackgroundTasks?() } label: {
                                     HStack(spacing: 3) { Image(systemName: "tray"); if model.backgroundCount > 0 { Text("\(model.backgroundCount)").font(.caption).monospacedDigit() } }
